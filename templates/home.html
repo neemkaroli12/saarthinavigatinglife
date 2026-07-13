@@ -632,9 +632,11 @@ a{
 <nav class="navbar">
 
 <div class="d-flex align-items-center gap-3">
-    <video autoplay muted loop playsinline width="50">
-        <source src="{% static 'videos/logo-01.mp4' %}" type="video/mp4">
-    </video>
+   <img src="{% static 'images/image.png' %}"
+     alt="Navigating Life Logo"
+     style="width:40px;height:40px;object-fit:cover;"
+     class="rounded-circle">
+    
     <a href="{% url "home" %}"><strong class="text-white">Navigating Life</strong></a>
     <button class="menu-toggle">☰</button>
 </div>
