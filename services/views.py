@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from urllib.parse import quote
+from django.core.mail import send_mail
+from django.conf import settings
+from .forms import ContactForm
 
 def handle(request):
     return render(request, 'handle.html')
@@ -26,7 +29,43 @@ def cbt(request):
     return render(request,'cbt.html')
 
 def contact(request):
-    return render(request,'contact.html')
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            phone = form.cleaned_data['phone']
+            email = form.cleaned_data['email']
+            area = form.cleaned_data['area']
+            message = form.cleaned_data['message']
+
+            email_message = f"""
+Name: {name}
+
+Phone: {phone}
+
+Email: {email}
+
+Area: {area}
+
+Message:
+{message}
+"""
+
+            send_mail(
+                subject=f"New Contact Form Submission - {name}",
+                message=email_message,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=['info@saarthinavigatinglife.com'],
+                fail_silently=False,
+            )
+
+            return redirect('contact')
+
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form})
 
 def about(request):
     return render(request,'about.html')

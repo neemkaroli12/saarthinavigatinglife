@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
 
 <style>
 
@@ -15,10 +15,11 @@ body{
 /* ========================= */
 /* CONTACT SECTION */
 /* ========================= */
-
 .contact-section{
-
-    padding:120px 0;
+    position: relative;
+    padding: 60px 0 80px;
+    overflow: visible;
+    z-index: 1;
 
     background:
     linear-gradient(
@@ -26,21 +27,16 @@ body{
         rgba(223,231,229,0.94)
     ),
     url("{% static 'images/Photo3.png' %}") no-repeat center/cover;
-
-    min-height:100vh;
-
-    position:relative;
-
-    overflow:hidden;
 }
 
-/* SOFT GLOW */
+
 
 .contact-section::before{
 
     content:"";
 
-    position:absolute;
+    z-index: -1;
+    pointer-events: none;
 
     width:450px;
     height:450px;
@@ -242,28 +238,30 @@ body{
     font-size:15px;
 }
 
-/* ========================= */
-/* IMAGE */
-/* ========================= */
+
 
 .contact-image{
-
-    position:relative;
-
-    text-align:center;
+    position: relative;
+    text-align: center;
+    z-index: 1;   
 }
 
 .contact-image img{
+    width: 100%;
+    max-width: 600px;
+    height: auto;
 
-    width:100%;
-    max-width:600px;
+    border-radius: 30px;
 
-    border-radius:30px;
+    box-shadow: 0 20px 40px rgba(98,120,116,0.15);
 
-    box-shadow:
-    0 20px 40px rgba(98,120,116,0.15);
+    animation: floatImage 4s ease-in-out infinite;
 
-    animation:floatImage 4s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+.contact-image{
+    pointer-events: none;
 }
 
 /* FLOAT EFFECT */
@@ -404,6 +402,75 @@ body{
 
     transition:0.3s;
 }
+.contact-form-box{
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(15px);
+    padding: 45px;
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.form-title{
+    color: #5d6f74;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.input-group-custom{
+    margin-bottom: 20px;
+}
+
+.input-group-custom input,
+.input-group-custom select,
+.input-group-custom textarea{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 16px 20px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.9);
+    color: #5d6f74;
+    font-size: 15px;
+    transition: all .3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.input-group-custom input:focus,
+.input-group-custom select:focus,
+.input-group-custom textarea:focus{
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(183,201,196,0.35);
+    border: 1px solid #b7c9c4;
+}
+
+.input-group-custom textarea{
+    resize: none;
+}
+
+.contact-submit-btn{
+    width: 100%;
+    border: none;
+    padding: 16px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #55686d;
+    background: linear-gradient(135deg,#b7c9c4,#d7e5e1);
+    transition: all .3s ease;
+}
+
+.contact-submit-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(183,201,196,0.4);
+}
+
+@media(max-width:768px){
+    .contact-form-box{
+        padding: 25px;
+    }
+}
 
 .area-dropdown-menu .dropdown-item:hover{
 
@@ -502,7 +569,7 @@ html{
 
     <div class="container">
 
-        <div class="row align-items-center gy-5">
+        <div class="row align-items-center gy-5 me-0">
 
             <!-- LEFT -->
 
@@ -597,107 +664,49 @@ html{
 
         <!-- CONTACT FORM -->
 
-        <div class="contact-form" id="message-form">
+        <div  id="message-form">
 
-            <form>
+            <form method="POST" class="contact-form-box">
+                {% csrf_token %}
 
-                <h3>
-                    Send Us a Message ✨
-                </h3>
+                <h3 class="form-title">Send Us a Message ✨</h3>
 
                 <div class="row">
-
                     <div class="col-md-6">
-
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Your Name">
-
+                        <div class="input-group-custom">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
                     </div>
 
                     <div class="col-md-6">
-
-                        <input
-                            type="number"
-                            class="form-control"
-                            placeholder="Contact no.">
-
+                        <div class="input-group-custom">
+                            <input type="text" name="phone" placeholder="Phone Number" required>
+                        </div>
                     </div>
-
                 </div>
 
-                <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Your Email">
+                <div class="input-group-custom">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
 
-                <!-- DROPDOWN -->
+                <div class="input-group-custom">
+                    <select name="area" required>
+                        <option value="">Select Area of Support</option>
+                        <option>Emotional Wellbeing</option>
+                        <option>Behavioural Wellbeing</option>
+                        <option>Social Wellbeing</option>
+                        <option>Career Wellbeing</option>
+                        <option>Individual Wellbeing</option>
+                    </select>
+                </div>
 
-                <div class="dropdown">
+                <div class="input-group-custom">
+                    <textarea name="message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+                </div>
 
-                    <button
-                        class="btn dropdown-toggle area-dropdown-btn"
-                        type="button"
-                        id="dropdownMenuButton"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
-
-                        Select Area
-
-                    </button>
-
-                    <ul class="dropdown-menu area-dropdown-menu"
-                        aria-labelledby="dropdownMenuButton">
-
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                Emotional Wellbeing
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                Behavioural Wellbeing
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                Social Wellbeing
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                Career Wellbeing
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                Individual Wellbeing
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                Other
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div><br>
-
-                <textarea
-                    class="form-control"
-                    rows="5"
-                    placeholder="Write your message..."></textarea>
-
-                <button class="contact-btn">
-                    Submit →
+                <button type="submit" class="contact-submit-btn">
+                    Send Message →
                 </button>
-
             </form>
 
         </div>
@@ -706,9 +715,9 @@ html{
 
 </section>
 
-<!-- BOOTSTRAP 5 JS -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
 
 {% endblock %}

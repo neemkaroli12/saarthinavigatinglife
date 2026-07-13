@@ -236,7 +236,7 @@ body{
 
                     </p>
 
-                    <form class="explore-form" method="POST">
+                   <form class="explore-form" onsubmit="sendToWhatsApp(event)">
 
                         {% csrf_token %}
 
@@ -244,30 +244,21 @@ body{
 
                             <div class="col-md-6">
 
-                                <input
-                                    type="text"
-                                    placeholder="Your Name"
-                                    required>
+                              <input type="text" name="name" placeholder="Your Name" required>
 
                             </div>
 
                             <div class="col-md-6">
 
-                                <input
-                                    type="email"
-                                    placeholder="Your Email"
-                                    required>
+                              <input type="email" name="email" placeholder="Your Email" required>
 
                             </div>
 
                         </div>
 
-                        <input
-                            type="text"
-                            placeholder="Phone Number"
-                            required>
+                            <input type="text" name="phone" placeholder="Phone Number" required>    
 
-                        <select required>
+                        <select name="concern" required>
 
                             <option selected disabled>
                                 Select Concern
@@ -295,15 +286,13 @@ body{
 
                         </select>
 
-                        <textarea
-                            placeholder="Tell us briefly about your concern..."></textarea>
+                        <textarea name="message"
+                         placeholder="Tell us briefly about your concern..."></textarea>
 
                         <button
                             type="submit"
                             class="explore-btn">
-                            <a href="{% url 'form' %}">
                             Request Consultation →
-                            </a>
                         </button>
 
                     </form>
@@ -320,4 +309,37 @@ body{
 
 </section>
 
+<script>
+function sendToWhatsApp(event){
+
+    event.preventDefault();
+
+    const name = document.querySelector('[name="name"]').value;
+    const email = document.querySelector('[name="email"]').value;
+    const phone = document.querySelector('[name="phone"]').value;
+    const concern = document.querySelector('[name="concern"]').value;
+    const message = document.querySelector('[name="message"]').value;
+
+    const whatsappMessage =
+`🌿 New Consultation Request
+
+👤 Name: ${name}
+
+📧 Email: ${email}
+
+📞 Phone: ${phone}
+
+🧠 Concern: ${concern}
+
+📝 Message:
+${message}`;
+
+    const number = "919116914358"; 
+
+    const url =
+`https://wa.me/${number}?text=${encodeURIComponent(whatsappMessage)}`;
+
+    window.open(url, "_blank");
+}
+</script>
 {% endblock %}
