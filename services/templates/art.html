@@ -1,0 +1,484 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
+
+body{
+    font-family:'Nunito',sans-serif;
+    background:#f6f6f4;
+}
+
+/* ========================= */
+/* SECTION */
+/* ========================= */
+
+.art-clean{
+
+    padding:120px 0;
+
+    background:#f6f6f4;
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero-wrapper{
+
+    margin-bottom:130px;
+}
+
+/* TAG */
+
+.mini-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:#ebe2da;
+
+    color:#7b6f66;
+
+    font-weight:700;
+
+    margin-bottom:28px;
+
+    font-size:15px;
+}
+
+/* HERO TITLE */
+
+.hero-title{
+
+    font-size:60px;
+
+    font-weight:300;
+
+    line-height:1.05;
+
+    color:#5f666d;
+
+    margin-bottom:32px;
+}
+
+/* HERO TEXT */
+
+.hero-text{
+
+    font-size:20px;
+
+    
+
+    color:#74848a;
+
+    margin-bottom:24px;
+
+    max-width:650px;
+}
+
+/* IMAGE */
+
+.hero-image img{
+
+    width:100%;
+
+    height:400px;
+
+    object-fit:cover;
+
+    border-radius:40px;
+
+    box-shadow:
+    0 25px 45px rgba(0,0,0,0.06);
+}
+
+/* ========================= */
+/* CONTENT SECTION */
+/* ========================= */
+
+.art-content-wrap{
+
+    margin-bottom:140px;
+}
+
+.art-content-wrap h2{
+
+    font-size:58px;
+
+    font-weight:300;
+
+    line-height:1.2;
+
+    color:#5d6b70;
+
+    margin-bottom:28px;
+}
+
+.art-content-wrap p{
+
+    font-size:18px;
+
+  
+
+    color:#74848a;
+
+    margin-bottom:24px;
+}
+
+/* SECOND IMAGE */
+
+.soft-image img{
+
+    width:100%;
+
+    border-radius:34px;
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,0.05);
+}
+
+/* ========================= */
+/* BENEFITS */
+/* ========================= */
+
+.benefit-section{
+
+    margin-bottom:140px;
+}
+
+.benefit-section h2{
+
+    font-size:62px;
+
+    font-weight:300;
+
+    color:#5c646b;
+
+    margin-bottom:60px;
+}
+
+/* GRID */
+
+.benefit-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:28px;
+}
+
+/* ITEM */
+
+.benefit-item{
+
+    padding:32px;
+
+    border-radius:28px;
+
+    background:#ffffff;
+
+    text-align:center;
+
+    color:#6f7c82;
+
+    font-size:18px;
+
+    transition:0.35s ease;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.04);
+}
+
+.benefit-item:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 18px 35px rgba(0,0,0,0.06);
+}
+
+/* ========================= */
+/* ENDING */
+/* ========================= */
+
+.ending-line{
+
+    max-width:900px;
+
+    margin:auto;
+
+    text-align:center;
+}
+
+.ending-line h2{
+
+    font-size:64px;
+
+    font-weight:300;
+
+    line-height:1.4;
+
+    color:#5d666d;
+
+    margin-bottom:45px;
+}
+
+/* BUTTON */
+
+.soft-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:15px 34px;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    background:#d9c8bb;
+
+    color:#5f564f;
+
+    font-weight:700;
+
+    transition:0.35s ease;
+}
+
+.soft-btn:hover{
+
+    transform:translateY(-3px);
+
+    color:#4f4842;
+
+    box-shadow:
+    0 12px 24px rgba(0,0,0,0.08);
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:768px){
+
+    .art-clean{
+        padding:80px 0;
+    }
+
+    .hero-title{
+        font-size:54px;
+    }
+
+    .hero-text{
+        font-size:16px;
+        line-height:1.9;
+    }
+
+    .hero-image img{
+        height:300px;
+    }
+
+    .art-content-wrap{
+        margin-bottom:90px;
+    }
+
+    .art-content-wrap h2,
+    .benefit-section h2,
+    .ending-line h2{
+        font-size:38px;
+    }
+
+    .art-content-wrap p{
+        font-size:16px;
+    }
+
+    .benefit-item{
+        font-size:16px;
+        padding:24px;
+    }
+
+}
+
+</style>
+
+<section class="art-clean">
+
+<div class="container">
+
+    <!-- HERO -->
+
+    <div class="hero-wrapper">
+
+        <div class="row align-items-center gy-5">
+
+            <!-- IMAGE -->
+
+            <div class="col-lg-6">
+
+                <div class="hero-image">
+
+                    <img src="{% static 'images/art3.png' %}" class="img-fluid">
+
+                </div>
+
+            </div>
+
+            <!-- CONTENT -->
+
+            <div class="col-lg-6">
+
+                <span class="mini-tag">
+                    🎨 Creative Emotional Healing
+                </span>
+
+                <h1 class="hero-title">
+                    Art Therapy
+                </h1>
+
+                <p class="hero-text">
+
+                    Art therapy is a gentle and creative therapeutic approach
+                    that helps individuals express emotions, reduce stress
+                    and reconnect with themselves through colours,
+                    imagination and artistic exploration.
+
+               
+
+
+                    It provides a safe and supportive space where feelings
+                    can be explored without pressure or judgment,
+                    allowing healing, self-awareness and emotional balance
+                    to grow naturally through creativity.
+
+                </p>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SECOND SECTION -->
+
+    <div class="art-content-wrap">
+
+        <div class="row gy-5 align-items-center">
+
+            <!-- TEXT -->
+
+            <div class="col-lg-6">
+
+                <h2>
+                    Healing Beyond Words
+                </h2>
+
+                <p>
+
+                    Sometimes emotions are difficult to explain.
+                    Art therapy creates a safe and calming environment
+                    where thoughts and feelings can be explored naturally
+                    through drawing, painting, textures and imagination.
+
+                </p>
+
+                <p>
+
+                    The focus is not artistic perfection —
+                    it is emotional expression, healing,
+                    self-discovery and personal growth.
+
+                </p>
+
+            </div>
+
+            <!-- IMAGE -->
+
+            <div class="col-lg-6">
+
+                <div class="soft-image">
+
+                    <img src="{% static 'images/art1.png' %}" class="img-fluid">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- BENEFITS -->
+
+    <div class="benefit-section">
+
+        <h2 class="text-center">
+            Who Can Benefit?
+        </h2>
+
+        <div class="benefit-grid">
+
+            <div class="benefit-item">
+                Stress & Anxiety
+            </div>
+
+            <div class="benefit-item">
+                Emotional Overwhelm
+            </div>
+
+            <div class="benefit-item">
+                Trauma Recovery
+            </div>
+
+            <div class="benefit-item">
+                Self-Esteem Support
+            </div>
+
+            <div class="benefit-item">
+                Child Emotional Support
+            </div>
+
+            <div class="benefit-item">
+                Burnout & Mental Fatigue
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ENDING -->
+
+    <div class="ending-line">
+
+        <h2>
+
+            Sometimes the heart speaks best
+            through colours, creativity
+            and imagination.
+
+        </h2>
+
+        <a href="#" class="soft-btn">
+            Begin Your Journey →
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+{% endblock %}

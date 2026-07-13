@@ -1,0 +1,714 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+
+body{
+    font-family:'Nunito',sans-serif;
+}
+
+/* ========================= */
+/* CONTACT SECTION */
+/* ========================= */
+
+.contact-section{
+
+    padding:120px 0;
+
+    background:
+    linear-gradient(
+        rgba(232,238,236,0.92),
+        rgba(223,231,229,0.94)
+    ),
+    url("{% static 'images/Photo3.png' %}") no-repeat center/cover;
+
+    min-height:100vh;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* SOFT GLOW */
+
+.contact-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(120,148,142,0.18),
+        transparent
+    );
+
+    top:-120px;
+    left:-120px;
+
+    filter:blur(120px);
+}
+
+/* ========================= */
+/* LEFT CONTENT */
+/* ========================= */
+
+.contact-content{
+
+    padding-right:30px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+/* TOP BUTTONS */
+
+.contact-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:25px;
+
+    width:100%;
+}
+
+.contact-tag,
+.message-link{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    min-height:55px;
+
+    border-radius:40px;
+
+    font-weight:700;
+}
+
+/* CONTACT TAG */
+
+.contact-tag{
+
+    background:rgba(255,255,255,0.65);
+
+    color:#6f8a84;
+
+    box-shadow:
+    0 8px 20px rgba(98,120,116,0.08);
+}
+
+/* MESSAGE LINK */
+
+.message-link{
+
+    text-decoration:none;
+
+    background:rgba(255,255,255,0.65);
+
+    color:#5d6f74;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 8px 20px rgba(98,120,116,0.08);
+}
+
+.message-link:hover{
+
+    background:#b7c9c4;
+
+    color:#fff;
+
+    transform:translateY(-2px);
+}
+
+/* HEADING */
+
+.contact-content h1{
+
+    font-size:58px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    color:#5d6f74;
+
+    margin-bottom:25px;
+}
+
+.contact-content h1 span{
+
+    color:#7b9892;
+}
+
+.contact-content p{
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    color:#708086;
+
+    margin-bottom:35px;
+}
+
+/* CONTACT INFO */
+
+.contact-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.info-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.55);
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+    0 8px 24px rgba(98,120,116,0.08);
+}
+
+.info-icon{
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #b7c9c4,
+        #c7d8d6
+    );
+
+    color:#55686d;
+
+    flex-shrink:0;
+}
+
+.info-text p{
+
+    margin:0;
+
+    color:#708086;
+
+    font-size:15px;
+}
+
+/* ========================= */
+/* IMAGE */
+/* ========================= */
+
+.contact-image{
+
+    position:relative;
+
+    text-align:center;
+}
+
+.contact-image img{
+
+    width:100%;
+    max-width:600px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 20px 40px rgba(98,120,116,0.15);
+
+    animation:floatImage 4s ease-in-out infinite;
+}
+
+/* FLOAT EFFECT */
+
+@keyframes floatImage{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* ========================= */
+/* CONTACT FORM */
+/* ========================= */
+
+.contact-form{
+
+    margin-top:80px;
+
+    background:rgba(255,255,255,0.55);
+
+    padding:40px;
+
+    border-radius:30px;
+
+    backdrop-filter:blur(16px);
+
+    box-shadow:
+    0 10px 35px rgba(98,120,116,0.08);
+}
+
+.contact-form h3{
+
+    color:#5d6f74;
+
+    margin-bottom:30px;
+
+    font-weight:700;
+}
+
+/* INPUT */
+
+.form-control{
+
+    border:none;
+
+    padding:16px 18px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,0.85);
+
+    margin-bottom:20px;
+
+    box-shadow:none !important;
+
+    color:#5d6f74;
+}
+
+.form-control:focus{
+
+    border:1px solid #b7c9c4 !important;
+
+    box-shadow:none !important;
+
+    background:white;
+}
+
+/* ========================= */
+/* DROPDOWN */
+/* ========================= */
+
+.area-dropdown-btn{
+
+    width:100%;
+
+    background:rgba(255,255,255,0.85) !important;
+
+    border:none !important;
+
+    border-radius:16px !important;
+
+    padding:16px 18px !important;
+
+    color:#708086 !important;
+
+    font-weight:600;
+
+    text-align:left;
+
+    margin-bottom:20px;
+
+    box-shadow:none !important;
+}
+
+.area-dropdown-btn:focus{
+
+    border:1px solid #b7c9c4 !important;
+
+    box-shadow:none !important;
+}
+
+.area-dropdown-menu{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:18px;
+
+    padding:10px;
+
+    background:rgba(255,255,255,0.98);
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+    0 10px 30px rgba(98,120,116,0.12);
+}
+
+.area-dropdown-menu .dropdown-item{
+
+    border-radius:12px;
+
+    padding:12px 15px;
+
+    color:#5d6f74;
+
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.area-dropdown-menu .dropdown-item:hover{
+
+    background:#b7c9c4;
+
+    color:white;
+}
+
+/* BUTTON */
+
+.contact-btn{
+
+    border:none;
+
+    padding:14px 30px;
+
+    border-radius:40px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #b7c9c4,
+        #c7d8d6
+    );
+
+    color:#55686d;
+
+    font-weight:700;
+
+    transition:0.3s;
+}
+
+.contact-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 24px rgba(146,173,169,0.22);
+}
+
+/* SMOOTH SCROLL */
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:768px){
+
+    .contact-section{
+        padding:90px 15px;
+    }
+
+    .contact-content{
+        padding-right:0;
+        margin-bottom:50px;
+        text-align:center;
+    }
+
+    .contact-content h1{
+        font-size:38px;
+    }
+
+    .contact-form{
+        padding:25px;
+    }
+
+    .info-box{
+        text-align:left;
+    }
+
+    .contact-top{
+
+        flex-direction:column;
+    }
+
+    .contact-tag,
+    .message-link{
+
+        width:100%;
+    }
+
+    .contact-image img{
+
+        width:100%;
+        height:auto;
+    }
+}
+
+</style>
+
+<section class="contact-section">
+
+    <div class="container">
+
+        <div class="row align-items-center gy-5">
+
+            <!-- LEFT -->
+
+            <div class="col-lg-6">
+
+                <div class="contact-content">
+
+                    <div class="contact-top">
+
+                        <span class="contact-tag">
+                            🌿 Contact Us
+                        </span>
+
+                        <a href="#message-form" class="message-link">
+                            Send Us Message →
+                        </a>
+
+                    </div>
+
+                    <h1>
+                        Let’s Start Your
+                        <span>Healing Journey</span>
+                    </h1>
+
+                    <p>
+                        We’re here to support you with compassionate
+                        guidance, emotional wellness and a safe space
+                        to grow with confidence and clarity.
+                    </p>
+
+                    <div class="contact-info">
+
+                        <div class="info-box">
+
+                            <div class="info-icon">📞</div>
+
+                            <div class="info-text">
+
+                                <p>+91 9116914358</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="info-box">
+
+                            <div class="info-icon">📧</div>
+
+                            <div class="info-text">
+
+                                <p>info@saarthinavigatinglife.com</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="info-box">
+
+                            <div class="info-icon">📍</div>
+
+                            <div class="info-text">
+
+                                <p>
+                                    Neemkaroli House,
+                                    Haldwani,
+                                    Uttarakhand, India
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="col-lg-6">
+
+                <div class="contact-image">
+
+                    <img src="{% static 'images/Pc2.png' %}" class="img-fluid">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CONTACT FORM -->
+
+        <div class="contact-form" id="message-form">
+
+            <form>
+
+                <h3>
+                    Send Us a Message ✨
+                </h3>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Your Name">
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            placeholder="Contact no.">
+
+                    </div>
+
+                </div>
+
+                <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your Email">
+
+                <!-- DROPDOWN -->
+
+                <div class="dropdown">
+
+                    <button
+                        class="btn dropdown-toggle area-dropdown-btn"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+
+                        Select Area
+
+                    </button>
+
+                    <ul class="dropdown-menu area-dropdown-menu"
+                        aria-labelledby="dropdownMenuButton">
+
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Emotional Wellbeing
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Behavioural Wellbeing
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Social Wellbeing
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Career Wellbeing
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Individual Wellbeing
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Other
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div><br>
+
+                <textarea
+                    class="form-control"
+                    rows="5"
+                    placeholder="Write your message..."></textarea>
+
+                <button class="contact-btn">
+                    Submit →
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BOOTSTRAP 5 JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}

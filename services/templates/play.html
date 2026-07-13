@@ -1,0 +1,648 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
+
+body{
+    font-family:'Nunito',sans-serif;
+    background:#f8f7f3;
+}
+
+/* ========================= */
+/* SECTION */
+/* ========================= */
+
+.play-clean{
+
+    padding:120px 0;
+
+    background:#f8f7f3;
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero-wrapper{
+
+    margin-bottom:140px;
+}
+
+/* TAG */
+
+.mini-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:#f0e6cf;
+
+    color:#8a7755;
+
+    font-weight:700;
+
+    margin-bottom:28px;
+
+    font-size:15px;
+}
+
+/* TITLE */
+
+.hero-title{
+
+    font-size:60px;
+
+    font-weight:300;
+
+    line-height:1.05;
+
+    color:#5f666d;
+
+    margin-bottom:32px;
+}
+
+/* TEXT */
+
+.hero-text{
+
+    font-size:20px;
+
+    
+
+    color:#74848a;
+
+    margin-bottom:24px;
+
+    max-width:650px;
+}
+
+/* IMAGE */
+
+.hero-image img{
+
+    width:100%;
+
+    height:400px;
+
+    object-fit:cover;
+
+    border-radius:40px;
+
+    box-shadow:
+    0 25px 45px rgba(0,0,0,0.06);
+}
+
+/* ========================= */
+/* CONTENT */
+/* ========================= */
+
+.play-content{
+
+    margin-bottom:140px;
+}
+
+.play-content h2{
+
+    font-size:58px;
+
+    font-weight:300;
+
+    line-height:1.2;
+
+    color:#5d6b70;
+
+    margin-bottom:28px;
+}
+
+.play-content p{
+
+    font-size:18px;
+
+    
+
+    color:#74848a;
+
+    margin-bottom:24px;
+}
+
+/* IMAGE */
+
+.soft-image img{
+
+    width:100%;
+
+    border-radius:34px;
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,0.05);
+}
+
+/* ========================= */
+/* BENEFITS */
+/* ========================= */
+
+.benefit-section{
+
+    margin-bottom:140px;
+}
+
+.benefit-section h2{
+
+    font-size:60px;
+
+    font-weight:300;
+
+    color:#5d666d;
+
+    margin-bottom:60px;
+}
+
+/* GRID */
+
+.benefit-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:28px;
+}
+
+/* ITEM */
+
+.benefit-item{
+
+    padding:32px;
+
+    border-radius:28px;
+
+    background:#ffffff;
+
+    text-align:center;
+
+    color:#6f7c82;
+
+    font-size:18px;
+
+    transition:0.35s ease;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.04);
+}
+
+.benefit-item:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 18px 35px rgba(0,0,0,0.06);
+}
+
+/* ========================= */
+/* PROCESS */
+/* ========================= */
+
+.process-wrap{
+
+    margin-bottom:140px;
+}
+
+.process-card{
+
+    background:#ffffff;
+
+    padding:40px;
+
+    border-radius:32px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.05);
+
+    height:100%;
+}
+
+.process-number{
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    background:#f0e6cf;
+
+    color:#8a7755;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:24px;
+}
+
+.process-card h4{
+
+    font-size:28px;
+
+    font-weight:600;
+
+    color:#5f666d;
+
+    margin-bottom:18px;
+}
+
+.process-card p{
+
+    color:#74848a;
+
+    line-height:1.9;
+
+    font-size:17px;
+}
+
+/* ========================= */
+/* ENDING */
+/* ========================= */
+
+.ending-line{
+
+    max-width:920px;
+
+    margin:auto;
+
+    text-align:center;
+}
+
+.ending-line h2{
+
+    font-size:64px;
+
+    font-weight:300;
+
+    line-height:1.4;
+
+    color:#5d666d;
+
+    margin-bottom:45px;
+}
+
+/* BUTTON */
+
+.soft-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:15px 34px;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    background:#f0e6cf;
+
+    color:#7a6a4c;
+
+    font-weight:700;
+
+    transition:0.35s ease;
+}
+
+.soft-btn:hover{
+
+    transform:translateY(-3px);
+
+    color:#67573d;
+
+    box-shadow:
+    0 12px 24px rgba(0,0,0,0.08);
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:768px){
+
+    .play-clean{
+        padding:80px 0;
+    }
+
+    .hero-title{
+        font-size:52px;
+    }
+
+    .hero-text{
+        font-size:16px;
+        line-height:1.9;
+    }
+
+    .hero-image img{
+        height:420px;
+    }
+
+    .play-content{
+        margin-bottom:90px;
+    }
+
+    .play-content h2,
+    .benefit-section h2,
+    .ending-line h2{
+        font-size:38px;
+    }
+
+    .play-content p{
+        font-size:16px;
+    }
+
+    .benefit-item{
+        font-size:16px;
+        padding:24px;
+    }
+
+}
+
+</style>
+
+<section class="play-clean">
+
+<div class="container">
+
+    <!-- HERO -->
+
+    <div class="hero-wrapper">
+
+        <div class="row align-items-center gy-5">
+
+            <!-- IMAGE -->
+
+            <div class="col-lg-6">
+
+                <div class="hero-image">
+
+                    <img src="{% static 'images/play1.png' %}" class="img-fluid">
+
+                </div>
+
+            </div>
+
+            <!-- CONTENT -->
+
+            <div class="col-lg-6">
+
+                <span class="mini-tag">
+                    🧸 Child Emotional Wellness
+                </span>
+
+                <h1 class="hero-title">
+                    Play Therapy
+                </h1>
+
+                <p class="hero-text">
+
+                    Play therapy is a gentle and evidence-based therapeutic
+                    approach that helps children express emotions,
+                    process experiences and develop healthy coping skills through play.
+
+                </p>
+
+                <p class="hero-text">
+
+                    Since children often communicate feelings through play
+                    rather than words, therapy creates a safe and supportive
+                    space where healing, confidence and emotional growth can naturally unfold.
+
+                </p>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CONTENT -->
+
+    <div class="play-content">
+
+        <div class="row gy-5 align-items-center">
+
+            <!-- TEXT -->
+
+            <div class="col-lg-6">
+
+                <h2>
+                    Healing Through the Language of Play
+                </h2>
+
+                <p>
+
+                    Through storytelling, creative activities,
+                    role play and sensory experiences,
+                    children are gently supported in expressing fears,
+                    worries and emotions in a safe environment.
+
+                </p>
+
+                <p>
+
+                    Therapy helps children feel understood,
+                    emotionally secure and more confident
+                    while improving emotional regulation and behaviour.
+
+                </p>
+
+            </div>
+
+            <!-- IMAGE -->
+
+            <div class="col-lg-6">
+
+                <div class="soft-image">
+
+                    <img src="{% static 'images/play2.png' %}" class="img-fluid">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- BENEFITS -->
+
+    <div class="benefit-section">
+
+        <h2 class="text-center">
+            Play Therapy Can Support
+        </h2>
+
+        <div class="benefit-grid">
+
+            <div class="benefit-item">
+                Anxiety & Fears
+            </div>
+
+            <div class="benefit-item">
+                Emotional Outbursts
+            </div>
+
+            <div class="benefit-item">
+                Low Confidence
+            </div>
+
+            <div class="benefit-item">
+                Social Withdrawal
+            </div>
+
+            <div class="benefit-item">
+                School Adjustment Issues
+            </div>
+
+            <div class="benefit-item">
+                ADHD & Emotional Regulation
+            </div>
+
+            <div class="benefit-item">
+                Family Changes & Grief
+            </div>
+
+            <div class="benefit-item">
+                Autism Emotional Support
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PROCESS -->
+
+    <div class="process-wrap">
+
+        <div class="row g-4">
+
+            <div class="col-lg-3">
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        1
+                    </div>
+
+                    <h4>
+                        Connect
+                    </h4>
+
+                    <p>
+                        Building trust through a warm, safe and child-friendly environment.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        2
+                    </div>
+
+                    <h4>
+                        Express
+                    </h4>
+
+                    <p>
+                        Using play, storytelling and creativity to communicate emotions naturally.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        3
+                    </div>
+
+                    <h4>
+                        Understand
+                    </h4>
+
+                    <p>
+                        Helping children identify feelings, behaviours and emotional needs safely.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        4
+                    </div>
+
+                    <h4>
+                        Grow
+                    </h4>
+
+                    <p>
+                        Building confidence, emotional balance and healthier coping skills.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ENDING -->
+
+    <div class="ending-line">
+
+        <h2>
+
+            Because when children play,
+            they often show us
+            what words cannot.
+
+        </h2>
+
+        <a href="#" class="soft-btn">
+            Explore Play Therapy →
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+{% endblock %}

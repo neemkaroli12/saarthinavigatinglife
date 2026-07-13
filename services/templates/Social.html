@@ -1,0 +1,236 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+<style>
+.social-section {
+    padding: 100px 0;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+
+    /* Background Image + Overlay */
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),   /* overlay color */
+        rgba(0, 0, 0, 0.5)
+    ),
+    url("{% static 'images/photo.jpg' %}");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Important for fixed background */
+    background-attachment: fixed;
+
+    /* Blend mode */
+    background-blend-mode: multiply;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    gap: 10px;
+    
+
+}
+
+.feature-box {
+    background: linear-gradient(135deg, #83b2db, #ace2f0);
+    color: #131212;
+    padding: 20px;
+    border-radius: 18px;
+    text-align: center;
+    justify-content: center;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.feature-box-1 {
+    background: linear-gradient(135deg, #83b2db, #ace2f0);
+    color: #0b0b0b;
+    padding: 15px;
+    border-radius: 18px;
+    text-align: center;
+    justify-content: center;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+   
+
+}
+
+.feature-box:hover {
+    transform: translateY(-6px) scale(1.02);
+}
+.feature-box-1:hover {
+    transform: translatey(-6px) scale(1.02);
+}
+
+.feature-box h5 {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.feature-box-1 h5 {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.section-card {
+    color:#4facfe;
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.content-box {
+    color:bisque;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.pill {
+    background: #8d8df1;
+    padding: 12px;
+    color:black;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.approach-box {
+    background: #948cf9;
+    padding: 15px;
+    color:black;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.custom-list li {
+    margin-bottom: 10px;
+}
+
+.highlight-box {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+.main-title{
+    color:#00c6ff;
+
+}
+.tagline{
+    color:bisque;
+}
+.section-card-1{
+    color:white;
+}
+.custom-list-1{
+    color:white;
+}
+</style>
+
+<section class="social-section">
+
+<div class="container">
+    <div class="text-center mb-5">
+        <h1 class="main-title">Social Wellbeing</h1>
+        <p class="tagline">Connecting, communicating, and building meaningful relationships</p>
+    </div>
+
+    <div class="content-box">
+        <p>
+            Social wellbeing reflects how we connect, communicate, and build relationships with others.
+            It plays a vital role in our sense of belonging, confidence, and emotional health.
+        </p>
+        <p>
+            At our centre, we help individuals strengthen social skills, navigate relationship challenges,
+            and build meaningful connections in both personal and professional life.
+        </p>
+    </div>
+
+    <div class="section-card">
+        <h2 class="text-white">Why Social Wellbeing is Important ?</h2><br>
+
+        <div class="grid">
+            <div class="feature-box">
+                <h5 class="mt-2">Meaningful Relationships</h5>
+                <p>Build deeper and supportive connections.</p>
+            </div>
+
+            <div class="feature-box">
+                <h5 class="mt-2">Emotional Health</h5>
+                <p>Reduces stress, loneliness, and anxiety.</p>
+            </div>
+
+            <div class="feature-box">
+                <h5 class="mt-2">Confidence</h5>
+                <p>Boosts self-esteem and self-worth.</p>
+            </div>
+            
+            <div class="feature-box-1">
+                <h5 class="mt-2">Better Communication</h5>
+                <p>Reduces misunderstandings and conflicts.</p>
+            </div>
+        
+        
+            <div class="feature-box-1">
+                <h5 class="mt-2">Sense of Belonging</h5>
+                <p>Creates purpose, comfort, and stability.</p>
+            </div>
+        
+        </div>
+    </div>
+
+    <div class="section-card">
+        <h2 class="text-white">Areas of Expertise</h2>
+
+        <div class="grid">
+            <div class="pill">Social Skills</div>
+            <div class="pill">Peer Relationships</div>
+            <div class="pill">Parent-Child Bond</div>
+            <div class="pill">Communication Skills</div>
+            <div class="pill">Gestures & Expression</div>
+        </div>
+    </div>
+
+    <div class="section-card-1">
+        <h2>Signs You May Need Support</h2>
+
+        <ul class="custom-list-1">
+            <li>Difficulty starting or maintaining conversations</li>
+            <li>Social anxiety or fear of judgment</li>
+            <li>Trouble making or sustaining friendships</li>
+            <li>Conflicts in relationships</li>
+            <li>Feeling isolated or misunderstood</li>
+            <li>Difficulty expressing thoughts clearly</li>
+            <li>Peer pressure or weak boundaries</li>
+        </ul>
+    </div>
+
+    <div class="section-card">
+        <h2 class="text-white">Our Approach</h2>
+
+        <div class="grid">
+            <div class="approach-box">Social Skills Training</div>
+            <div class="approach-box">Role Playing</div>
+            <div class="approach-box">Communication Training</div>
+            <div class="approach-box">CBT Techniques</div>
+            <div class="approach-box">Confidence Building</div>
+            <div class="approach-box">Exposure Practice</div>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <h3>Building Meaningful Connections</h3>
+        <p>
+            It’s not about having many relationships—it’s about having meaningful and supportive ones.
+            With the right guidance, individuals can build confidence and connect authentically.
+        </p>
+    </div>
+</div>
+
+</section>
+
+{% endblock %}

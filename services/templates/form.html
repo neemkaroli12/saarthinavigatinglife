@@ -1,0 +1,88 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="py-5" style="min-height:100vh; background:linear-gradient(135deg,#0f172a,#1e293b);">
+    <div class="container py-5">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <div class="card border-0 shadow-lg p-5 rounded-4"
+                     style="background:rgba(255,255,255,0.08); backdrop-filter: blur(15px);">
+
+                    <div class="text-center mb-4">
+                        <h1 class="text-white fw-bold">Book a Demo Session</h1>
+                        <p class="text-light">
+                            Schedule your free consultation session with our experts.
+                        </p>
+                    </div>
+
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-white">Full Name</label>
+                                <input type="text" class="form-control" name="name" required>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-white">Email Address</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-white">Phone Number</label>
+                                <input type="text" class="form-control" name="phone" required>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-white">Preferred Session Date</label>
+                                <input type="date" class="form-control" name="date" required>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-white">Preferred Time</label>
+                                <input type="time" class="form-control" name="time" required>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-white">Session Type</label>
+                                <select class="form-select" name="session_type">
+                                    <option>Social Wellbeing</option>
+                                    <option>Emotional Wellbeing</option>
+                                    <option>behavioural Wellbeing</option>
+                                    <option>Career Wellbeing</option>
+                                    <option>Individual Wellbeing</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 mb-4">
+                                <label class="form-label text-white">Message</label>
+                                <textarea class="form-control"
+                                          rows="5"
+                                          name="message"
+                                          placeholder="Tell us about your concerns or goals"></textarea>
+                            </div>
+
+                            <div class="text-center">
+                                <button class="btn btn-primary px-5 py-3 rounded-pill">
+                                    Book Demo Session
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

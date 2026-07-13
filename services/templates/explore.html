@@ -1,0 +1,323 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+body{
+    background:#f5f7f8;
+    font-family:'Nunito',sans-serif;
+}
+
+
+
+.explore-section{
+
+    padding:120px 0;
+}
+
+
+.explore-card{
+
+    background:white;
+
+    border-radius:40px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,0.08);
+}
+
+/* IMAGE */
+
+.explore-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    min-height:1000px;
+}
+
+/* CONTENT */
+
+.explore-content{
+
+    padding:70px;
+}
+
+.mini-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:#e3ecea;
+
+    color:#66767d;
+
+    font-weight:700;
+
+    margin-bottom:24px;
+}
+
+.explore-title{
+
+    font-size:58px;
+
+    font-weight:300;
+
+    line-height:1.1;
+
+    color:#5d6a71;
+
+    margin-bottom:30px;
+}
+
+.explore-text{
+
+    font-size:18px;
+
+    line-height:2;
+
+    color:#76858b;
+
+    margin-bottom:35px;
+}
+
+/* FORM */
+
+.explore-form input,
+.explore-form textarea,
+.explore-form select{
+
+    width:100%;
+
+    border:none;
+
+    background:#f5f7f8;
+
+    padding:18px 20px;
+
+    border-radius:18px;
+
+    margin-bottom:20px;
+
+    color:#5d6a71;
+}
+
+.explore-form input:focus,
+.explore-form textarea:focus,
+.explore-form select:focus{
+
+    outline:none;
+
+    background:white;
+
+    box-shadow:
+    0 0 0 2px #d8e3e1;
+}
+
+.explore-form textarea{
+
+    min-height:140px;
+}
+
+/* BUTTON */
+
+.explore-btn{
+
+    width:100%;
+
+    border:none;
+
+    padding:18px;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #cddcda,
+        #dde9e6
+    );
+
+    color:#5d6a71;
+
+    font-weight:700;
+
+    transition:0.35s ease;
+}
+
+.explore-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,0.08);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .explore-section{
+
+        padding:70px 0;
+    }
+
+    .explore-content{
+
+        padding:35px 25px;
+    }
+
+    .explore-title{
+
+        font-size:42px;
+    }
+
+    .explore-image img{
+
+        min-height:350px;
+    }
+}
+
+</style>
+
+<section class="explore-section">
+
+<div class="container">
+
+    <div class="explore-card">
+
+        <div class="row g-0">
+
+            <!-- IMAGE -->
+
+            <div class="col-lg-5">
+
+                <div class="explore-image">
+
+                    <img src="{% static 'images/online2.png' %}" class="img-fluid">
+
+                </div>
+
+            </div>
+
+            <!-- CONTENT -->
+
+            <div class="col-lg-7">
+
+                <div class="explore-content">
+
+                    <span class="mini-tag">
+
+                        🌿 Emotional Wellness
+
+                    </span>
+
+                    <h1 class="explore-title">
+
+                        Start Your Journey
+
+                    </h1>
+
+                    <p class="explore-text">
+
+                        Share your concerns and our team will connect
+                        with you to guide you toward emotional clarity,
+                        confidence and healthier emotional balance.
+
+                    </p>
+
+                    <form class="explore-form" method="POST">
+
+                        {% csrf_token %}
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <input
+                                    type="text"
+                                    placeholder="Your Name"
+                                    required>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <input
+                                    type="email"
+                                    placeholder="Your Email"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+                        <input
+                            type="text"
+                            placeholder="Phone Number"
+                            required>
+
+                        <select required>
+
+                            <option selected disabled>
+                                Select Concern
+                            </option>
+
+                            <option>
+                                Anxiety & Overthinking
+                            </option>
+
+                            <option>
+                                Stress & Burnout
+                            </option>
+
+                            <option>
+                                Emotional Regulation
+                            </option>
+
+                            <option>
+                                Relationship Challenges
+                            </option>
+
+                            <option>
+                                Confidence & Self Growth
+                            </option>
+
+                        </select>
+
+                        <textarea
+                            placeholder="Tell us briefly about your concern..."></textarea>
+
+                        <button
+                            type="submit"
+                            class="explore-btn">
+                            <a href="{% url 'form' %}">
+                            Request Consultation →
+                            </a>
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+{% endblock %}

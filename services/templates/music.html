@@ -1,0 +1,378 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
+
+body{
+    font-family:'Nunito',sans-serif;
+    background:#f4f6f5;
+}
+
+/* ========================= */
+/* STORY SECTION */
+/* ========================= */
+
+.therapy-story{
+
+    padding:110px 0;
+
+    background:#f4f6f5;
+}
+
+/* BLOCK */
+
+.therapy-block{
+
+    margin-bottom:140px;
+}
+
+/* IMAGE */
+
+.therapy-image img{
+
+    width:100%;
+
+    height:380px;
+
+    border-radius:34px;
+
+    box-shadow:
+    0 20px 45px rgba(98,120,116,0.10);
+}
+
+/* LABEL */
+
+.therapy-label{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:#dce7e4;
+
+    color:#6c827d;
+
+    font-weight:700;
+
+    margin-bottom:24px;
+}
+
+/* TITLE */
+
+.therapy-block h2{
+
+    font-size:52px;
+
+    font-weight:300;
+
+    line-height:1.2;
+
+    color:#5d6b70;
+
+    margin-bottom:24px;
+}
+
+/* TEXT */
+
+.therapy-block p{
+
+    font-size:18px;
+
+    line-height:2;
+
+    color:#74848a;
+}
+
+/* LIST */
+
+.therapy-list{
+
+    list-style:none;
+
+    padding-left:0;
+}
+
+.therapy-list li{
+
+    position:relative;
+
+    padding-left:28px;
+
+    margin-bottom:18px;
+
+    font-size:18px;
+
+    color:#708086;
+}
+
+.therapy-list li::before{
+
+    content:"●";
+
+    position:absolute;
+
+    left:0;
+    top:2px;
+
+    color:#92aaa5;
+
+    font-size:12px;
+}
+
+/* QUOTE */
+
+.therapy-quote{
+
+    text-align:center;
+
+    max-width:850px;
+
+    margin:auto;
+
+    padding-top:40px;
+}
+
+.therapy-quote h2{
+
+    font-size:58px;
+
+    font-weight:300;
+
+    line-height:1.4;
+
+    color:#5c646b;
+
+    margin-bottom:40px;
+}
+
+/* BUTTON */
+
+.therapy-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 30px;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    background:
+    linear-gradient(
+        90deg,
+        #b7c9c4,
+        #c7d8d6
+    );
+
+    color:#55686d;
+
+    font-weight:700;
+
+    transition:0.35s ease;
+}
+
+.therapy-btn:hover{
+
+    transform:translateY(-3px);
+
+    color:#44575c;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .therapy-block{
+        margin-bottom:90px;
+    }
+
+    .therapy-block h2{
+        font-size:38px;
+    }
+
+    .therapy-quote h2{
+        font-size:36px;
+    }
+
+    .therapy-block p,
+    .therapy-list li{
+        font-size:16px;
+    }
+
+}
+
+</style>
+
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
+
+<section class="therapy-story">
+
+<div class="container">
+
+    <!-- SECTION 1 -->
+
+    <div class="therapy-block">
+
+        <div class="row align-items-center gy-5">
+
+            <div class="col-lg-6">
+
+                <div class="therapy-image">
+
+                    <img src="{% static 'images/music3.png' %}" class="img-fluid">
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <span class="therapy-label">
+                    🌿 Emotional Healing
+                </span>
+
+                <h2>
+                  Music Therapy
+                </h2>
+
+                <p>
+
+                    Music therapy uses rhythm, melody and sound
+                    to support emotional healing, self-expression
+                    and mental wellbeing.
+
+                    It creates a safe space where emotions can be
+                    explored gently through music and creativity.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SECTION 2 -->
+
+    <div class="therapy-block">
+
+        <div class="row align-items-center gy-5 flex-lg-row-reverse">
+
+            <div class="col-lg-6">
+
+                <div class="therapy-image">
+
+                    <img src="{% static 'images/music2.png' %}" class="img-fluid">
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <span class="therapy-label">
+                    💛 Who Can Benefit
+                </span>
+
+                <h2>
+                    Support For Every Age
+                </h2>
+
+                <ul class="therapy-list">
+
+                    <li>Stress & anxiety</li>
+
+                    <li>Emotional overwhelm</li>
+
+                    <li>ADHD & learning difficulties</li>
+
+                    <li>Trauma & burnout</li>
+
+                    <li>Confidence & self-expression</li>
+
+                    <li>Relaxation & emotional balance</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SECTION 3 -->
+
+    <div class="therapy-block">
+
+        <div class="row align-items-center gy-5">
+
+            <div class="col-lg-6">
+
+                <div class="therapy-image">
+
+                    <img src="{% static 'images/music1.png' %}" class="img-fluid">
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <span class="therapy-label">
+                    🎶 The Process
+                </span>
+
+                <h2>
+                    How Sessions Work
+                </h2>
+
+                <p>
+
+                    Sessions may include listening to calming music,
+                    singing, songwriting, guided relaxation,
+                    rhythm-based exercises and reflective conversations.
+
+                    No musical background is required —
+                    the focus is healing, not performance.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FINAL CTA -->
+
+    <div class="therapy-quote">
+
+        <h2>
+            Let music become the bridge
+            between where you are
+            and where healing begins.
+        </h2>
+
+        <a href="#" class="therapy-btn">
+            Begin Your Journey →
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+{% endblock %}

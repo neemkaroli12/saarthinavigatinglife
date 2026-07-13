@@ -1,0 +1,253 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
+
+body{
+    font-family:'Nunito',sans-serif;
+    background:#f5f6f7;
+}
+
+/* ========================= */
+/* TEAM SECTION */
+/* ========================= */
+
+.team-section{
+    padding:110px 0 80px;
+    background:#f5f6f7;
+}
+
+.team-title{
+    font-size:68px;
+    font-weight:300;
+    color:#5c646b;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+/* ========================= */
+/* TEAM CARD */
+/* ========================= */
+
+.team-card{
+    background:#fff;
+    border-radius:30px;
+    padding:40px 35px;
+    height:100%;
+    transition:.4s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    border:1px solid #ececec;
+    overflow:hidden;
+    position:relative;
+}
+
+.team-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 45px rgba(0,0,0,0.10);
+}
+
+.team-image{
+    text-align:center;
+    
+}
+
+.team-image img{
+    width:160px;
+    height:160px;
+    object-fit:cover;
+    border-radius:50%;
+    border:6px solid #f1f1f1;
+}
+
+/* ========================= */
+/* CONTENT */
+/* ========================= */
+
+.team-content h3{
+    font-size:34px;
+    font-weight:700;
+    color:#222;
+    text-align:center;
+    
+}
+
+.team-role{
+    text-align:center;
+    color:#256aa3;
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.team-location{
+    text-align:center;
+    color:#777;
+    
+    font-size:15px;
+}
+
+.team-desc{
+    color:#5f6872;
+    font-size:16px;
+    text-align:center;
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:768px){
+
+    .team-title{
+        font-size:48px;
+    }
+
+    .team-card{
+        padding:30px 22px;
+    }
+
+    .team-content h3{
+        font-size:28px;
+    }
+
+}
+
+</style>
+
+<section class="team-section">
+
+    <div class="container">
+
+        <h1 class="team-title">
+           Wellness Experts
+        </h1>
+
+        <div class="row g-4">
+
+           
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="team-card">
+
+                    <div class="team-image">
+                        <img src="{% static 'images/about-img1.jpeg' %}" class="img-fluid">
+                    </div>
+
+                    <div class="team-content">
+
+                        <h3>
+                            Ms. Tulika
+                        </h3>
+
+                        <div class="team-role">
+                            Parent-Child Relationship Expert
+                        </div>
+
+                        <div class="team-location">
+                           <b> Haldwani, Uttarakhand, India</b>
+                        </div>
+
+                        <div class="team-desc">
+
+                            With nearly twenty years of experience in education,
+                            Ms. Tulika supports students, parents and individuals
+                            through empathy, emotional guidance and meaningful
+                            human connection.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 2 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="team-card">
+
+                    <div class="team-image">
+                        <img src="{% static 'images/about-img.png' %}" class="img-fluid">
+                    </div>
+
+                    <div class="team-content">
+
+                        <h3>
+                            Dr. Eishika Verma
+                        </h3>
+
+                        <div class="team-role">
+                            Mental Health Specialist
+                        </div>
+
+                        <div class="team-location">
+                            <b>Haldwani, Uttarakhand, India</b>
+                        </div>
+
+                        <div class="team-desc">
+
+                            Driven by empathy and data, a Mental Health and Wellness Specialist specializing in youth development.
+                            With an advanced academic background (PhD in Human Development, Masters in Psychology), 
+                            have designed holistic wellness frameworks and deliver evidence-based therapies.
+                            Major focus on psychological assessments that unlock emotional resilience, social connection, and academic excellence.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 3 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="team-card">
+
+                    <div class="team-image">
+                        <img src="{% static 'images/images.jpeg' %}" class="img-fluid">
+                    </div>
+
+                    <div class="team-content">
+
+                        <h3>
+                            Mahi Bisht
+                        </h3>
+
+                        <div class="team-role">
+                            Art & Creative Wellness Enthusiast
+                        </div>
+
+                        <div class="team-location">
+                            <b>Nainital, Uttarakhand, India</b>
+                        </div>
+
+                        <div class="team-desc">
+
+                            Mahi Bisht encourages emotional expression through
+                            creativity, art and imagination, creating a calm
+                            environment focused on healing and growth.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
