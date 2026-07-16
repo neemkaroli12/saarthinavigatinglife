@@ -560,8 +560,8 @@ a{
 /* REMOVE WHITE SPACE */
 
 .dropdown{
-    display:flex;
-    align-items:center;
+  
+    position: relative;
     margin-bottom:0 !important;
     padding-bottom:0 !important;
 }
@@ -621,7 +621,116 @@ a{
 
     color:#7DD3FC;
 }
+@media (max-width:768px){
 
+    .navbar{
+        padding:10px 15px;
+    }
+
+    .navbar strong{
+        font-size:14px;
+    }
+
+    .navbar img{
+        width:40px !important;
+        height:40px !important;
+    }
+   
+}
+@media (max-width:768px){
+
+    .btn-main,
+    .btn-main-1{
+        display:block;
+        width:100%;
+        margin:10px 0;
+        text-align:center;
+    }
+
+    .ms-2{
+        margin-left:0 !important;
+    }
+}
+@media (max-width:768px){
+
+    .hero h2{
+        font-size:28px;
+        line-height:1.3;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+    h3{
+        color:white !important;
+    }
+}
+.logo-box{
+    margin:auto;
+}
+
+@media (max-width:768px){
+    .logo-box{
+        width:180px;
+        height:180px;
+        margin:0 auto 30px;
+    }
+}
+@media (max-width:768px){
+
+    .section-bg{
+        min-height: auto;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        
+    }
+
+}
+@media (max-width:768px){
+
+    .nav-links{
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgba(0,0,0,0.98);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        z-index: 99999;
+    }
+
+    .nav-links.active{
+        display: flex;
+    }
+
+    .dropdown{
+        width: 100%;
+        display: block;
+    }
+
+    .dropdown-menu{
+        position: static !important;
+        transform: none !important;
+        width: 100%;
+        background: #111 !important;
+        border: none;
+        box-shadow: none;
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .dropdown-item{
+        white-space: normal;
+        padding: 12px 15px;
+    }
+
+    .hero{
+        padding-top: 140px;
+    }
+}
 
 </style>
 </head>
@@ -646,7 +755,7 @@ a{
     <a href="{% url "handle" %}">Handle</a>
     
     <div class="dropdown">
-    <a class="nav-link dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
        Guidance
     </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
