@@ -377,6 +377,35 @@ body{
     }
 
 }
+@media (max-width: 768px) {
+
+    .process-wrap .row {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .process-wrap .row > div:nth-child(1) {
+        order: 1;
+    }
+
+    .process-wrap .row > div:nth-child(2) {
+        order: 2;
+    }
+
+    .process-wrap .row > div:nth-child(3) {
+        order: 3;
+    }
+
+    .process-wrap .row > div:nth-child(4) {
+        order: 4;
+    }
+
+    .process-card {
+        width: 100%;
+        height: auto;
+        padding: 30px;
+    }
+}
 
 </style>
 
@@ -648,5 +677,16 @@ body{
 </div>
 
 </section>
+<script>
+    window.addEventListener("load", function () {
+        if (window.innerWidth <= 768) {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "instant"
+            });
+        }
+    });
+</script>
 
 {% endblock %}
