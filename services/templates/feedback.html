@@ -1,0 +1,636 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .feedback-page {
+        background: #f8f7f3;
+        padding: 70px 20px;
+    }
+
+    .feedback-container {
+        max-width: 900px;
+        margin: auto;
+        background: #fff;
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
+    }
+
+    .feedback-header {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .feedback-header h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 45px;
+        color: #34483f;
+        margin-bottom: 10px;
+    }
+
+    .feedback-header p {
+        color: #777;
+        line-height: 1.7;
+        max-width: 650px;
+        margin: auto;
+    }
+
+    /* Section */
+
+    .form-section {
+        margin-bottom: 45px;
+    }
+
+    .section-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 29px;
+        color: #34483f;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e3e7e4;
+        margin-bottom: 25px;
+    }
+
+    /* Inputs */
+
+    .form-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-group > label,
+    .question-title {
+        display: block;
+        color: #3d4d46;
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 12px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid #dce3df;
+        border-radius: 10px;
+        background: #fafcfb;
+        outline: none;
+        box-sizing: border-box;
+        font-size: 15px;
+        transition: 0.3s;
+    }
+
+    .form-control:focus {
+        border-color: #789184;
+        box-shadow: 0 0 0 4px rgba(120, 145, 132, 0.1);
+    }
+
+    textarea.form-control {
+        min-height: 130px;
+        resize: vertical;
+    }
+
+    /* Options */
+
+    .option-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .option {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 13px 15px;
+        border: 1px solid #e0e5e2;
+        border-radius: 10px;
+        cursor: pointer;
+        background: #fafcfb;
+        color: #56645e;
+        transition: 0.25s;
+        font-size: 14px;
+    }
+
+    .option:hover {
+        border-color: #8da397;
+        background: #f4f8f5;
+    }
+
+    .option input {
+        width: 17px;
+        height: 17px;
+        accent-color: #506b5f;
+        cursor: pointer;
+    }
+
+    .option:has(input:checked) {
+        border-color: #668174;
+        background: #edf4f0;
+        color: #34483f;
+    }
+
+    /* Other input */
+
+    .other-input {
+        border: none;
+        border-bottom: 1px solid #9da9a3;
+        background: transparent;
+        outline: none;
+        flex: 1;
+        min-width: 80px;
+        padding: 3px;
+    }
+
+    /* Question blocks */
+
+    .question-block {
+        margin-bottom: 30px;
+    }
+
+    /* Permission */
+
+    .permission-box {
+        background: #f6f9f7;
+        border-radius: 14px;
+        padding: 22px;
+    }
+
+    .permission-box .option {
+        margin-bottom: 10px;
+        background: #fff;
+    }
+
+    .permission-box .option:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Button */
+
+    .submit-btn {
+        width: 100%;
+        padding: 16px;
+        background: #506b5f;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+        background: #3e574c;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(62, 87, 76, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .feedback-page {
+            padding: 40px 15px;
+        }
+
+        .feedback-container {
+            padding: 30px 20px;
+        }
+
+        .feedback-header h1 {
+            font-size: 35px;
+        }
+
+        .form-row,
+        .option-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .section-title {
+            font-size: 25px;
+        }
+    }
+</style>
+
+
+<section class="feedback-page">
+
+    <div class="feedback-container">
+
+        <div class="feedback-header">
+            <h1>Share Your Experience</h1>
+
+            <p>
+                Your feedback helps us understand your experience and continue
+                creating a supportive, compassionate, and meaningful space for everyone.
+            </p>
+        </div>
+
+
+        <form method="POST">
+            {% csrf_token %}
+
+
+            <!-- PERSONAL INFORMATION -->
+
+            <div class="form-section">
+
+                <h2 class="section-title">Personal Information</h2>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text"
+                               name="full_name"
+                               class="form-control"
+                               placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email"
+                               name="email"
+                               class="form-control"
+                               placeholder="Enter your email">
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+
+                    <input type="tel"
+                           name="phone"
+                           class="form-control"
+                           placeholder="Enter your phone number">
+                </div>
+
+            </div>
+
+
+            <!-- SERVICES -->
+
+            <div class="form-section">
+
+                <h2 class="section-title">Which Service Did You Avail?</h2>
+
+                <div class="option-grid">
+
+                    <label class="option">
+                        <input type="checkbox" name="services" value="Individual Counselling">
+                        Individual Counselling
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="services" value="Child Counselling">
+                        Child Counselling
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="services" value="Parent Counselling">
+                        Parent Counselling
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="services" value="Career Counselling">
+                        Career Counselling
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="services" value="Life Coaching">
+                        Life Coaching
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="services" value="Talking Companion">
+                        Talking Companion
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="services" value="Art Therapy">
+                        Art Therapy
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="services" value="Music Therapy">
+                        Music Therapy
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="services" value="Play Therapy">
+                        Play Therapy
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="services" value="Mindfulness">
+                        Mindfulness
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="services" value="Workshop / Training">
+                        Workshop / Training
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="services" value="Other">
+                        Other
+                        <input type="text"
+                               name="other_service"
+                               class="other-input">
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- OVERALL EXPERIENCE -->
+
+            <div class="form-section">
+
+                <h2 class="section-title">Overall Experience</h2>
+
+
+                <!-- SATISFACTION -->
+
+                <div class="question-block">
+
+                    <span class="question-title">
+                        How satisfied were you with our services?
+                    </span>
+
+                    <div class="option-grid">
+
+                        <label class="option">
+                            <input type="radio"
+                                   name="satisfaction"
+                                   value="Very Satisfied">
+                            Very Satisfied
+                        </label>
+
+                        <label class="option">
+                            <input type="radio"
+                                   name="satisfaction"
+                                   value="Neutral">
+                            Neutral
+                        </label>
+
+                        <label class="option">
+                            <input type="radio"
+                                   name="satisfaction"
+                                   value="Unsatisfied">
+                            Unsatisfied
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WHAT DID YOU LIKE -->
+
+                <div class="question-block">
+
+                    <span class="question-title">
+                        What did you like most?
+                    </span>
+
+                    <div class="option-grid">
+
+                        <label class="option">
+                            <input type="checkbox" name="liked" value="Friendly Environment">
+                            Friendly Environment
+                        </label>
+
+                        <label class="option">
+                            <input type="checkbox" name="liked" value="Professional Guidance">
+                            Professional Guidance
+                        </label>
+
+                        <label class="option">
+                            <input type="checkbox" name="liked" value="Compassionate Listening">
+                            Compassionate Listening
+                        </label>
+
+                        <label class="option">
+                            <input type="checkbox" name="liked" value="Easy Appointment Process">
+                            Easy Appointment Process
+                        </label>
+
+                        <label class="option">
+                            <input type="checkbox" name="liked" value="Comfortable Atmosphere">
+                            Comfortable Atmosphere
+                        </label>
+
+                        <label class="option">
+                            <input type="checkbox" name="liked" value="Personalized Support">
+                            Personalized Support
+                        </label>
+
+                        <label class="option">
+                            <input type="checkbox" name="liked" value="Helpful Resources">
+                            Helpful Resources
+                        </label>
+
+                        <label class="option">
+                            <input type="checkbox" name="liked" value="Other">
+                            Other
+                            <input type="text"
+                                   name="other_liked"
+                                   class="other-input">
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HEARD -->
+
+                <div class="question-block">
+
+                    <span class="question-title">
+                        Did you feel heard and understood?
+                    </span>
+
+                    <div class="option-grid">
+
+                        <label class="option">
+                            <input type="radio" name="heard" value="Yes, completely">
+                            Yes, completely
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="heard" value="Mostly">
+                            Mostly
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="heard" value="Not really">
+                            Not really
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WELLBEING -->
+
+                <div class="question-block">
+
+                    <span class="question-title">
+                        Did our support help improve your emotional well-being?
+                    </span>
+
+                    <div class="option-grid">
+
+                        <label class="option">
+                            <input type="radio" name="wellbeing" value="Yes">
+                            Yes
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="wellbeing" value="Somewhat">
+                            Somewhat
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="wellbeing" value="Not Yet">
+                            Not Yet
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECOMMEND -->
+
+                <div class="question-block">
+
+                    <span class="question-title">
+                        Would you recommend Saarthi Navigating Life to others?
+                    </span>
+
+                    <div class="option-grid">
+
+                        <label class="option">
+                            <input type="radio" name="recommend" value="Definitely">
+                            Definitely
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="recommend" value="Probably">
+                            Probably
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="recommend" value="Probably Not">
+                            Probably Not
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- REVIEW -->
+
+            <div class="form-section">
+
+                <h2 class="section-title">Your Review</h2>
+
+                <div class="form-group">
+
+                    <label>
+                        Share your experience in your own words
+                    </label>
+
+                    <textarea
+                        name="review"
+                        class="form-control"
+                        placeholder="Tell us about your experience..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUGGESTIONS -->
+
+            <div class="form-section">
+
+                <h2 class="section-title">Suggestions</h2>
+
+                <div class="form-group">
+
+                    <label>
+                        How can we improve?
+                    </label>
+
+                    <textarea
+                        name="suggestions"
+                        class="form-control"
+                        placeholder="Share any suggestions that could help us serve you better..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERMISSION -->
+
+            <div class="form-section">
+
+                <h2 class="section-title">Permission</h2>
+
+                <div class="permission-box">
+
+                    <label class="option">
+
+                        <input
+                            type="checkbox"
+                            name="publish_permission"
+                            value="yes">
+
+                        I give permission for Saarthi Navigating Life to publish
+                        my review on its website or social media.
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="checkbox"
+                            name="anonymous"
+                            value="yes">
+
+                        Please keep my review anonymous.
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <button type="submit" class="submit-btn">
+                Submit Feedback
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -3,6 +3,7 @@ from urllib.parse import quote
 from django.core.mail import send_mail
 from django.conf import settings
 from .forms import ContactForm
+from .models import Feedback
 
 def handle(request):
     return render(request, 'handle.html')
@@ -14,8 +15,44 @@ def music(request):
     return render(request, 'music.html')
 
 def social(request):
-    return render(request, 'Social.html')
 
+    if request.method == "POST":
+
+        services = request.POST.getlist("services")
+        liked = request.POST.getlist("liked")
+
+        Feedback.objects.create(
+            full_name=request.POST.get("full_name"),
+            email=request.POST.get("email"),
+            phone=request.POST.get("phone"),
+
+            services=", ".join(services),
+            other_service=request.POST.get("other_service", ""),
+
+            satisfaction=request.POST.get("satisfaction", ""),
+
+            liked=", ".join(liked),
+            other_liked=request.POST.get("other_liked", ""),
+
+            heard=request.POST.get("heard", ""),
+            wellbeing=request.POST.get("wellbeing", ""),
+            recommend=request.POST.get("recommend", ""),
+
+            review=request.POST.get("review"),
+            suggestions=request.POST.get("suggestions", ""),
+
+            publish_permission=(
+                request.POST.get("publish_permission") == "yes"
+            ),
+
+            anonymous=(
+                request.POST.get("anonymous") == "yes"
+            ),
+        )
+
+        return redirect("home")
+
+    return render(request, "feedback.html")
 def online(request):
     return render(request, 'online.html')
 

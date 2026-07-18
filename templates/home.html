@@ -1089,51 +1089,57 @@ Calm your mind, build confidence, and grow with guidance.
 
 <section class="testimonial-section">
 
-<div class="container">
+    <div class="container">
 
-    <div class="section-heading text-center">
+        <div class="section-heading text-center">
 
-        <span class="section-tag">💬 Testimonials</span>
+            <span class="section-tag">💬 Testimonials</span>
 
-        <h2>What Clients Say</h2>
+            <h2>What Clients Say</h2>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for feedback in reviews %}
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="testimonial-card">
+
+                    <p>
+                        “{{ feedback.review }}”
+                    </p>
+
+                    {% if feedback.anonymous %}
+
+                        <h5>— Anonymous</h5>
+
+                    {% else %}
+
+                        <h5>— {{ feedback.full_name }}</h5>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12 text-center">
+
+                <p>No client reviews available yet.</p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
 
     </div>
-
-    <div class="row g-4">
-
-        <div class="col-lg-4">
-            <div class="testimonial-card">
-                <p>
-                    “The sessions helped me manage anxiety and regain confidence.”
-                </p>
-                <h5>— Sakshi</h5>
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="testimonial-card">
-                <p>
-                    “A calm and safe environment that truly supports healing.”
-                </p>
-                <h5>— Anshika</h5>
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="testimonial-card">
-                <p>
-                    “Professional therapists who genuinely care about wellbeing.”
-                </p>
-                <h5>— Vikas</h5>
-            </div>
-        </div>
-
-    </div>
-
-</div>
 
 </section>
-
 <!-- ========================= -->
 <!-- FAQ -->
 <!-- ========================= -->
@@ -1315,8 +1321,8 @@ Calm your mind, build confidence, and grow with guidance.
             <input type="email" class="newsletter-input" placeholder="Enter your email">
 
             <button class="subscribe-btn">
-               <a href="https://www.youtube.com/@SaarthiLifeStudio" target="_blank" class="subscribe-btn">
-                    Subscribe
+               <a href="{% url 'Social' %}" target="_blank" class="subscribe-btn">
+                    Give your Feedback
                 </a>
             </button>
 
