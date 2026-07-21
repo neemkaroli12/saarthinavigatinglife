@@ -8,13 +8,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
 
 body{
-    font-family: "Poppins", sans-serif;
+    font-family: "Nunito", sans-serif;
     background:#f5f6f7;
 }
 
-/* ========================= */
-/* TEAM SECTION */
-/* ========================= */
+/* =========================
+   TEAM SECTION
+========================= */
 
 .team-section{
     padding:110px 0 80px;
@@ -23,215 +23,376 @@ body{
 
 .team-title{
     font-size:58px;
-    font-weight:200;
+    font-weight:300;
     color:#5c646b;
     text-align:center;
-    margin-bottom:20px;
+    margin-bottom:50px;
 }
 
-/* ========================= */
-/* TEAM CARD */
-/* ========================= */
+/* =========================
+   HORIZONTAL TEAM CARD
+========================= */
 
 .team-card{
-    background:#fff;
-    border-radius:30px;
-    padding:40px 35px;
-    height:100%;
-    transition:.4s ease;
+    background:#ffffff;
+    border-radius:28px;
+    padding:40px;
+    margin-bottom:30px;
+
+    display:flex;
+    align-items:flex-start;
+    gap:40px;
+
+    transition:all .4s ease;
     box-shadow:0 10px 30px rgba(0,0,0,0.05);
     border:1px solid #ececec;
-    overflow:hidden;
     position:relative;
 }
 
 .team-card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-6px);
     box-shadow:0 18px 45px rgba(0,0,0,0.10);
 }
 
+/* =========================
+   IMAGE
+========================= */
+
 .team-image{
-    text-align:center;
-    
+    flex:0 0 200px;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
 }
 
 .team-image img{
-    width:160px;
-    height:160px;
+    width:190px;
+    height:190px;
     object-fit:cover;
     border-radius:50%;
     border:6px solid #f1f1f1;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
-/* ========================= */
-/* CONTENT */
-/* ========================= */
+/* =========================
+   CONTENT
+========================= */
+
+.team-content{
+    flex:1;
+    min-width:0;
+}
 
 .team-content h3{
-    font-size:25px;
-    font-weight:600;
+    font-size:30px;
+    font-weight:700;
     color:#222;
-    text-align:center;
-    
+    margin:0 0 6px;
 }
 
 .team-role{
-    text-align:center;
     color:#256aa3;
     font-size:18px;
-    font-weight:600;
-    margin-bottom:8px;
-}
-
-.team-location{
-    text-align:center;
-    color:#777;
-    
-    font-size:15px;
+    font-weight:700;
+    margin-bottom:18px;
 }
 
 .team-desc{
     color:#5f6872;
     font-size:16px;
-    text-align:center;
+    line-height:1.8;
+    text-align:justify;
+    margin:0;
 }
 
-/* ========================= */
-/* MOBILE */
-/* ========================= */
+/* =========================
+   TABLET
+========================= */
 
-@media(max-width:768px){
+@media(max-width:991px){
+
+    .team-section{
+        padding:90px 0 60px;
+    }
 
     .team-title{
         font-size:48px;
+        margin-bottom:40px;
     }
 
     .team-card{
-        padding:30px 22px;
+        gap:30px;
+        padding:35px 30px;
+    }
+
+    .team-image{
+        flex:0 0 170px;
+    }
+
+    .team-image img{
+        width:160px;
+        height:160px;
     }
 
     .team-content h3{
-        font-size:28px;
+        font-size:27px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .team-section{
+        padding:70px 0 40px;
+    }
+
+    .team-title{
+        font-size:40px;
+        margin-bottom:30px;
+    }
+
+    .team-card{
+        flex-direction:column;
+        align-items:center;
+        gap:20px;
+        padding:30px 22px;
+        border-radius:22px;
+    }
+
+    .team-image{
+        flex:auto;
+        width:100%;
+    }
+
+    .team-image img{
+        width:150px;
+        height:150px;
+    }
+
+    .team-content{
+        width:100%;
+    }
+
+    .team-content h3{
+        font-size:26px;
+        text-align:center;
+    }
+
+    .team-role{
+        font-size:17px;
+        text-align:center;
+        margin-bottom:15px;
+    }
+
+    .team-desc{
+        font-size:15px;
+        line-height:1.7;
+        text-align:left;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:480px){
+
+    .team-title{
+        font-size:34px;
+    }
+
+    .team-card{
+        padding:25px 18px;
+    }
+
+    .team-image img{
+        width:135px;
+        height:135px;
+    }
+
+    .team-content h3{
+        font-size:24px;
     }
 
 }
 
 </style>
 
+
 <section class="team-section">
 
     <div class="container">
 
         <h1 class="team-title">
-           Wellness Experts
+            Wellness Experts
         </h1>
 
-        <div class="row g-4">
 
-           
+        <!-- =========================
+             CARD 1
+        ========================== -->
 
-            <div class="col-lg-4 col-md-6">
+        <div class="team-card">
 
-                <div class="team-card">
+            <div class="team-image">
+                <img
+                    src="{% static 'images/about-img1.jpeg' %}"
+                    alt="Ms. Tulika Rastogi"
+                >
+            </div>
 
-                    <div class="team-image">
-                        <img src="{% static 'images/about-img1.jpeg' %}" class="img-fluid">
-                    </div>
+            <div class="team-content">
 
-                    <div class="team-content">
+                <h3>
+                    Ms. Tulika Rastogi
+                </h3>
 
-                        <h3>
-                            Ms. Tulika Rastogi
-                        </h3>
+                <div class="team-role">
+                    Parent-Child Relationship Expert
+                </div>
 
-                        <div class="team-role">
-                            Parent-Child Relationship Expert
-                        </div>
+                <div class="team-desc">
 
-                      
+                    With nearly two decades of experience in the field of education,
+                    I have dedicated my career to understanding, nurturing, and
+                    empowering children, parents, and families. Throughout my journey
+                    as an educator and school leader in India and abroad, I have
+                    witnessed countless stories of silent struggles—children
+                    misunderstood for their behaviour, parents overwhelmed by
+                    uncertainty, and individuals searching for someone who would
+                    simply listen without judgment.
 
-                        <div class="team-desc">
+                    <br>
 
-                            With nearly twenty years of experience in education,
-                            Ms. Tulika supports students, parents and individuals
-                            through empathy, emotional guidance and meaningful
-                            human connection.
+                    These experiences inspired me to extend my work beyond the
+                    classroom and create a space where emotional well-being is valued
+                    just as much as academic and professional success.
 
-                        </div>
+                    <br>
 
-                    </div>
+                    I firmly believe that every individual has a story worth hearing
+                    and that healing begins when we feel truly seen, heard, and
+                    understood. My approach is rooted in empathy, patience, active
+                    listening, and practical guidance, helping people navigate life's
+                    challenges with confidence, resilience, and hope.
+
+                    <br>
+
+                    Whether I am supporting a child facing emotional or learning
+                    difficulties, guiding parents through the beautiful yet challenging
+                    journey of raising emotionally healthy and confident children, or
+                    simply being a compassionate companion for someone who feels
+                    lonely, anxious, or overwhelmed, my goal is always the same—to
+                    provide a safe, confidential, and non-judgmental space where
+                    people feel accepted, valued, and free to express themselves.
+
+                    <br>
+
+                    For me, <strong>SAARTHI – Navigating Life LLP</strong> is more than
+                    a Wellness Center; it is a reflection of my purpose and my belief
+                    that no one should have to face life's challenges alone. My
+                    mission is to walk alongside every individual with compassion,
+                    helping them rediscover hope, inner strength, emotional balance,
+                    and the courage to move forward—one meaningful conversation,
+                    one step, and one journey at a time.
 
                 </div>
 
             </div>
 
-            <!-- CARD 2 -->
+        </div>
 
-            <div class="col-lg-4 col-md-6">
 
-                <div class="team-card">
+        <!-- =========================
+             CARD 2
+        ========================== -->
 
-                    <div class="team-image">
-                        <img src="{% static 'images/about-img.png' %}" class="img-fluid">
-                    </div>
+        <div class="team-card">
 
-                    <div class="team-content">
+            <div class="team-image">
+                <img
+                    src="{% static 'images/about-img.png' %}"
+                    alt="Dr. Eishika Verma"
+                >
+            </div>
 
-                        <h3>
-                            Dr. Eishika Verma
-                        </h3>
+            <div class="team-content">
 
-                        <div class="team-role">
-                            Mental Health Specialist
-                        </div>
+                <h3>
+                    Dr. Eishika Verma
+                </h3>
 
-                     
+                <div class="team-role">
+                    Mental Health Specialist
+                </div>
 
-                        <div class="team-desc">
+                <div class="team-desc">
 
-                            Driven by empathy and data, a Mental Health and Wellness Specialist specializing in youth development.
-                            With an advanced academic background (PhD in Human Development, Masters in Psychology), 
-                            have designed holistic wellness frameworks and deliver evidence-based therapies.
-                            Major focus on psychological assessments that unlock emotional resilience, social connection, and academic excellence.
+                    I am a Mental Health and Wellness Specialist with a deep passion for empowering individuals, especially children, adolescents, and young adults, to lead emotionally healthy and fulfilling lives. Guided by both empathy and evidence-based practice, 
+                    I strive to create meaningful and lasting positive change in the lives of those I work with.
+                    <br>
 
-                        </div>
+                    With an advanced academic foundation, including a Ph.D. in Human Development and a Master's degree in Psychology,
+                    I have dedicated my career to understanding the intricate relationship between emotional well-being, personal growth, and human potential. My work involves designing holistic wellness frameworks and providing evidence-based therapeutic interventions tailored to the unique needs of each individual..
 
-                    </div>
+                    <br>
+
+                    A significant part of my practice focuses on comprehensive psychological assessments that help uncover an individual's strengths, challenges, and emotional needs. I believe that every assessment is more than a diagnostic tool—it is an opportunity to understand a person's unique story and pave the way for emotional resilience, 
+                    stronger social connections, improved self-awareness, and academic or personal success.
+                    <br>
+                    For me, mental health is not merely about overcoming challenges; it is about helping people discover their inner strengths, build healthy relationships, and develop the confidence to navigate life's complexities with resilience and purpose. I believe that every individual deserves to be heard, understood, 
+                    and supported in a compassionate, non-judgmental environment.<br>
+                    Whether I am working with a child, guiding a teenager through life's transitions, supporting parents, or helping adults navigate emotional challenges, my goal remains the same—to provide a safe space where healing, growth, and self-discovery can flourish. I am committed to walking alongside every individual on their journey toward emotional well-being, because I believe that with the right support,
+                     every person has the capacity to heal, grow, and thrive.
 
                 </div>
 
             </div>
 
-            <!-- CARD 3 -->
+        </div>
 
-            <div class="col-lg-4 col-md-6">
 
-                <div class="team-card">
+        <!-- =========================
+             CARD 3
+        ========================== -->
 
-                    <div class="team-image">
-                        <img src="{% static 'images/images.jpeg' %}" class="img-fluid">
-                    </div>
+        <div class="team-card">
 
-                    <div class="team-content">
+            <div class="team-image">
+                <img
+                    src="{% static 'images/images.jpeg' %}"
+                    alt="Ms. Mahi Bisht"
+                >
+            </div>
 
-                        <h3>
-                           Ms. Mahi Bisht
-                        </h3>
+            <div class="team-content">
 
-                        <div class="team-role">
-                            Art & Creative Wellness Enthusiast
-                        </div>
+                <h3>
+                    Ms. Mahi Bisht
+                </h3>
 
-                       
-                        <div class="team-desc">
+                <div class="team-role">
+                    Art & Creative Wellness Enthusiast
+                </div>
 
-                            Mahi Bisht encourages emotional expression through
-                            creativity, art and imagination, creating a calm
-                            environment focused on healing and growth.
+                <div class="team-desc">
 
-                        </div>
-
-                    </div>
+                I believe that healing often begins where words fall short.
+                Through the power of creativity, art, and imagination, 
+                I help individuals express emotions that may be difficult to put into words,
+                creating opportunities for self-discovery, healing, and personal growth.
+                <br>
+                As an Art and Creative Wellness Expert , I am passionate about creating a calm, nurturing, and non-judgmental space where children, adolescents, and adults feel safe to explore their emotions. I believe that every painting, every colour, every brushstroke, 
+                and every creative expression tells a story—one that deserves to be acknowledged and understood.<br>
+                My approach is centred on the belief that creativity has the power to reduce stress, build confidence, encourage emotional resilience, and foster a deeper connection with oneself. Through art-based activities, mindful expression, storytelling, and imaginative exploration, I encourage individuals to embrace their emotions, discover their strengths, 
+                and develop healthy ways to cope with life's challenges.<br>
+                For me, art is not about creating something perfect—it is about expressing what the heart feels and the mind cannot always explain. Every creative journey is unique,
+                and I feel privileged to walk alongside individuals as they rediscover joy, confidence, and inner peace through self-expression.<br>
+                At SAARTHI – Navigating Life LLP, my goal is to help every individual experience the therapeutic power of creativity. I aspire to inspire hope, emotional well-being, and personal growth by reminding people that healing is not a destination—it is a journey, and sometimes,
+                all it takes is the courage to pick up a paintbrush and begin.
 
                 </div>
 
