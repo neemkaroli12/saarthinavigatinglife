@@ -7,35 +7,44 @@
 
 <style>
 
-/* ========================= */
-/* FONT */
-/* ========================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
 
-body{
-   font-family: "Poppins", sans-serif;
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+    box-sizing:border-box;
 }
 
-/* ========================= */
-/* PAGE */
-/* ========================= */
+body{
+    font-family:"Poppins", sans-serif;
+}
+
+/* =====================================================
+   PAGE
+===================================================== */
 
 .handle-page{
     padding:100px 0;
 
     background:
-
     url("{% static 'images/Photo3.png' %}") no-repeat center/cover;
 
     position:relative;
     min-height:100vh;
-    overflow:hidden;
+
+    /* Important:
+       Do not use overflow:hidden here because long cards
+       should be allowed to grow naturally.
+    */
+    overflow:visible;
 }
 
 .handle-page::before{
     content:"";
     position:absolute;
+
     width:450px;
     height:450px;
 
@@ -50,16 +59,27 @@ body{
     left:-100px;
 
     filter:blur(120px);
+
+    pointer-events:none;
 }
 
-/* ========================= */
-/* TITLE */
-/* ========================= */
+/* Keep actual page content above decorative background */
+
+.handle-page .container{
+    position:relative;
+    z-index:1;
+}
+
+/* =====================================================
+   TITLE
+===================================================== */
 
 .main-title{
     text-align:center;
+
     font-size:44px;
-    font-weight:700;
+    font-weight:500;
+
     margin-bottom:15px;
 
     background:
@@ -70,86 +90,140 @@ body{
     );
 
     -webkit-background-clip:text;
+    background-clip:text;
+
     color:transparent;
 }
 
 .main-sub{
     text-align:center;
+
     color:#6f7d82;
+
     margin-bottom:65px;
-    font-size:17px;
+
+    font-size:10px;
 }
 
-/* ========================= */
-/* GRID */
-/* ========================= */
+/* =====================================================
+   GRID
+===================================================== */
 
 .handle-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:32px;
+
+    /*
+       3 cards per row on normal desktop screens.
+       minmax(0, 1fr) prevents grid overflow.
+    */
+    grid-template-columns:repeat(3, minmax(0,1fr));
+
+    gap:40px 32px;
+
+    align-items:stretch;
 }
 
-/* ========================= */
-/* FLIP CARD */
-/* ========================= */
+/* =====================================================
+   FLIP CARD
+===================================================== */
 
 .flip-card{
     perspective:1200px;
-    height:460px;
+
+    /*
+       Main fix:
+       Earlier fixed 460px height was cutting long content.
+       620px gives enough room for the complete front content.
+    */
+    height:620px;
+
+    width:100%;
 }
 
 .flip-card-inner{
     position:relative;
+
     width:100%;
     height:100%;
+
     transition:transform 0.9s ease;
+
     transform-style:preserve-3d;
+
+    -webkit-transform-style:preserve-3d;
 }
 
-/* HOVER FLIP */
+/* Desktop hover flip */
 
-.flip-card:hover .flip-card-inner{
+@media (hover:hover) and (pointer:fine){
+
+    .flip-card:hover .flip-card-inner{
+        transform:rotateY(180deg);
+    }
+
+}
+
+/* Click flip */
+
+.flip-card.active .flip-card-inner{
     transform:rotateY(180deg);
 }
 
-/* ========================= */
-/* CARD */
-/* ========================= */
+/* =====================================================
+   CARD COMMON
+===================================================== */
 
 .section-box{
     position:absolute;
+
+    inset:0;
+
     width:100%;
     height:100%;
 
     border-radius:28px;
+
+    /*
+       Hidden is okay now because the card has enough height.
+       It also keeps rounded corners clean.
+    */
     overflow:hidden;
 
     backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
 
-    background:rgba(248,250,249,0.72);
+    background:rgba(248,250,249,0.82);
 
     backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
-    padding:32px;
+    padding:24px;
 
     border:1px solid rgba(255,255,255,0.5);
+
     color:black;
 
     box-shadow:
     0 8px 24px rgba(98,120,116,0.08);
 
-    transition:0.4s;
+    transition:
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
 }
 
-/* SOFT BORDER */
+/* =====================================================
+   SOFT BORDER
+===================================================== */
 
 .section-box::before{
     content:"";
+
     position:absolute;
+
     inset:0;
 
     border-radius:28px;
+
     padding:1px;
 
     background:
@@ -165,121 +239,271 @@ body{
     linear-gradient(#000 0 0);
 
     -webkit-mask-composite:xor;
+
     mask-composite:exclude;
+
+    pointer-events:none;
 }
 
-/* HOVER */
-
-.section-box:hover{
-    transform:translateY(-8px);
-
-    box-shadow:
-    0 14px 28px rgba(98,120,116,0.12);
-}
-
-/* ========================= */
-/* FRONT */
-/* ========================= */
+/* =====================================================
+   FRONT
+===================================================== */
 
 .card-front{
     color:black;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
+
+    padding:24px;
 }
+
 .card-front h3{
     color:black;
 }
+
 .card-front p{
     color:black;
 }
 
-/* ========================= */
-/* BACK */
-/* ========================= */
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.card-image{
+    width:100%;
+
+    height:160px;
+
+    border-radius:26px;
+
+    overflow:hidden;
+
+    margin-bottom:18px;
+
+    position:relative;
+
+    flex-shrink:0;
+}
+
+.card-image img{
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:26px;
+
+    transition:transform 0.6s ease;
+}
+
+.card-image::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,0.15),
+        transparent 60%
+    );
+
+    border-radius:26px;
+
+    pointer-events:none;
+}
+
+@media (hover:hover) and (pointer:fine){
+
+    .flip-card:hover .card-image img{
+        transform:scale(1.08);
+    }
+
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.card-content{
+    width:100%;
+
+    flex:1;
+
+    min-height:0;
+}
+
+.card-content h3{
+    font-size:22px;
+
+    line-height:1.25;
+
+    color:#5d6f74;
+
+    font-weight:700;
+
+    margin-top:0;
+
+    margin-bottom:18px;
+}
+
+.emotion-title{
+    color:brown !important;
+}
+
+.emotion-text{
+    color:black;
+
+    /*
+       Slightly compact text so ALL original content fits
+       without deleting anything.
+    */
+    font-size:14px;
+
+    line-height:1.52;
+
+    margin:0;
+
+    overflow-wrap:anywhere;
+}
+
+.emotion-highlight{
+    color:black !important;
+}
+
+.emotion-question{
+    color:black;
+}
+
+/* =====================================================
+   BACK
+===================================================== */
 
 .card-back{
-
     transform:rotateY(180deg);
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
 
     text-align:center;
 
+    padding:32px;
+
     background:
     linear-gradient(
         135deg,
-        rgba(244,247,246,0.92),
-        rgba(235,241,239,0.90)
+        rgba(244,247,246,0.96),
+        rgba(235,241,239,0.94)
     );
 }
 
 .card-back h4{
     font-size:24px;
+
+    margin-top:0;
+
     margin-bottom:18px;
+
     color:#718883;
 }
 
 .card-back p{
     font-size:15px;
+
     line-height:1.7;
+
     color:#74848a;
+
     margin-bottom:8px;
 }
 
-/* ========================= */
-/* HEADING */
-/* ========================= */
+/* =====================================================
+   GENERAL HEADING
+===================================================== */
 
 .section-box h3{
     font-size:22px;
+
     margin-bottom:18px;
+
     color:#5d6f74;
+
     font-weight:700;
 }
 
-/* ========================= */
-/* LIST */
-/* ========================= */
+/* =====================================================
+   LIST
+===================================================== */
 
 .section-box ul{
     padding-left:0;
+
+    margin:0;
+
     list-style:none;
 }
 
 .section-box li{
     margin-bottom:12px;
+
     color:#708086;
+
     font-size:15px;
+
     position:relative;
+
     padding-left:20px;
+
     transition:0.3s;
+
+    text-align:left;
 }
 
 .section-box li::before{
     content:"●";
+
     position:absolute;
+
     left:0;
+
     color:#8fa9a4;
+
     font-size:10px;
+
     top:4px;
 }
 
 .section-box li:hover{
     color:#6f8a84;
+
     transform:translateX(4px);
 }
 
-/* ========================= */
-/* BUTTON */
-/* ========================= */
+/* =====================================================
+   BUTTON
+===================================================== */
 
 .read-btn{
-
     margin-top:20px;
 
     display:inline-flex;
+
     align-items:center;
+
     gap:8px;
 
     padding:12px 24px;
@@ -295,7 +519,7 @@ body{
 
     color:#55686d;
 
-    font-weight:700;
+    font-weight:500;
 
     text-decoration:none;
 
@@ -303,7 +527,6 @@ body{
 }
 
 .read-btn:hover{
-
     transform:translateY(-3px);
 
     color:#44575c;
@@ -312,11 +535,31 @@ body{
     0 10px 24px rgba(146,173,169,0.22);
 }
 
-/* ========================= */
-/* MOBILE */
-/* ========================= */
+/* =====================================================
+   MEDIUM DESKTOP / LAPTOP
+===================================================== */
+
+@media(max-width:1199px){
+
+    .handle-grid{
+        grid-template-columns:repeat(2, minmax(0,1fr));
+    }
+
+    .flip-card{
+        height:610px;
+    }
+
+}
+
+/* =====================================================
+   TABLET / MOBILE
+===================================================== */
 
 @media(max-width:768px){
+
+    .handle-page{
+        padding:70px 15px;
+    }
 
     .main-title{
         font-size:32px;
@@ -324,213 +567,244 @@ body{
 
     .main-sub{
         font-size:15px;
+
+        margin-bottom:40px;
     }
 
-    .handle-page{
-        padding:70px 15px;
+    .handle-grid{
+        grid-template-columns:1fr;
+
+        gap:30px;
     }
 
-    .flip-card{
-        height:420px;
-    }
-
-}
-/* ========================= */
-/* FRONT CARD */
-/* ========================= */
-
-.card-front{
-
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-
-    padding:24px;
-}
-
-
-.card-image{
-
-    width:100%;
-
-    height:160px;
-
-    border-radius:26px;
-
-    overflow:hidden;
-
-    margin-bottom:20px;
-
-    position:relative;
-
-    flex-shrink:0;
-}
-
-/* IMAGE */
-
-.card-image img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    border-radius:26px;
-
-    transition:0.6s ease;
-}
-
-/* OVERLAY */
-
-.card-image::after{
-
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:
-    linear-gradient(
-        to top,
-        rgba(0,0,0,0.15),
-        transparent 60%
-    );
-
-    border-radius:26px;
-}
-
-/* IMAGE HOVER */
-
-.flip-card:hover .card-image img{
-
-    transform:scale(1.08);
-}
-
-
-
-.card-content h3{
-
-    font-size:22px;
-
-    color:#5d6f74;
-
-    font-weight:700;
-
-    margin-bottom:18px;
-}
-
-/* LIST */
-
-.card-content ul{
-    padding-left:0;
-    list-style:none;
-}
-
-.card-content li{
-
-    margin-bottom:10px;
-
-    color:#708086;
-
-    font-size:15px;
-
-    position:relative;
-
-    padding-left:20px;
-
-    transition:0.3s;
-}
-
-
-
-.card-content li::before{
-
-    content:"●";
-
-    position:absolute;
-
-    left:0;
-    top:4px;
-
-    color:#8fa9a4;
-
-    font-size:10px;
-}
-
-
-.card-content li:hover{
-
-    color:#6f8a84;
-
-    transform:translateX(4px);
-}
-.emotion-title{
-
-    color:brown !important;
-
-
-}
-
-.emotion-text{
-
-    color:black;
-;
-}
-
-.emotion-highlight{
-
-    color:Black !important;
-
-
-}
-
-.emotion-question{
-
-    color:black;
-
-}
-@media(max-width:768px){
-
-    .flip-card{
-        height:600px;
-    }
-
-    .section-box{
-        padding:20px;
-    }
-
-    .card-content h3{
-        font-size:20px;
-    }
-
-    .card-content li,
-    .emotion-text{
-        font-size:14px;
-        line-height:1.6;
-    }
-}
-@media(max-width:768px){
+    /*
+       On mobile we show front + back naturally.
+       No fixed height means content can never be cut.
+    */
 
     .flip-card{
         height:auto;
+
+        perspective:none;
     }
 
     .flip-card-inner{
+        height:auto;
+
         transform:none !important;
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:18px;
     }
 
     .section-box{
         position:relative;
+
+        inset:auto;
+
         height:auto;
+
+        min-height:0;
+
+        overflow:visible;
+
+        padding:20px;
+    }
+
+    .card-front{
+        padding:20px;
     }
 
     .card-back{
         transform:none;
-        margin-top:20px;
+
+        margin-top:0;
+
+        padding:30px 20px;
     }
+
+    .card-image{
+        height:200px;
+
+        margin-bottom:18px;
+    }
+
+    .card-content h3,
+    .section-box h3{
+        font-size:21px;
+    }
+
+    .emotion-text{
+        font-size:15px;
+
+        line-height:1.65;
+    }
+
+    .card-content li{
+        font-size:14px;
+
+        line-height:1.6;
+    }
+
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:480px){
+
+    .handle-page{
+        padding:55px 10px;
+    }
+
+    .handle-grid{
+        gap:25px;
+    }
+
+    .section-box,
+    .card-front{
+        padding:16px;
+    }
+
+    .card-image{
+        height:175px;
+
+        border-radius:20px;
+    }
+
+    .card-image img,
+    .card-image::after{
+        border-radius:20px;
+    }
+
+    .section-box{
+        border-radius:22px;
+    }
+
+    .section-box::before{
+        border-radius:22px;
+    }
+
+    .card-content h3,
+    .section-box h3{
+        font-size:20px;
+
+        margin-bottom:14px;
+    }
+
+    .emotion-text{
+        font-size:14px;
+
+        line-height:1.6;
+    }
+
+}
+/* =====================================================
+   GRID - DESKTOP
+===================================================== */
+
+.handle-grid{
+    display:grid;
+
+    /* 6 equal columns allow us to offset second row */
+    grid-template-columns:repeat(6, minmax(0, 1fr));
+
+    column-gap:32px;
+    row-gap:50px;
+
+    align-items:stretch;
+}
+
+
+/* =====================================================
+   TOP 3 CARDS
+===================================================== */
+
+/* Emotional Wellbeing */
+.handle-grid .flip-card:nth-child(1){
+    grid-column:1 / span 2;
+}
+
+/* Behavioural Wellbeing */
+.handle-grid .flip-card:nth-child(2){
+    grid-column:3 / span 2;
+}
+
+/* Social Wellbeing */
+.handle-grid .flip-card:nth-child(3){
+    grid-column:5 / span 2;
+}
+
+
+/* =====================================================
+   BOTTOM 2 CARDS
+   Positioned below the gaps of upper cards
+===================================================== */
+
+/* Career Wellbeing */
+.handle-grid .flip-card:nth-child(4){
+    grid-column:2 / span 2;
+}
+
+/* Talking Companion */
+.handle-grid .flip-card:nth-child(5){
+    grid-column:4 / span 2;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:1199px){
+
+    .handle-grid{
+        grid-template-columns:repeat(2, minmax(0,1fr));
+
+        gap:35px 30px;
+    }
+
+    /* Reset desktop positioning */
+
+    .handle-grid .flip-card:nth-child(1),
+    .handle-grid .flip-card:nth-child(2),
+    .handle-grid .flip-card:nth-child(3),
+    .handle-grid .flip-card:nth-child(4),
+    .handle-grid .flip-card:nth-child(5){
+        grid-column:auto;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:768px){
+
+    .handle-grid{
+        grid-template-columns:1fr;
+
+        gap:30px;
+    }
+
+    .handle-grid .flip-card:nth-child(1),
+    .handle-grid .flip-card:nth-child(2),
+    .handle-grid .flip-card:nth-child(3),
+    .handle-grid .flip-card:nth-child(4),
+    .handle-grid .flip-card:nth-child(5){
+        grid-column:auto;
+    }
+
 }
 
 </style>
+
 
 <section class="handle-page">
 
@@ -538,196 +812,498 @@ body{
 
     <div class="handle-grid">
 
-       
+
+        <!-- ==================================================
+             EMOTIONAL WELLBEING
+        =================================================== -->
+
         <div class="flip-card">
+
             <div class="flip-card-inner">
+
                 <div class="section-box card-front">
+
                     <div class="card-image">
-                        <img src="{% static 'images/PC1.png' %}" class="img-fluid">
+
+                        <img
+                            src="{% static 'images/PC1.png' %}"
+                            class="img-fluid"
+                            alt="Emotional Wellbeing"
+                        >
+
                     </div>
+
                     <div class="card-content">
-                        <h3 class="emotion-title text-center">Emotional Wellbeing</h3>
+
+                        <h3 class="emotion-title text-center">
+                            Emotional Wellbeing
+                        </h3>
+
                         <p class="emotion-text">
-                            <span class="emotion-highlight"><b>No-Judgment Zone</b></span><br>
-                            It's about taking back the steering wheel of life instead of
-                            just being a passenger to your mood and reactions.
-                            Be the one who clears clutter, without worrying and being
-                            judged or hurting someone.
-                            <br><span class="emotion-question"><b>Would you like to explore?</b></span>
+
+                            <span class="emotion-highlight">
+                                <b>A Safe Space. A Listening Heart.</b>
+                            </span>
+
+                            <br>
+
+                            Sometimes, life feels overwhelming.
+                            Sometimes, all we need is someone
+                            who listens—not to judge, advise, or
+                            criticise, but simply to understand.
+
+                            At <b>SAARTHI – Navigating Life LLP </b>, we offer a
+                            compassionate space where you
+                            can share your thoughts, emotions,
+                            fears, and experiences at your own pace.
+
+                            Together, we'll help you untangle
+                            overwhelming feelings, discover your inner strength,
+                            and find clarity to move forward with confidence.
+
+                            <br>
+
+                            <span class="emotion-question">
+                                <b>You don't have to carry it all alone.</b>
+                            </span>
+
                         </p>
+
                     </div>
+
                 </div>
+
+
                 <div class="section-box card-back">
-                    <h4 class="text-dark">Key Focus Area</h4>
+
+                    <h4 class="text-dark">
+                        Key Focus Area
+                    </h4>
+
                     <ul>
-                        <li class="text-dark">Anxiety</li>
-                        <li class="text-dark">Emotional burnout</li>
-                        <li class="text-dark">Low self-esteem</li>
-                        <li class="text-dark">Self-doubt</li>
-                        <li class="text-dark">Depression</li>
-                        <li class="text-dark">Fear & phobias</li>
+
+                        <li class="text-dark">Stress & Anxiety</li>
+
+                        <li class="text-dark">Loneliness</li>
+
+                        <li class="text-dark">Relationships</li>
+
+                        <li class="text-dark">Parenting Challenges</li>
+
+                        <li class="text-dark">Emotional Healing</li>
+
+                        <li class="text-dark">Self-Confidence</li>
+
+                        <li class="text-dark">Personal Growth</li>
+
                     </ul>
+
                 </div>
+
             </div>
+
         </div>
 
-       
+
+        <!-- ==================================================
+             BEHAVIOURAL WELLBEING
+        =================================================== -->
+
         <div class="flip-card">
+
             <div class="flip-card-inner">
+
                 <div class="section-box card-front">
+
                     <div class="card-image">
-                        <img src="{% static 'images/Pcs1.png' %}" class="img-fluid">
+
+                        <img
+                            src="{% static 'images/Pcs1.png' %}"
+                            class="img-fluid"
+                            alt="Behavioural Wellbeing"
+                        >
+
                     </div>
+
                     <div class="card-content">
-                        <h3 class="emotion-title text-center">Behavioural Wellbeing</h3>
+
+                        <h3 class="emotion-title text-center">
+                            Behavioural Wellbeing
+                        </h3>
+
                         <p class="emotion-text">
-                            <span class="emotion-highlight"><b>Actions Speak Louder Than Intent</b></span><br>
-                            Your thoughts are the script but your behavior is the performance.
-                            Consulting the therapist builds a bridge between who you are
-                            inside & how the world experiences you.
+
+                            <span class="emotion-highlight">
+
+                                <b>
+                                    Every Behaviour Tells a Story
+                                </b>
+
+                            </span>
+
+                            <br>
+
+                            A child who appears stubborn may be feeling unheard.
+
+                            A teenager who lashes out may be struggling silently.
+
+                            An adult who withdraws may simply be carrying more
+                            than they can express.
+
+                            Behaviour is not the problem—it is often a way of
+                            communicating emotions that words cannot.
+
+                            At <b>SAARTHI – Navigating Life LLP</b>,
+                            we help individuals, parents, and families
+                            understand the emotions behind behaviours,
+                            fostering healthier relationships,
+                            emotional resilience, and positive change.
+
+                           <b> Because when we understand the person,
+                            the behaviour begins to make sense.</b>
+
                         </p>
+
                     </div>
+
                 </div>
+
+
                 <div class="section-box card-back">
-                    <h4 class="text-dark">Key Focus Area</h4>
+
+                    <h4 class="text-dark">
+                        Key Focus Area
+                    </h4>
+
                     <ul>
-                        <li class="text-dark">Mobile addiction</li>
-                        <li class="text-dark">Focus issues</li>
-                        <li class="text-dark">Social withdrawal</li>
-                        <li class="text-dark">Aggression</li>
-                        <li class="text-dark">Hyperactivity</li>
+
+                        <li class="text-dark">
+                            Mobile addiction
+                        </li>
+
+                        <li class="text-dark">
+                            Focus issues
+                        </li>
+
+                        <li class="text-dark">
+                            Social withdrawal
+                        </li>
+
+                        <li class="text-dark">
+                            Aggression
+                        </li>
+
+                        <li class="text-dark">
+                            Hyperactivity
+                        </li>
+
                     </ul>
+
                 </div>
+
             </div>
+
         </div>
 
-   
+
+        <!-- ==================================================
+             SOCIAL WELLBEING
+        =================================================== -->
+
         <div class="flip-card">
+
             <div class="flip-card-inner">
+
                 <div class="section-box card-front">
+
                     <div class="card-image">
-                        <img src="{% static 'images/Pcs2.png' %}" class="img-fluid">
+
+                        <img
+                            src="{% static 'images/Pcs2.png' %}"
+                            class="img-fluid"
+                            alt="Social Wellbeing"
+                        >
+
                     </div>
+
                     <div class="card-content">
-                        <h3 class="emotion-title text-center">Social Wellbeing</h3>
+
+                        <h3 class="emotion-title text-center">
+                            Social Wellbeing
+                        </h3>
+
                         <p class="emotion-text">
-                            <span class="emotion-highlight"><b>A Mirror of Growth</b></span><br>
-                            <b>Are you looking to reconnect with people?</b>
-                            Feeling disconnected or lonely can be difficult.
-                            Professional guidance can help you improve communication,
-                            build meaningful connections and better understand yourself
-                            in a supportive environment.
+
+                            <span class="emotion-highlight">
+
+                                <b>
+                                    Meaningful Connections Begin with Understanding
+                                </b>
+
+                            </span>
+
+                            <br>
+
+                            Feeling disconnected doesn't mean you have to face it alone.
+
+                            Whether you're struggling to communicate,
+                            finding it hard to build relationships,
+                            or simply longing for someone who listens without judgment,
+                            support can make all the difference.
+
+                            At<b> SAARTHI – Navigating Life LLP</b>,
+                            we help you nurture healthy relationships,
+                            build confidence, and create genuine connections—because
+                            emotional wellbeing grows when we feel accepted,
+                            valued, and connected.
+
+                            <b>
+                                Together, let's reconnect—with others and with yourself.
+                            </b>
+
                         </p>
+
                     </div>
+
                 </div>
+
+
                 <div class="section-box card-back">
-                    <h4 class="text-dark">Key Focus Area</h4>
+
+                    <h4 class="text-dark">
+                        Key Focus Area
+                    </h4>
+
                     <ul>
-                        <li class="text-dark">Social skills</li>
-                        <li class="text-dark">Peer pressure</li>
-                        <li class="text-dark">Communication</li>
-                        <li class="text-dark">Parent-Child Relationship</li>
-                        <li class="text-dark">Gestures</li>
+
+                        <li class="text-dark">
+                            Social skills
+                        </li>
+
+                        <li class="text-dark">
+                            Peer pressure
+                        </li>
+
+                        <li class="text-dark">
+                            Communication
+                        </li>
+
+                        <li class="text-dark">
+                            Parent-Child Relationship
+                        </li>
+
+                        <li class="text-dark">
+                            Gestures
+                        </li>
+
                     </ul>
+
                 </div>
+
             </div>
+
         </div>
 
-   
+
+        <!-- ==================================================
+             CAREER WELLBEING
+        =================================================== -->
+
         <div class="flip-card">
+
             <div class="flip-card-inner">
+
                 <div class="section-box card-front">
+
                     <div class="card-image">
-                        <img src="{% static 'images/Pic.jpeg' %}" class="img-fluid">
+
+                        <img
+                            src="{% static 'images/Pic.jpeg' %}"
+                            class="img-fluid"
+                            alt="Career Wellbeing"
+                        >
+
                     </div>
+
                     <div class="card-content">
-                        <h3 class="emotion-title text-center">Career Wellbeing</h3>
+
+                        <h3 class="emotion-title text-center">
+                            Career Wellbeing
+                        </h3>
+
                         <p class="emotion-text">
-                            <span class="emotion-highlight"><b>A Journey of Growth, Confidence & Self-Discovery</b></span><br>
-                            Career guidance is about discovering your interests,
-                            strengths and potential — not just following the crowd.
-                            Success looks different for everyone, and finding your
-                            own path is what truly matters.
+
+                            <span class="emotion-highlight">
+
+                                <b>
+                                    A Journey of Growth, Confidence & Self-Discovery
+                                </b>
+
+                            </span>
+
+                            <br>
+
+                            Choosing a career is one of life's most important
+                            decisions—but it shouldn't be driven by pressure,
+                            comparisons, or expectations.
+
+                            At <b>SAARTHI – Navigating Life LLP</b>,
+                            we help students and young adults discover their strengths,
+                            interests, personality, and aspirations to make informed
+                            career choices with confidence.
+
+                            Through personalised guidance and meaningful conversations,
+                            we empower you to make decisions that reflect who you truly
+                            are—not who others expect you to be.
+
+                            <b>
+                                Because the right career begins with knowing yourself.
+                            </b>
+
                         </p>
+
                     </div>
+
                 </div>
+
+
                 <div class="section-box card-back">
-                    <h4 class="text-dark">Key Focus Area</h4>
+
+                    <h4 class="text-dark">
+                        Key Focus Area
+                    </h4>
+
                     <ul>
-                        <li class="text-dark">Exam stress</li>
-                        <li class="text-dark">Academic pressure</li>
-                        <li class="text-dark">Work stress</li>
-                        <li class="text-dark">Career confusion</li>
-                        <li class="text-dark">Study habits</li>
+
+                        <li class="text-dark">
+                            Exam stress
+                        </li>
+
+                        <li class="text-dark">
+                            Academic pressure
+                        </li>
+
+                        <li class="text-dark">
+                            Work stress
+                        </li>
+
+                        <li class="text-dark">
+                            Career confusion
+                        </li>
+
+                        <li class="text-dark">
+                            Study habits
+                        </li>
+
                     </ul>
+
                 </div>
+
             </div>
+
         </div>
 
+
+        
+
+
+        <!-- ==================================================
+             TALKING COMPANION
+        =================================================== -->
 
         <div class="flip-card">
+
             <div class="flip-card-inner">
+
                 <div class="section-box card-front">
+
                     <div class="card-image">
-                        <img src="{% static 'images/Pcs4.jpeg' %}" class="img-fluid">
+
+                        <img
+                            src="{% static 'images/handle1.png' %}"
+                            class="img-fluid"
+                            alt="Talking Companion"
+                        >
+
                     </div>
+
                     <div class="card-content">
-                        <h3 class="emotion-title text-center">Individual Wellbeing</h3>
+
+                        <h3 class="emotion-title text-center">
+                            Talking Companion
+                        </h3>
+
                         <p class="emotion-text">
-                            <span class="emotion-highlight"><b>Conversation Can Change Everything</b></span><br>
-                            We provide a safe and supportive space to express emotions,
-                            heal from emotional burdens and rediscover inner peace.
-                            You don't have to face everything alone — sometimes being
-                            heard is the first step toward healing.
-                        </p>
+
+                            <span class="emotion-highlight">
+
+                                <b>
+                                    A Listening Heart. A Caring Presence.
+                                </b>
+
+                            </span>
+
+                            <br>
+
+                            Loneliness isn't always about being alone.
+                            Sometimes, it's about not having someone who truly understands.
+
+                            Our Talking Companion service is designed for anyone seeking
+                            connection, comfort, or simply a caring conversation.
+
+                            Here, your thoughts are valued, your emotions are respected,
+                            and your story is heard with compassion.
+
+                    
+
+                       <b> Because everyone deserves someone who listens with empathy and cares without judgment.</b></p>
+
                     </div>
+
                 </div>
+
+
                 <div class="section-box card-back">
-                    <h4 class="text-dark">Key Focus Area</h4>
+
+                    <h4 class="text-dark">
+                        Key Focus Area
+                    </h4>
+
                     <ul>
-                        <li class="text-dark">Body image</li>
-                        <li class="text-dark">Grief & Loss</li>
-                        <li class="text-dark">Suicidal thoughts</li>
-                        <li class="text-dark">Self-harm</li>
+
+                        <li class="text-dark">
+                            Relationship conflicts
+                        </li>
+
+                        <li class="text-dark">
+                            Communication gaps
+                        </li>
+
+                        <li class="text-dark">
+                            Trust issues
+                        </li>
+
+                        <li class="text-dark">
+                            Family problems
+                        </li>
+
+                        <li class="text-dark">
+                            Conflict resolution
+                        </li>
+
                     </ul>
+
                 </div>
+
             </div>
+
         </div>
 
-       
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="section-box card-front">
-                    <div class="card-image">
-                        <img src="{% static 'images/handle1.png' %}" class="img-fluid">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="emotion-title text-center"> Talking Companion</h3>
-                        <p class="emotion-text">
-                            <span class="emotion-highlight"><b>You don't always need advice—sometimes, you just need someone who listens</b></span><br>
-                                
-                                    Sometimes, all we need is someone
-                                    who listens without judgment and
-                                    truly understands.
-                                </p>
-                    </div>
-                </div>
-                <div class="section-box card-back">
-                    <h4 class="text-dark">Key Focus Area</h4>
-                    <ul>
-                        <li class="text-dark">Relationship conflicts</li>
-                        <li class="text-dark">Communication gaps</li>
-                        <li class="text-dark">Trust issues</li>
-                        <li class="text-dark">Family problems</li>
-                        <li class="text-dark">Conflict resolution</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
 
     </div>
 
 </div>
+
 </section>
 
 
@@ -741,7 +1317,16 @@ document.querySelectorAll(".flip-card").forEach(card => {
             return;
         }
 
-        this.classList.toggle("active");
+        /*
+           On desktop click can also flip the card.
+           Mobile displays front/back naturally, so no flip needed.
+        */
+
+        if(window.innerWidth > 768){
+
+            this.classList.toggle("active");
+
+        }
 
     });
 

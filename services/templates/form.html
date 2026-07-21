@@ -3,86 +3,426 @@
 
 {% block content %}
 
-<section class="py-5" style="min-height:100vh; background:linear-gradient(135deg,#0f172a,#1e293b);">
-    <div class="container py-5">
+<style>
+    /* =========================
+       DEMO SESSION SECTION
+    ========================== */
+
+    .demo-section {
+        min-height: 100vh;
+        padding: 60px 0;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .demo-container {
+        width: 100%;
+    }
+
+    /* Card */
+    .demo-card {
+        padding: 45px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 20px;
+    }
+
+    /* Heading */
+    .demo-title {
+        color: #ffffff;
+        font-size: 38px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .demo-subtitle {
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+
+    /* Labels */
+    .demo-card .form-label {
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 7px;
+    }
+
+    /* Inputs */
+    .demo-card .form-control,
+    .demo-card .form-select {
+        min-height: 48px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 10px 14px;
+        font-size: 15px;
+        box-shadow: none;
+    }
+
+    .demo-card .form-control:focus,
+    .demo-card .form-select:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+    }
+
+    /* Textarea */
+    .demo-card textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    /* Button */
+    .demo-btn {
+        min-width: 220px;
+        padding: 13px 35px;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        transition: 0.3s ease;
+    }
+
+    .demo-btn:hover {
+        transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       TABLET
+    ========================== */
+
+    @media (max-width: 991px) {
+
+        .demo-section {
+            padding: 40px 0;
+        }
+
+        .demo-card {
+            padding: 35px;
+        }
+
+        .demo-title {
+            font-size: 34px;
+        }
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 767px) {
+
+        .demo-section {
+            min-height: auto;
+
+            /* Important:
+               Form ko mobile par upar rakhega */
+            padding-top: 15px;
+            padding-bottom: 30px;
+        }
+
+        .demo-container {
+            padding-left: 14px;
+            padding-right: 14px;
+        }
+
+        .demo-card {
+            padding: 22px 16px;
+            border-radius: 16px;
+        }
+
+        .demo-header {
+            margin-bottom: 20px !important;
+        }
+
+        .demo-title {
+            font-size: 27px;
+            line-height: 1.25;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .demo-subtitle {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .demo-card .form-label {
+            font-size: 14px;
+        }
+
+        .demo-card .form-control,
+        .demo-card .form-select {
+            min-height: 45px;
+            font-size: 14px;
+            padding: 9px 12px;
+        }
+
+        .demo-card textarea.form-control {
+            min-height: 100px;
+        }
+
+        .demo-card .mb-3 {
+            margin-bottom: 14px !important;
+        }
+
+        .demo-btn {
+            width: 100%;
+            min-width: 100%;
+            padding: 12px 20px;
+            font-size: 15px;
+        }
+    }
+
+
+    /* =========================
+       SMALL MOBILE
+    ========================== */
+
+    @media (max-width: 480px) {
+
+        .demo-section {
+            padding-top: 10px;
+            padding-bottom: 25px;
+        }
+
+        .demo-container {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .demo-card {
+            padding: 20px 14px;
+        }
+
+        .demo-title {
+            font-size: 24px;
+        }
+
+        .demo-subtitle {
+            font-size: 13px;
+        }
+    }
+    @media (max-width:768px) {
+        .row {
+         flex-direction:column;
+        }
+
+        
+    }
+
+</style>
+
+
+<section class="demo-section">
+
+    <div class="container demo-container">
 
         <div class="row justify-content-center">
-            <div class="col-lg-8">
 
-                <div class="card border-0 shadow-lg p-5 rounded-4"
-                     style="background:rgba(255,255,255,0.08); backdrop-filter: blur(15px);">
+            <div class="col-lg-8 col-md-10 col-12">
 
-                    <div class="text-center mb-4">
-                        <h1 class="text-white fw-bold">Book a Demo Session</h1>
-                        <p class="text-light">
+                <div class="card demo-card border-0 shadow-lg">
+
+                    <!-- Heading -->
+                    <div class="text-center demo-header mb-4">
+
+                        <h1 class="demo-title mt-5">
+                            Book a Demo Session
+                        </h1>
+
+                        <p class="demo-subtitle">
                             Schedule your free consultation session with our experts.
                         </p>
+
                     </div>
 
+
+                    <!-- Form -->
                     <form method="POST">
+
                         {% csrf_token %}
 
                         <div class="row">
 
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label text-white">Full Name</label>
-                                <input type="text" class="form-control" name="name" required>
+
+                            <!-- Full Name -->
+                            <div class="col-md-6 col-12 mb-3">
+
+                                <label class="form-label">
+                                    Full Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="name"
+                                    placeholder="Enter your full name"
+                                    required
+                                >
+
                             </div>
 
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label text-white">Email Address</label>
-                                <input type="email" class="form-control" name="email" required>
+
+                            <!-- Email -->
+                            <div class="col-md-6 col-12 mb-3">
+
+                                <label class="form-label">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    name="email"
+                                    placeholder="Enter your email"
+                                    required
+                                >
+
                             </div>
 
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label text-white">Phone Number</label>
-                                <input type="text" class="form-control" name="phone" required>
+
+                            <!-- Phone -->
+                            <div class="col-md-6 col-12 mb-3">
+
+                                <label class="form-label">
+                                    Phone Number
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    class="form-control"
+                                    name="phone"
+                                    placeholder="Enter your phone number"
+                                    required
+                                >
+
                             </div>
 
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label text-white">Preferred Session Date</label>
-                                <input type="date" class="form-control" name="date" required>
+
+                            <!-- Date -->
+                            <div class="col-md-6 col-12 mb-3">
+
+                                <label class="form-label">
+                                    Preferred Session Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    class="form-control"
+                                    name="date"
+                                    required
+                                >
+
                             </div>
 
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label text-white">Preferred Time</label>
-                                <input type="time" class="form-control" name="time" required>
+
+                            <!-- Time -->
+                            <div class="col-md-6 col-12 mb-3">
+
+                                <label class="form-label">
+                                    Preferred Time
+                                </label>
+
+                                <input
+                                    type="time"
+                                    class="form-control"
+                                    name="time"
+                                    required
+                                >
+
                             </div>
 
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label text-white">Session Type</label>
-                                <select class="form-select" name="session_type">
-                                    <option>Social Wellbeing</option>
-                                    <option>Emotional Wellbeing</option>
-                                    <option>behavioural Wellbeing</option>
-                                    <option>Career Wellbeing</option>
-                                    <option>Individual Wellbeing</option>
+
+                            <!-- Session Type -->
+                            <div class="col-md-6 col-12 mb-3">
+
+                                <label class="form-label">
+                                    Session Type
+                                </label>
+
+                                <select
+                                    class="form-select"
+                                    name="session_type"
+                                    required
+                                >
+
+                                    <option value="" selected disabled>
+                                        Select session type
+                                    </option>
+
+                                    <option value="Social Wellbeing">
+                                        Social Wellbeing
+                                    </option>
+
+                                    <option value="Emotional Wellbeing">
+                                        Emotional Wellbeing
+                                    </option>
+
+                                    <option value="Behavioural Wellbeing">
+                                        Behavioural Wellbeing
+                                    </option>
+
+                                    <option value="Career Wellbeing">
+                                        Career Wellbeing
+                                    </option>
+
+                                    <option value="Individual Wellbeing">
+                                        Individual Wellbeing
+                                    </option>
+
                                 </select>
+
                             </div>
 
+
+                            <!-- Message -->
                             <div class="col-12 mb-4">
-                                <label class="form-label text-white">Message</label>
-                                <textarea class="form-control"
-                                          rows="5"
-                                          name="message"
-                                          placeholder="Tell us about your concerns or goals"></textarea>
+
+                                <label class="form-label">
+                                    Message
+                                </label>
+
+                                <textarea
+                                    class="form-control"
+                                    rows="5"
+                                    name="message"
+                                    placeholder="Tell us about your concerns or goals"
+                                ></textarea>
+
                             </div>
 
-                            <div class="text-center">
-                                <button class="btn btn-primary px-5 py-3 rounded-pill">
+
+                            <!-- Submit Button -->
+                            <div class="col-12 text-center">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary demo-btn"
+                                >
                                     Book Demo Session
                                 </button>
+
                             </div>
 
+
                         </div>
+
                     </form>
 
                 </div>
 
             </div>
+
         </div>
 
     </div>
+
 </section>
 
 {% endblock %}
