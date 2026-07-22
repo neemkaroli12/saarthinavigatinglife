@@ -7,455 +7,1056 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
 
-body{
-    font-family: "Poppins", sans-serif;
-    background:#f5f7f8;
+body {
+    font-family: "Nunito", sans-serif;
+    background: #f5f7f8;
+    color: #6f7c82;
 }
 
-/* ========================= */
-/* SECTION */
-/* ========================= */
+/* =========================================
+   MAIN SECTION
+========================================= */
 
-.emdr-clean{
+.emdr-clean {
+    padding: 110px 0 100px;
+    background:
+        radial-gradient(
+            circle at 8% 12%,
+            rgba(227, 230, 239, 0.70),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 92% 45%,
+            rgba(224, 232, 235, 0.65),
+            transparent 30%
+        ),
+        #f5f7f8;
 
-    padding:120px 0;
-
-    background:#f5f7f8;
+    overflow: hidden;
 }
 
-/* ========================= */
-/* HERO */
-/* ========================= */
 
-.hero-wrapper{
+/* =========================================
+   COMMON
+========================================= */
 
-    margin-bottom:140px;
+.section-label {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: #e3e6ef;
+    color: #686f83;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
-/* TAG */
-
-.mini-tag{
-
-    display:inline-block;
-
-    padding:8px 18px;
-
-    border-radius:30px;
-
-    background:#e3e6ef;
-
-    color:#6d7286;
-
-    font-weight:700;
-
-    margin-bottom:28px;
-
-    font-size:15px;
+.section-title {
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.15;
+    color: #59636c;
+    margin-bottom: 25px;
 }
 
-/* TITLE */
 
-.hero-title{
+/* =========================================
+   HERO
+========================================= */
 
-    font-size:60px;
-
-    font-weight:200;
-
-    line-height:1.05;
-
-    color:#59616d;
-
-    margin-bottom:32px;
+.hero-wrapper {
+    margin-bottom: 130px;
 }
 
-/* TEXT */
-
-.hero-text{
-
-    font-size:20px;
-
-    
-
-    color:#74848a;
-
-    margin-bottom:24px;
-
-    max-width:650px;
-}
-
-/* IMAGE */
-
-.hero-image img{
-
-    width:100%;
-
-    height:400px;
-
-    object-fit:cover;
-
-    border-radius:40px;
+.hero-row {
+    background: rgba(255, 255, 255, 0.50);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 45px;
+    padding: 30px;
 
     box-shadow:
-    0 25px 45px rgba(0,0,0,0.06);
+        0 25px 60px rgba(77, 88, 91, 0.07);
 }
 
-/* ========================= */
-/* CONTENT */
-/* ========================= */
 
-.emdr-content{
+/* HERO IMAGE */
 
-    margin-bottom:140px;
+.hero-image {
+    position: relative;
 }
 
-.emdr-content h2{
+.hero-image::before {
+    content: "";
+    position: absolute;
 
-    font-size:58px;
+    width: 170px;
+    height: 170px;
 
-    font-weight:300;
+    background: #e0e3ed;
 
-    line-height:1.2;
+    border-radius: 50%;
 
-    color:#5d6b70;
+    top: -30px;
+    left: -30px;
 
-    margin-bottom:28px;
+    opacity: 0.7;
+
+    z-index: 0;
 }
 
-.emdr-content p{
+.hero-image img {
+    position: relative;
+    z-index: 1;
 
-    font-size:18px;
+    width: 100%;
+    height: 470px;
 
-  
+    object-fit: cover;
 
-    color:#74848a;
-
-    margin-bottom:24px;
-}
-
-/* IMAGE */
-
-.soft-image img{
-
-    width:100%;
-
-    border-radius:34px;
+    border-radius: 35px;
 
     box-shadow:
-    0 18px 40px rgba(0,0,0,0.05);
+        0 25px 45px rgba(0,0,0,0.08);
 }
 
-/* ========================= */
-/* BENEFITS */
-/* ========================= */
 
-.benefit-section{
+/* HERO CONTENT */
 
-    margin-bottom:140px;
+.hero-content {
+    padding: 30px 30px 30px 45px;
 }
 
-.benefit-section h2{
+.mini-tag {
+    display: inline-block;
 
-    font-size:60px;
+    padding: 9px 19px;
 
-    font-weight:300;
+    border-radius: 30px;
 
-    color:#5d666d;
+    background: #e3e6ef;
 
-    margin-bottom:60px;
+    color: #686f83;
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+
+    font-size: 14px;
 }
 
-/* GRID */
+.hero-title {
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1.05;
+    color: #59616d;
+    margin-bottom: 28px;
+}
 
-.benefit-grid{
+.hero-text {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #74848a;
+    margin-bottom: 20px;
+}
 
-    display:grid;
+
+/* =========================================
+   HEALING BEYOND TRAUMA
+========================================= */
+
+.emdr-content {
+    margin-bottom: 130px;
+}
+
+.emdr-text {
+    padding-right: 35px;
+}
+
+.emdr-text p {
+    font-size: 17px;
+    line-height: 1.95;
+    color: #74848a;
+    margin-bottom: 22px;
+}
+
+
+/* CONTENT IMAGE */
+
+.soft-image {
+    position: relative;
+    padding: 15px;
+}
+
+.soft-image::after {
+    content: "";
+
+    position: absolute;
+
+    width: 85%;
+    height: 85%;
+
+    right: -10px;
+    bottom: -10px;
+
+    background: #e1e4ed;
+
+    border-radius: 35px;
+
+    z-index: 0;
+}
+
+.soft-image img {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 500px;
+
+    object-fit: cover;
+
+    border-radius: 34px;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.07);
+}
+
+
+/* =========================================
+   OUR APPROACH
+========================================= */
+
+.approach-section {
+    margin-bottom: 130px;
+}
+
+.approach-header {
+    max-width: 850px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.approach-header h2 {
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #5d666d;
+    margin-bottom: 20px;
+}
+
+.approach-header p {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #74848a;
+    margin-bottom: 15px;
+}
+
+.approach-intro {
+    font-weight: 700;
+    color: #65747a !important;
+}
+
+
+/* APPROACH GRID */
+
+.approach-grid {
+    display: grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
+        repeat(3, 1fr);
 
-    gap:28px;
+    gap: 20px;
 }
 
-/* ITEM */
+.approach-card {
+    min-height: 190px;
 
-.benefit-item{
+    padding: 30px 25px;
 
-    padding:32px;
+    border-radius: 28px;
 
-    border-radius:28px;
+    background: rgba(255,255,255,0.90);
 
-    background:#ffffff;
+    display: flex;
 
-    text-align:center;
+    flex-direction: column;
 
-    color:#6f7c82;
+    align-items: center;
 
-    font-size:18px;
+    justify-content: center;
 
-    transition:0.35s ease;
+    text-align: center;
 
     box-shadow:
-    0 10px 25px rgba(0,0,0,0.04);
+        0 12px 32px rgba(0,0,0,0.045);
+
+    transition: 0.35s ease;
 }
 
-.benefit-item:hover{
-
-    transform:translateY(-8px);
+.approach-card:hover {
+    transform: translateY(-7px);
 
     box-shadow:
-    0 18px 35px rgba(0,0,0,0.06);
+        0 20px 40px rgba(0,0,0,0.07);
 }
 
-/* ========================= */
-/* PROCESS */
-/* ========================= */
+.approach-icon {
+    width: 55px;
+    height: 55px;
 
-.process-wrap{
+    border-radius: 50%;
 
-    margin-bottom:140px;
+    background: #e5e8f0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 23px;
+
+    margin-bottom: 18px;
 }
 
-.process-card{
+.approach-card p {
+    margin: 0;
 
-    background:#ffffff;
+    font-size: 16px;
 
-    padding:40px;
+    line-height: 1.7;
 
-    border-radius:32px;
+    font-weight: 700;
+
+    color: #64747a;
+}
+
+
+/* CONTROL NOTE */
+
+.control-note {
+    max-width: 1000px;
+
+    margin: 35px auto 0;
+
+    padding: 25px 35px;
+
+    border-radius: 24px;
+
+    background: #e8ebf2;
+
+    text-align: center;
+
+    font-size: 17px;
+
+    line-height: 1.85;
+
+    color: #626d78;
 
     box-shadow:
-    0 10px 30px rgba(0,0,0,0.05);
-
-    height:100%;
+        0 10px 30px rgba(0,0,0,0.025);
 }
 
-.process-number{
 
-    width:60px;
-    height:60px;
+/* =========================================
+   EMDR PROCESS
+========================================= */
 
-    border-radius:50%;
-
-    background:#e3e6ef;
-
-    color:#62697a;
-
-    font-size:22px;
-
-    font-weight:700;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    margin-bottom:24px;
+.process-section {
+    margin-bottom: 130px;
 }
 
-.process-card h4{
-
-    font-size:28px;
-
-    font-weight:600;
-
-    color:#5e6671;
-
-    margin-bottom:18px;
+.process-header {
+    max-width: 750px;
+    margin: 0 auto 55px;
+    text-align: center;
 }
 
-.process-card p{
-
-    color:#74848a;
-
-    line-height:1.9;
-
-    font-size:17px;
+.process-header h2 {
+    font-size: 56px;
+    font-weight: 300;
+    color: #59636c;
+    margin-bottom: 15px;
 }
 
-/* ========================= */
-/* ENDING */
-/* ========================= */
-
-.ending-line{
-
-    max-width:920px;
-
-    margin:auto;
-
-    text-align:center;
+.process-subtitle {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #79878d;
 }
 
-.ending-line h2{
 
-    font-size:64px;
+/* PROCESS GRID */
 
-    font-weight:300;
+.process-grid {
+    display: grid;
 
-    line-height:1.4;
+    grid-template-columns:
+        repeat(4, 1fr);
 
-    color:#5d666d;
-
-    margin-bottom:45px;
+    gap: 22px;
 }
+
+
+/* IMPORTANT:
+   ALL PROCESS CARDS HAVE SAME COLOR
+*/
+
+.process-card,
+.process-card:last-child {
+    position: relative;
+
+    background: rgba(255,255,255,0.92);
+
+    padding: 32px;
+
+    border-radius: 28px;
+
+    min-height: 285px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.045);
+
+    border:
+        1px solid rgba(255,255,255,0.9);
+
+    transition: 0.35s ease;
+}
+
+.process-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 20px 42px rgba(0,0,0,0.07);
+}
+
+
+/* NUMBER */
+
+.process-number,
+.process-card:last-child .process-number {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background: #e3e6ef;
+
+    color: #62697a;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 24px;
+}
+
+.process-card h4 {
+    font-size: 23px;
+
+    font-weight: 700;
+
+    color: #5e6671;
+
+    margin-bottom: 15px;
+}
+
+.process-card p {
+    color: #74848a;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   SAFE HEALING JOURNEY
+========================================= */
+
+.healing-journey {
+    margin-bottom: 130px;
+}
+
+.journey-card {
+    position: relative;
+
+    padding: 65px 70px;
+
+    border-radius: 42px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ebeef4,
+            #f5f7f8
+        );
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,0.04);
+}
+
+.journey-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.45);
+
+    right: -80px;
+    top: -100px;
+}
+
+.journey-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+}
+
+.journey-card h2 {
+    font-size: 48px;
+
+    font-weight: 300;
+
+    line-height: 1.25;
+
+    color: #59636c;
+
+    margin-bottom: 25px;
+}
+
+.journey-card p {
+    font-size: 17px;
+
+    line-height: 1.95;
+
+    color: #6e7d83;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   OUR PROMISE
+========================================= */
+
+.promise-section {
+    margin-bottom: 130px;
+}
+
+.promise-card {
+    position: relative;
+
+    max-width: 1080px;
+
+    margin: auto;
+
+    padding: 70px 75px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dfe3ed,
+            #eef1f5
+        );
+
+    border-radius: 45px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.045);
+
+    overflow: hidden;
+}
+
+.promise-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.35);
+
+    right: -100px;
+    top: -130px;
+}
+
+.promise-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.25);
+
+    left: -80px;
+    bottom: -100px;
+}
+
+.promise-content {
+    position: relative;
+    z-index: 2;
+}
+
+.promise-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(255,255,255,0.75);
+
+    font-size: 28px;
+}
+
+.promise-card h2 {
+    font-size: 52px;
+
+    font-weight: 300;
+
+    color: #59636c;
+
+    margin-bottom: 28px;
+}
+
+.promise-card p {
+    max-width: 900px;
+
+    margin: 0 auto 22px;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: #68777e;
+}
+
+.promise-highlight {
+    font-size: 22px !important;
+
+    line-height: 1.7 !important;
+
+    color: #56636d !important;
+
+    font-weight: 600;
+
+    margin-top: 30px !important;
+}
+
+
+/* =========================================
+   ENDING
+========================================= */
+
+.ending-line {
+    max-width: 920px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 25px 20px;
+}
+
+.ending-line h2 {
+    font-size: 58px;
+
+    font-weight: 300;
+
+    line-height: 1.4;
+
+    color: #5d666d;
+
+    margin-bottom: 42px;
+}
+
 
 /* BUTTON */
 
-.soft-btn{
+.soft-btn {
+    display: inline-flex;
 
-    display:inline-flex;
+    align-items: center;
 
-    align-items:center;
+    justify-content: center;
 
-    gap:10px;
+    gap: 10px;
 
-    padding:15px 34px;
+    padding: 16px 34px;
 
-    border-radius:40px;
+    border-radius: 40px;
 
-    text-decoration:none;
+    text-decoration: none;
 
-    background:#d7dbe8;
+    background: #d7dbe8;
 
-    color:#555d70;
+    color: #555d70;
 
-    font-weight:700;
+    font-weight: 800;
 
-    transition:0.35s ease;
-}
-
-.soft-btn:hover{
-
-    transform:translateY(-3px);
-
-    color:#434b5d;
+    transition: 0.35s ease;
 
     box-shadow:
-    0 12px 24px rgba(0,0,0,0.08);
+        0 10px 25px rgba(85,93,112,0.09);
+}
+
+.soft-btn:hover {
+    transform: translateY(-4px);
+
+    color: #434b5d;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.09);
 }
 
 
-@media(max-width:768px){
+/* =========================================
+   TABLET
+========================================= */
 
-    .emdr-clean{
-        padding:80px 0;
+@media(max-width:991px) {
+
+    .emdr-clean {
+        padding: 90px 0;
     }
 
-    .hero-title{
-        font-size:50px;
+    .hero-wrapper,
+    .emdr-content,
+    .approach-section,
+    .process-section,
+    .healing-journey,
+    .promise-section {
+        margin-bottom: 95px;
     }
 
-    .hero-text{
-        font-size:16px;
-        line-height:1.9;
+    .hero-row {
+        padding: 22px;
     }
 
-    .hero-image img{
-        height:420px;
+    .hero-content {
+        padding: 20px 10px;
     }
 
-    .emdr-content{
-        margin-bottom:90px;
+    .hero-title {
+        font-size: 54px;
     }
 
-    .emdr-content h2,
-    .benefit-section h2,
-    .ending-line h2{
-        font-size:38px;
+    .hero-image img {
+        height: 420px;
     }
 
-    .emdr-content p{
-        font-size:16px;
+    .emdr-text {
+        padding-right: 0;
     }
 
-    .benefit-item{
-        font-size:16px;
-        padding:24px;
+    .soft-image img {
+        height: 430px;
     }
 
-}
-@media (max-width: 768px) {
-
-    .process-wrap .row {
-        display: flex !important;
-        flex-direction: column !important;
+    .approach-grid {
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .process-wrap .row > div:nth-child(1) {
-        order: 1;
-    }
-
-    .process-wrap .row > div:nth-child(2) {
-        order: 2;
-    }
-
-    .process-wrap .row > div:nth-child(3) {
-        order: 3;
-    }
-
-    .process-wrap .row > div:nth-child(4) {
-        order: 4;
+    .process-grid {
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .process-card {
-        width: 100%;
-        height: auto;
-        padding: 30px;
+        min-height: 250px;
     }
 }
 
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px) {
+
+    .emdr-clean {
+        padding: 65px 0;
+    }
+
+
+    /* HERO */
+
+    .hero-wrapper {
+        margin-bottom: 85px;
+    }
+
+    .hero-row {
+        padding: 14px;
+        border-radius: 28px;
+    }
+
+    .hero-image::before {
+        display: none;
+    }
+
+    .hero-image img {
+        height: 320px;
+        border-radius: 24px;
+    }
+
+    .hero-content {
+        padding: 20px 8px 15px;
+    }
+
+    .mini-tag {
+        font-size: 12px;
+        padding: 8px 14px;
+        margin-bottom: 18px;
+    }
+
+    .hero-title {
+        font-size: 43px;
+        margin-bottom: 20px;
+    }
+
+    .hero-text {
+        font-size: 16px;
+        line-height: 1.85;
+    }
+
+
+    /* HEADINGS */
+
+    .section-title,
+    .approach-header h2,
+    .process-header h2,
+    .journey-card h2,
+    .promise-card h2 {
+        font-size: 36px;
+    }
+
+
+    /* CONTENT */
+
+    .emdr-text p {
+        font-size: 16px;
+        line-height: 1.85;
+    }
+
+    .soft-image {
+        padding: 0;
+    }
+
+    .soft-image::after {
+        display: none;
+    }
+
+    .soft-image img {
+        height: 330px;
+        border-radius: 25px;
+    }
+
+
+    /* APPROACH */
+
+    .approach-header p {
+        font-size: 16px;
+    }
+
+    .approach-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .approach-card {
+        min-height: auto;
+        padding: 25px 20px;
+    }
+
+    .control-note {
+        padding: 22px 18px;
+        font-size: 15px;
+    }
+
+
+    /* PROCESS */
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-card,
+    .process-card:last-child {
+        min-height: auto;
+        padding: 27px;
+        background: rgba(255,255,255,0.92);
+    }
+
+    .process-card h4 {
+        font-size: 21px;
+    }
+
+
+    /* JOURNEY */
+
+    .journey-card {
+        padding: 40px 24px;
+        border-radius: 30px;
+    }
+
+    .journey-card p {
+        font-size: 16px;
+    }
+
+
+    /* PROMISE */
+
+    .promise-card {
+        padding: 42px 22px;
+        border-radius: 30px;
+    }
+
+    .promise-card p {
+        font-size: 16px;
+    }
+
+    .promise-highlight {
+        font-size: 19px !important;
+    }
+
+
+    /* ENDING */
+
+    .ending-line h2 {
+        font-size: 37px;
+        line-height: 1.4;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media(max-width:420px) {
+
+    .hero-title {
+        font-size: 39px;
+    }
+
+    .hero-image img {
+        height: 280px;
+    }
+
+    .soft-image img {
+        height: 290px;
+    }
+
+}
+
 </style>
+
 
 <section class="emdr-clean">
 
 <div class="container">
 
-    <!-- HERO -->
+
+    <!-- =====================================
+         HERO SECTION
+    ====================================== -->
 
     <div class="hero-wrapper">
 
-        <div class="row align-items-center gy-5">
+        <div class="hero-row">
 
-            <!-- IMAGE -->
+            <div class="row align-items-center gy-4">
 
-            <div class="col-lg-6">
 
-                <div class="hero-image">
+                <!-- IMAGE -->
 
-                    <img src="{% static 'images/emdr2.png' %}" class="img-fluid">
+                <div class="col-lg-6">
+
+                    <div class="hero-image">
+
+                        <img
+                            src="{% static 'images/emdr2.png' %}"
+                            class="img-fluid"
+                            alt="EMDR Therapy"
+                        >
+
+                    </div>
 
                 </div>
 
-            </div>
 
-            <!-- CONTENT -->
+                <!-- CONTENT -->
 
-            <div class="col-lg-6">
+                <div class="col-lg-6">
 
-                <span class="mini-tag">
-                    🌿 Trauma Healing & Emotional Recovery
-                </span>
+                    <div class="hero-content">
 
-                <h1 class="hero-title">
-                    EMDR Therapy
-                </h1>
+                        <span class="mini-tag">
+                            🌿 Trauma Healing & Emotional Recovery
+                        </span>
 
-                <p class="hero-text">
 
-                    Eye Movement Desensitization and Reprocessing (EMDR)
-                    is an evidence-based therapy that helps individuals
-                    heal from trauma, emotional distress and painful memories.
+                        <h1 class="hero-title">
+                            EMDR Therapy
+                        </h1>
 
-                </p>
 
-                <p class="hero-text">
+                        <p class="hero-text">
 
-                    EMDR supports the brain in reprocessing overwhelming experiences,
-                    reducing emotional intensity and helping individuals feel calmer,
-                    safer and more emotionally balanced.
+                            Eye Movement Desensitization and Reprocessing (EMDR)
+                            is an evidence-based therapy that helps individuals
+                            heal from trauma, emotional distress and painful memories.
 
-                </p>
+                        </p>
 
+
+                        <p class="hero-text">
+
+                            EMDR supports the brain in reprocessing overwhelming experiences,
+                            reducing emotional intensity and helping individuals feel calmer,
+                            safer and more emotionally balanced.
+
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -463,45 +1064,73 @@ body{
 
     </div>
 
-    <!-- CONTENT -->
+
+    <!-- =====================================
+         HEALING BEYOND TRAUMA
+    ====================================== -->
 
     <div class="emdr-content">
 
         <div class="row gy-5 align-items-center">
 
+
             <!-- TEXT -->
 
             <div class="col-lg-6">
 
-                <h2>
-                    Healing Beyond Trauma
-                </h2>
+                <div class="emdr-text">
 
-                <p>
+                    <span class="section-label">
+                        Understanding Your Experience
+                    </span>
 
-                    Sometimes painful memories remain emotionally “stuck,”
-                    creating anxiety, fear, shame or emotional overwhelm
-                    long after difficult experiences have passed.
 
-                </p>
+                    <h2 class="section-title">
+                        Healing Beyond Trauma
+                    </h2>
 
-                <p>
 
-                    EMDR therapy helps process these memories safely,
-                    allowing emotional relief, healthier self-beliefs
-                    and a greater sense of calm and control.
+                    <p>
 
-                </p>
+                        At Saarthi Navigating Life, we understand that some life
+                        experiences leave emotional wounds that continue to affect
+                        how we think, feel, and respond long after the event has passed.
+
+                    </p>
+
+
+                    <p>
+
+                        Painful memories, trauma, grief, accidents, abuse, bullying,
+                        or distressing experiences can sometimes remain "stuck" in
+                        the brain, making it difficult to fully heal.
+
+                    </p>
+
+
+                    <p>
+
+                        Our goal is not to erase your memories—but to help you
+                        remember them without feeling overwhelmed by them.
+
+                    </p>
+
+                </div>
 
             </div>
 
-            
+
+            <!-- IMAGE -->
 
             <div class="col-lg-6">
 
                 <div class="soft-image">
 
-                    <img src="{% static 'images/emdr1.png' %}" class="img-fluid">
+                    <img
+                        src="{% static 'images/emdr1.png' %}"
+                        class="img-fluid"
+                        alt="Healing Beyond Trauma"
+                    >
 
                 </div>
 
@@ -511,139 +1140,312 @@ body{
 
     </div>
 
-    <!-- BENEFITS -->
 
-    <div class="benefit-section">
+    <!-- =====================================
+         OUR APPROACH
+    ====================================== -->
 
-        <h2 class="text-center">
-            EMDR Can Support
-        </h2>
+    <div class="approach-section">
 
-        <div class="benefit-grid">
 
-            <div class="benefit-item">
-                Trauma Recovery
+        <div class="approach-header">
+
+            <span class="section-label">
+                Safe • Personal • Compassionate
+            </span>
+
+
+            <h2>
+                Our Approach at Saarthi Navigating Life
+            </h2>
+
+
+            <p>
+
+                Healing is deeply personal. Every EMDR journey begins
+                with understanding you as an individual—not simply your trauma.
+
+            </p>
+
+
+            <p>
+
+                Our approach focuses on providing a safe, compassionate,
+                and confidential environment where healing happens at your pace.
+
+            </p>
+
+
+            <p class="approach-intro">
+                We work collaboratively to help you:
+            </p>
+
+        </div>
+
+
+        <div class="approach-grid">
+
+
+            <div class="approach-card">
+
+                <div class="approach-icon">
+                    🛡️
+                </div>
+
+                <p>
+                    Build emotional safety before processing difficult memories.
+                </p>
+
             </div>
 
-            <div class="benefit-item">
-                Anxiety & Panic
+
+            <div class="approach-card">
+
+                <div class="approach-icon">
+                    🌿
+                </div>
+
+                <p>
+                    Strengthen coping skills for managing distress.
+                </p>
+
             </div>
 
-            <div class="benefit-item">
-                Childhood Emotional Wounds
+
+            <div class="approach-card">
+
+                <div class="approach-icon">
+                    🧠
+                </div>
+
+                <p>
+                    Process unresolved experiences in a structured way.
+                </p>
+
             </div>
 
-            <div class="benefit-item">
-                Grief & Loss
+
+            <div class="approach-card">
+
+                <div class="approach-icon">
+                    🕊️
+                </div>
+
+                <p>
+                    Reduce emotional triggers and distress.
+                </p>
+
             </div>
 
-            <div class="benefit-item">
-                Shame & Emotional Blocks
+
+            <div class="approach-card">
+
+                <div class="approach-icon">
+                    💭
+                </div>
+
+                <p>
+                    Replace negative self-beliefs with healthier,
+                    more balanced perspectives.
+                </p>
+
             </div>
 
-            <div class="benefit-item">
-                Relationship Trauma
+
+            <div class="approach-card">
+
+                <div class="approach-icon">
+                    ✨
+                </div>
+
+                <p>
+                    Reconnect with confidence, resilience, and hope.
+                </p>
+
             </div>
 
-            <div class="benefit-item">
-                Phobias & Triggers
+        </div>
+
+
+        <div class="control-note">
+
+            You remain in control throughout the process.
+            Nothing is done without your informed consent,
+            and sessions proceed at a pace that feels manageable for you.
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         EMDR PROCESS
+    ====================================== -->
+
+    <div class="process-section">
+
+
+        <div class="process-header">
+
+            <span class="section-label">
+                Your Healing Journey
+            </span>
+
+            <h2>
+                EMDR Process
+            </h2>
+
+            <p class="process-subtitle">
+
+                A supportive and structured process designed to help you
+                move from understanding difficult experiences toward
+                emotional relief and healing.
+
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <!-- STEP 1 -->
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h4>
+                    Understand
+                </h4>
+
+                <p>
+
+                    Explore experiences, emotional triggers and
+                    therapy goals in a safe space.
+
+                </p>
+
             </div>
 
-            <div class="benefit-item">
-                Emotional Regulation
+
+            <!-- STEP 2 -->
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h4>
+                    Stabilize
+                </h4>
+
+                <p>
+
+                    Learn grounding tools and emotional regulation
+                    before deeper processing.
+
+                </p>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <h4>
+                    Reprocess
+                </h4>
+
+                <p>
+
+                    Use guided bilateral stimulation to safely
+                    process distressing memories.
+
+                </p>
+
+            </div>
+
+
+            <!-- STEP 4 -->
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    04
+                </div>
+
+                <h4>
+                    Heal
+                </h4>
+
+                <p>
+
+                    Build emotional relief, healthier beliefs
+                    and a renewed sense of inner safety.
+
+                </p>
+
             </div>
 
         </div>
 
     </div>
 
-    <!-- PROCESS -->
 
-    <div class="process-wrap">
+    <!-- =====================================
+         SAFE & COMPASSIONATE HEALING
+    ====================================== -->
 
-         <h2 style="font-size:40px;" >
-            EMDR Process
-        </h2><br>
+    <div class="healing-journey">
 
-        <div class="row g-4">
+        <div class="journey-card">
 
-            <div class="col-lg-3">
+            <div class="journey-content">
 
-                <div class="process-card">
+                <span class="section-label">
+                    Healing at Your Pace
+                </span>
 
-                    <div class="process-number">
-                        1
-                    </div>
 
-                    <h4>
-                        Understand
-                    </h4>
+                <h2>
+                    A Safe and Compassionate Healing Journey
+                </h2>
 
-                    <p>
-                        Explore experiences, emotional triggers and therapy goals in a safe space.
-                    </p>
 
-                </div>
+                <p>
 
-            </div>
+                    At Saarthi Navigating Life, we believe healing happens
+                    when people feel heard, respected, and supported.
 
-            <div class="col-lg-3">
+                </p>
 
-                <div class="process-card">
 
-                    <div class="process-number">
-                        2
-                    </div>
+                <p>
 
-                    <h4>
-                        Stabilize
-                    </h4>
+                    EMDR is never rushed. We move at a pace that prioritises
+                    your emotional safety while working toward meaningful
+                    and lasting recovery.
 
-                    <p>
-                        Learn grounding tools and emotional regulation before deeper processing.
-                    </p>
+                </p>
 
-                </div>
 
-            </div>
+                <p>
 
-            <div class="col-lg-3">
+                    Whether you are healing from trauma, navigating grief,
+                    or carrying the weight of difficult life experiences,
+                    we are committed to walking alongside you with empathy,
+                    professionalism, and hope.
 
-                <div class="process-card">
-
-                    <div class="process-number">
-                        3
-                    </div>
-
-                    <h4>
-                        Reprocess
-                    </h4>
-
-                    <p>
-                        Use guided bilateral stimulation to safely process distressing memories.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-3">
-
-                <div class="process-card">
-
-                    <div class="process-number">
-                        4
-                    </div>
-
-                    <h4>
-                        Heal
-                    </h4>
-
-                    <p>
-                        Build emotional relief, healthier beliefs and a renewed sense of inner safety.
-                    </p>
-
-                </div>
+                </p>
 
             </div>
 
@@ -651,9 +1453,76 @@ body{
 
     </div>
 
-    <!-- ENDING -->
+
+    <!-- =====================================
+         OUR PROMISE
+    ====================================== -->
+
+    <div class="promise-section">
+
+        <div class="promise-card">
+
+            <div class="promise-content">
+
+
+                <div class="promise-icon">
+                    🤍
+                </div>
+
+
+                <span class="section-label">
+                    Compassion • Support • Hope
+                </span>
+
+
+                <h2>
+                    Our Promise
+                </h2>
+
+
+                <p>
+
+                    At Saarthi Navigating Life, we believe that your
+                    past does not have to define your future.
+
+                </p>
+
+
+                <p>
+
+                    Through evidence-based care, compassionate support,
+                    and a personalised therapeutic approach, we help you
+                    process painful experiences, rediscover your inner
+                    strengths, and move forward with greater confidence
+                    and emotional freedom.
+
+                </p>
+
+
+                <p class="promise-highlight">
+
+                    Because healing is not about forgetting the past—it
+                    is about reclaiming your future.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         ENDING
+    ====================================== -->
 
     <div class="ending-line">
+
+        <span class="section-label">
+            Moving Forward
+        </span>
+
 
         <h2>
 
@@ -663,25 +1532,41 @@ body{
 
         </h2>
 
+
         <a href="{% url 'form' %}" class="soft-btn">
+
             Explore EMDR Therapy →
+
         </a>
 
     </div>
 
+
 </div>
 
 </section>
+
+
 <script>
+
 window.addEventListener("load", function () {
+
     if (window.innerWidth <= 768) {
+
         window.scrollTo({
+
             top: 0,
+
             left: 0,
+
             behavior: "instant"
+
         });
+
     }
+
 });
+
 </script>
 
 {% endblock %}

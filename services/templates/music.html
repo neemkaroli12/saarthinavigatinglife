@@ -7,256 +7,1260 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
 
-body{
-    font-family: "Poppins", sans-serif;
-    background:#f4f6f5;
+body {
+    font-family: "Nunito", sans-serif;
+    background: #f4f6f5;
+    color: #6f7c82;
 }
 
-/* ========================= */
-/* STORY SECTION */
-/* ========================= */
 
-.therapy-story{
+/* =========================================
+   MAIN SECTION
+========================================= */
 
-    padding:110px 0;
+.music-therapy-page {
 
-    background:#f4f6f5;
+    padding: 110px 0 100px;
+
+    background:
+        radial-gradient(
+            circle at 8% 10%,
+            rgba(220, 231, 228, 0.65),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 92% 45%,
+            rgba(231, 226, 217, 0.55),
+            transparent 30%
+        ),
+        #f4f6f5;
+
+    overflow: hidden;
 }
 
-/* BLOCK */
 
-.therapy-block{
+/* =========================================
+   COMMON
+========================================= */
 
-    margin-bottom:140px;
+.section-label {
+
+    display: inline-block;
+
+    padding: 9px 18px;
+
+    border-radius: 30px;
+
+    background: #dce7e4;
+
+    color: #657b76;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
 }
+
+
+.section-title {
+
+    font-size: 52px;
+
+    font-weight: 300;
+
+    line-height: 1.18;
+
+    color: #5d6b70;
+
+    margin-bottom: 25px;
+}
+
+
+.normal-text {
+
+    font-size: 17px;
+
+    line-height: 1.95;
+
+    color: #74848a;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.music-hero {
+
+    margin-bottom: 130px;
+}
+
+
+.music-hero-box {
+
+    padding: 30px;
+
+    border-radius: 45px;
+
+    background: rgba(255, 255, 255, 0.52);
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+
+    box-shadow:
+        0 25px 60px rgba(77, 88, 91, 0.07);
+}
+
 
 /* IMAGE */
 
-.therapy-image img{
+.hero-image {
 
-    width:100%;
+    position: relative;
+}
 
-    height:380px;
 
-    border-radius:34px;
+.hero-image::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+
+    height: 170px;
+
+    border-radius: 50%;
+
+    background: #d9e6e2;
+
+    top: -30px;
+
+    left: -30px;
+
+    opacity: 0.65;
+
+    z-index: 0;
+}
+
+
+.hero-image img {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    border-radius: 35px;
 
     box-shadow:
-    0 20px 45px rgba(98,120,116,0.10);
+        0 25px 45px rgba(0, 0, 0, 0.08);
 }
 
-/* LABEL */
 
-.therapy-label{
+/* HERO CONTENT */
 
-    display:inline-block;
+.hero-content {
 
-    padding:8px 18px;
-
-    border-radius:30px;
-
-    background:#dce7e4;
-
-    color:#6c827d;
-
-    font-weight:700;
-
-    margin-bottom:24px;
+    padding: 25px 30px 25px 45px;
 }
 
-/* TITLE */
 
-.therapy-block h2{
+.hero-title {
 
-    font-size:52px;
+    font-size: 58px;
 
-    font-weight:300;
+    font-weight: 300;
 
-    line-height:1.2;
+    line-height: 1.08;
 
-    color:#5d6b70;
+    color: #59666b;
 
-    margin-bottom:24px;
+    margin-bottom: 25px;
 }
 
-/* TEXT */
 
-.therapy-block p{
+.hero-subtitle {
 
-    font-size:18px;
+    font-size: 22px;
 
-    line-height:2;
+    font-weight: 600;
 
-    color:#74848a;
+    color: #64777a;
+
+    margin-bottom: 20px;
 }
 
-/* LIST */
 
-.therapy-list{
+.hero-text {
 
-    list-style:none;
+    font-size: 17px;
 
-    padding-left:0;
+    line-height: 1.9;
+
+    color: #74848a;
+
+    margin-bottom: 18px;
 }
 
-.therapy-list li{
 
-    position:relative;
+/* =========================================
+   MUSIC ACTIVITIES
+========================================= */
 
-    padding-left:28px;
+.activities-section {
 
-    margin-bottom:18px;
-
-    font-size:18px;
-
-    color:#708086;
+    margin-bottom: 130px;
 }
 
-.therapy-list li::before{
 
-    content:"●";
+.activities-header {
 
-    position:absolute;
+    max-width: 800px;
 
-    left:0;
-    top:2px;
+    margin: 0 auto 50px;
 
-    color:#92aaa5;
-
-    font-size:12px;
+    text-align: center;
 }
 
-/* QUOTE */
 
-.therapy-quote{
+.activities-header h2 {
 
-    text-align:center;
+    font-size: 52px;
 
-    max-width:850px;
+    font-weight: 300;
 
-    margin:auto;
+    color: #5d686d;
 
-    padding-top:40px;
+    margin-bottom: 15px;
 }
 
-.therapy-quote h2{
 
-    font-size:58px;
+.activities-header p {
 
-    font-weight:300;
+    font-size: 18px;
 
-    line-height:1.4;
+    color: #74848a;
 
-    color:#5c646b;
-
-    margin-bottom:40px;
+    line-height: 1.8;
 }
 
-/* BUTTON */
 
-.therapy-btn{
+.activities-grid {
 
-    display:inline-flex;
+    display: grid;
 
-    align-items:center;
+    grid-template-columns: repeat(3, 1fr);
 
-    gap:10px;
+    gap: 20px;
+}
 
-    padding:14px 30px;
 
-    border-radius:40px;
+.activity-card {
 
-    text-decoration:none;
+    min-height: 165px;
+
+    padding: 25px 20px;
+
+    border-radius: 27px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: #62757a;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.045);
+
+    transition: 0.35s ease;
+}
+
+
+.activity-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.07);
+}
+
+
+.activity-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 50%;
+
+    background: #e3ece9;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+    margin-bottom: 15px;
+}
+
+
+/* NO EXPERIENCE NOTE */
+
+.music-note {
+
+    max-width: 1000px;
+
+    margin: 35px auto 0;
+
+    padding: 25px 32px;
+
+    border-radius: 24px;
+
+    background: #e6eeeb;
+
+    text-align: center;
+
+    font-size: 17px;
+
+    line-height: 1.85;
+
+    color: #65767a;
+}
+
+
+/* =========================================
+   WHO CAN BENEFIT
+========================================= */
+
+.benefit-section {
+
+    margin-bottom: 130px;
+}
+
+
+.benefit-content {
+
+    padding-right: 35px;
+}
+
+
+.benefit-image {
+
+    position: relative;
+
+    padding: 15px;
+}
+
+
+.benefit-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 85%;
+
+    height: 85%;
+
+    right: -10px;
+
+    bottom: -10px;
+
+    background: #dce8e4;
+
+    border-radius: 35px;
+
+    z-index: 0;
+}
+
+
+.benefit-image img {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    border-radius: 34px;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.07);
+}
+
+
+.benefit-list {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 30px 0 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+}
+
+
+.benefit-list li {
+
+    padding: 16px 18px;
+
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    color: #687a7e;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.035);
+}
+
+
+.benefit-list li::before {
+
+    content: "✓";
+
+    width: 28px;
+
+    height: 28px;
+
+    min-width: 28px;
+
+    border-radius: 50%;
+
+    background: #dce7e4;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #687d78;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   HOW SESSIONS WORK
+========================================= */
+
+.session-section {
+
+    margin-bottom: 130px;
+}
+
+
+.session-box {
+
+    padding: 30px;
+
+    border-radius: 42px;
+
+    background: rgba(255, 255, 255, 0.48);
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+
+.session-image img {
+
+    width: 100%;
+
+    height: 450px;
+
+    object-fit: cover;
+
+    border-radius: 32px;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+
+.session-content {
+
+    padding: 25px 35px;
+}
+
+
+.session-content p {
+
+    font-size: 17px;
+
+    line-height: 1.95;
+
+    color: #74848a;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   PERSONALISED APPROACH
+========================================= */
+
+.personalised-section {
+
+    margin-bottom: 130px;
+}
+
+
+.personalised-card {
+
+    position: relative;
+
+    padding: 65px 70px;
+
+    border-radius: 42px;
 
     background:
-    linear-gradient(
-        90deg,
-        #b7c9c4,
-        #c7d8d6
-    );
+        linear-gradient(
+            135deg,
+            #e5eeeb,
+            #f1f5f3
+        );
 
-    color:#55686d;
+    overflow: hidden;
 
-    font-weight:700;
-
-    transition:0.35s ease;
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.04);
 }
 
-.therapy-btn:hover{
 
-    transform:translateY(-3px);
+.personalised-card::before {
 
-    color:#44575c;
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+
+    height: 260px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.4);
+
+    right: -90px;
+
+    top: -110px;
 }
 
-/* MOBILE */
 
-@media(max-width:768px){
+.personalised-content {
 
-    .therapy-block{
-        margin-bottom:90px;
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 900px;
+}
+
+
+.personalised-card h2 {
+
+    font-size: 48px;
+
+    font-weight: 300;
+
+    line-height: 1.25;
+
+    color: #59686c;
+
+    margin-bottom: 25px;
+}
+
+
+.personalised-card p {
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: #687b7e;
+
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   OUR PROMISE
+========================================= */
+
+.promise-section {
+
+    margin-bottom: 130px;
+}
+
+
+.promise-card {
+
+    position: relative;
+
+    max-width: 1080px;
+
+    margin: auto;
+
+    padding: 70px 75px;
+
+    text-align: center;
+
+    border-radius: 45px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e4ece9,
+            #eef3f1
+        );
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.045);
+
+    overflow: hidden;
+}
+
+
+.promise-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    right: -100px;
+
+    top: -130px;
+}
+
+
+.promise-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+
+    height: 190px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    left: -80px;
+
+    bottom: -100px;
+}
+
+
+.promise-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.promise-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    font-size: 28px;
+}
+
+
+.promise-card h2 {
+
+    font-size: 52px;
+
+    font-weight: 300;
+
+    color: #59686c;
+
+    margin-bottom: 28px;
+}
+
+
+.promise-card p {
+
+    max-width: 900px;
+
+    margin: 0 auto 22px;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: #687b7e;
+}
+
+
+.promise-highlight {
+
+    font-size: 22px !important;
+
+    line-height: 1.7 !important;
+
+    color: #56696c !important;
+
+    font-weight: 600;
+
+    margin-top: 30px !important;
+}
+
+
+/* =========================================
+   FINAL CTA
+========================================= */
+
+.therapy-quote {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 25px 20px;
+}
+
+
+.therapy-quote h2 {
+
+    font-size: 58px;
+
+    font-weight: 300;
+
+    line-height: 1.4;
+
+    color: #5c646b;
+
+    margin-bottom: 42px;
+}
+
+
+.therapy-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 16px 34px;
+
+    border-radius: 40px;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            #b7c9c4,
+            #c7d8d6
+        );
+
+    color: #55686d;
+
+    font-weight: 800;
+
+    transition: 0.35s ease;
+
+    box-shadow:
+        0 10px 25px rgba(85, 104, 109, 0.08);
+}
+
+
+.therapy-btn:hover {
+
+    transform: translateY(-4px);
+
+    color: #44575c;
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.09);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media(max-width:991px) {
+
+    .music-therapy-page {
+
+        padding: 90px 0;
     }
 
-    .therapy-block h2{
-        font-size:38px;
+
+    .music-hero,
+    .activities-section,
+    .benefit-section,
+    .session-section,
+    .personalised-section,
+    .promise-section {
+
+        margin-bottom: 95px;
     }
 
-    .therapy-quote h2{
-        font-size:36px;
+
+    .music-hero-box {
+
+        padding: 22px;
     }
 
-    .therapy-block p,
-    .therapy-list li{
-        font-size:16px;
+
+    .hero-content {
+
+        padding: 20px 10px;
+    }
+
+
+    .hero-title {
+
+        font-size: 50px;
+    }
+
+
+    .hero-image img {
+
+        height: 420px;
+    }
+
+
+    .activities-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .benefit-content {
+
+        padding-right: 0;
+    }
+
+
+    .benefit-image img {
+
+        height: 430px;
+    }
+
+
+    .session-content {
+
+        padding: 20px 5px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px) {
+
+    .music-therapy-page {
+
+        padding: 65px 0;
+    }
+
+
+    /* HERO */
+
+    .music-hero {
+
+        margin-bottom: 85px;
+    }
+
+
+    .music-hero-box {
+
+        padding: 14px;
+
+        border-radius: 28px;
+    }
+
+
+    .hero-image::before {
+
+        display: none;
+    }
+
+
+    .hero-image img {
+
+        height: 320px;
+
+        border-radius: 24px;
+    }
+
+
+    .hero-content {
+
+        padding: 20px 8px 15px;
+    }
+
+
+    .section-label {
+
+        font-size: 12px;
+
+        padding: 8px 14px;
+    }
+
+
+    .hero-title {
+
+        font-size: 40px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .hero-subtitle {
+
+        font-size: 19px;
+    }
+
+
+    .hero-text {
+
+        font-size: 16px;
+
+        line-height: 1.85;
+    }
+
+
+    /* HEADINGS */
+
+    .section-title,
+    .activities-header h2,
+    .personalised-card h2,
+    .promise-card h2 {
+
+        font-size: 36px;
+    }
+
+
+    /* ACTIVITIES */
+
+    .activities-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+    }
+
+
+    .activity-card {
+
+        min-height: auto;
+
+        padding: 24px 18px;
+    }
+
+
+    .music-note {
+
+        padding: 21px 18px;
+
+        font-size: 15px;
+    }
+
+
+    /* BENEFITS */
+
+    .benefit-image {
+
+        padding: 0;
+    }
+
+
+    .benefit-image::after {
+
+        display: none;
+    }
+
+
+    .benefit-image img {
+
+        height: 330px;
+
+        border-radius: 25px;
+    }
+
+
+    .benefit-list {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* SESSION */
+
+    .session-box {
+
+        padding: 14px;
+
+        border-radius: 28px;
+    }
+
+
+    .session-image img {
+
+        height: 320px;
+
+        border-radius: 23px;
+    }
+
+
+    .session-content {
+
+        padding: 20px 8px;
+    }
+
+
+    .session-content p {
+
+        font-size: 16px;
+    }
+
+
+    /* PERSONALISED */
+
+    .personalised-card {
+
+        padding: 40px 24px;
+
+        border-radius: 30px;
+    }
+
+
+    .personalised-card p {
+
+        font-size: 16px;
+    }
+
+
+    /* PROMISE */
+
+    .promise-card {
+
+        padding: 42px 22px;
+
+        border-radius: 30px;
+    }
+
+
+    .promise-card p {
+
+        font-size: 16px;
+    }
+
+
+    .promise-highlight {
+
+        font-size: 19px !important;
+    }
+
+
+    /* CTA */
+
+    .therapy-quote h2 {
+
+        font-size: 37px;
+
+        line-height: 1.4;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media(max-width:420px) {
+
+    .hero-title {
+
+        font-size: 37px;
+    }
+
+
+    .hero-image img {
+
+        height: 280px;
+    }
+
+
+    .benefit-image img,
+    .session-image img {
+
+        height: 290px;
     }
 
 }
 
 </style>
 
-<!-- ========================= -->
-<!-- HERO -->
-<!-- ========================= -->
 
-<section class="therapy-story">
+<section class="music-therapy-page">
 
 <div class="container">
 
-    <!-- SECTION 1 -->
 
-    <div class="therapy-block">
+    <!-- =====================================
+         HERO
+    ====================================== -->
 
-        <div class="row align-items-center gy-5">
+    <div class="music-hero">
 
-            <div class="col-lg-6">
+        <div class="music-hero-box">
 
-                <div class="therapy-image">
+            <div class="row align-items-center gy-4">
 
-                    <img src="{% static 'images/music3.png' %}" class="img-fluid">
+
+                <!-- IMAGE -->
+
+                <div class="col-lg-6">
+
+                    <div class="hero-image">
+
+                        <img
+                            src="{% static 'images/music3.png' %}"
+                            class="img-fluid"
+                            alt="Music Therapy at Saarthi Navigating Life"
+                        >
+
+                    </div>
 
                 </div>
 
-            </div>
 
-            <div class="col-lg-6">
+                <!-- CONTENT -->
 
-                <span class="therapy-label">
-                    🌿 Emotional Healing
-                </span>
+                <div class="col-lg-6">
 
-                <h2>
-                  Music Therapy
-                </h2>
+                    <div class="hero-content">
 
-                <p>
 
-                    Music therapy uses rhythm, melody and sound
-                    to support emotional healing, self-expression
-                    and mental wellbeing.
+                        <span class="section-label">
 
-                    It creates a safe space where emotions can be
-                    explored gently through music and creativity.
+                            🌿 Music Therapy at Saarthi Navigating Life
 
-                </p>
+                        </span>
+
+
+                        <h1 class="hero-title">
+
+                            Music-Assisted Wellness Sessions
+
+                        </h1>
+
+
+                        <h3 class="hero-subtitle">
+
+                            Healing Through the Power of Music
+
+                        </h3>
+
+
+                        <p class="hero-text">
+
+                            At Saarthi Navigating Life, we believe that healing
+                            doesn't always begin with words. Sometimes, emotions
+                            are expressed more easily through rhythm, melody,
+                            and sound than through conversation.
+
+                        </p>
+
+
+                        <p class="hero-text">
+
+                            Our Music Therapy sessions provide a safe,
+                            supportive, and creative space where individuals
+                            can explore their emotions, reduce stress,
+                            improve emotional well-being, and reconnect
+                            with themselves through music.
+
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -264,47 +1268,230 @@ body{
 
     </div>
 
-    <!-- SECTION 2 -->
 
-    <div class="therapy-block">
+    <!-- =====================================
+         ACTIVITIES
+    ====================================== -->
+
+    <div class="activities-section">
+
+
+        <div class="activities-header">
+
+            <span class="section-label">
+
+                🎵 Explore Through Music
+
+            </span>
+
+
+            <h2>
+
+                Depending on your needs, sessions may include:
+
+            </h2>
+
+        </div>
+
+
+        <div class="activities-grid">
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🎧
+                </div>
+
+                Listening to calming or meaningful music
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🌿
+                </div>
+
+                Guided relaxation with music
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🎤
+                </div>
+
+                Singing familiar songs
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🥁
+                </div>
+
+                Playing simple musical instruments
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🎶
+                </div>
+
+                Rhythm and movement activities
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    ✍️
+                </div>
+
+                Songwriting or lyric reflection
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🧘
+                </div>
+
+                Music-based mindfulness exercises
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    💭
+                </div>
+
+                Guided imagery with music
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🎼
+                </div>
+
+                Raga Chikitsa (Raga Therapy)
+
+            </div>
+
+        </div>
+
+
+        <div class="music-note">
+
+            No musical background or talent is required.
+            The focus is on emotional expression, self-awareness,
+            and personal growth—not performance.
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         WHO CAN BENEFIT
+    ====================================== -->
+
+    <div class="benefit-section">
 
         <div class="row align-items-center gy-5 flex-lg-row-reverse">
 
+
+            <!-- IMAGE -->
+
             <div class="col-lg-6">
 
-                <div class="therapy-image">
+                <div class="benefit-image">
 
-                    <img src="{% static 'images/music2.png' %}" class="img-fluid">
+                    <img
+                        src="{% static 'images/music2.png' %}"
+                        class="img-fluid"
+                        alt="Who Can Benefit From Music Therapy"
+                    >
 
                 </div>
 
             </div>
 
+
+            <!-- CONTENT -->
+
             <div class="col-lg-6">
 
-                <span class="therapy-label">
-                    💛 Who Can Benefit
-                </span>
+                <div class="benefit-content">
 
-                <h2>
-                    Support For Every Age
-                </h2>
 
-                <ul class="therapy-list">
+                    <span class="section-label">
 
-                    <li>Stress & anxiety</li>
+                        💛 Who Can Benefit
 
-                    <li>Emotional overwhelm</li>
+                    </span>
 
-                    <li>ADHD & learning difficulties</li>
 
-                    <li>Trauma & burnout</li>
+                    <h2 class="section-title">
 
-                    <li>Confidence & self-expression</li>
+                        Support For Every Age
 
-                    <li>Relaxation & emotional balance</li>
+                    </h2>
 
-                </ul>
+
+                    <ul class="benefit-list">
+
+
+                        <li>
+                            Stress & anxiety
+                        </li>
+
+
+                        <li>
+                            Emotional overwhelm
+                        </li>
+
+
+                        <li>
+                            ADHD & learning difficulties
+                        </li>
+
+
+                        <li>
+                            Trauma & burnout
+                        </li>
+
+
+                        <li>
+                            Confidence & self-expression
+                        </li>
+
+
+                        <li>
+                            Relaxation & emotional balance
+                        </li>
+
+
+                    </ul>
+
+                </div>
 
             </div>
 
@@ -312,40 +1499,110 @@ body{
 
     </div>
 
-    <!-- SECTION 3 -->
 
-    <div class="therapy-block">
+    <!-- =====================================
+         HOW SESSIONS WORK
+    ====================================== -->
 
-        <div class="row align-items-center gy-5">
+    <div class="session-section">
 
-            <div class="col-lg-6">
+        <div class="session-box">
 
-                <div class="therapy-image">
+            <div class="row align-items-center gy-4">
 
-                    <img src="{% static 'images/music1.png' %}" class="img-fluid">
+
+                <!-- IMAGE -->
+
+                <div class="col-lg-6">
+
+                    <div class="session-image">
+
+                        <img
+                            src="{% static 'images/music1.png' %}"
+                            class="img-fluid"
+                            alt="How Music Therapy Sessions Work"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTENT -->
+
+                <div class="col-lg-6">
+
+                    <div class="session-content">
+
+
+                        <span class="section-label">
+
+                            🎶 The Process
+
+                        </span>
+
+
+                        <h2 class="section-title">
+
+                            How Sessions Work
+
+                        </h2>
+
+
+                        <p>
+
+                            Sessions may include listening to calming music,
+                            singing, songwriting, guided relaxation,
+                            rhythm-based exercises and reflective conversations.
+
+                            <br><br>
+
+                            No musical background is required —
+                            the focus is healing, not performance.
+
+                        </p>
+
+                    </div>
 
                 </div>
 
             </div>
 
-            <div class="col-lg-6">
+        </div>
 
-                <span class="therapy-label">
-                    🎶 The Process
+    </div>
+
+
+    <!-- =====================================
+         PERSONALISED MUSIC THERAPY
+    ====================================== -->
+
+    <div class="personalised-section">
+
+        <div class="personalised-card">
+
+            <div class="personalised-content">
+
+
+                <span class="section-label">
+
+                    Your Individual Journey
+
                 </span>
 
+
                 <h2>
-                    How Sessions Work
+
+                    How We Use Music Therapy at Saarthi Navigating Life
+
                 </h2>
+
 
                 <p>
 
-                    Sessions may include listening to calming music,
-                    singing, songwriting, guided relaxation,
-                    rhythm-based exercises and reflective conversations.
-
-                    No musical background is required —
-                    the focus is healing, not performance.
+                    Every individual experiences emotions differently.
+                    That's why every Music Therapy session is personalised
+                    to your unique needs, comfort level, and therapeutic goals.
 
                 </p>
 
@@ -355,24 +1612,109 @@ body{
 
     </div>
 
-    <!-- FINAL CTA -->
+
+    <!-- =====================================
+         OUR PROMISE
+    ====================================== -->
+
+    <div class="promise-section">
+
+        <div class="promise-card">
+
+            <div class="promise-content">
+
+
+                <div class="promise-icon">
+
+                    🤍
+
+                </div>
+
+
+                <span class="section-label">
+
+                    Purpose • Compassion • Care
+
+                </span>
+
+
+                <h2>
+
+                    Our Promise
+
+                </h2>
+
+
+                <p>
+
+                    At Saarthi Navigating Life, we don't use music
+                    simply to entertain—we use it with purpose,
+                    compassion, and care.
+
+                </p>
+
+
+                <p>
+
+                    Whether you are navigating stress, anxiety,
+                    emotional challenges, or simply seeking a deeper
+                    connection with yourself, our Music Therapy sessions
+                    provide a welcoming space where healing, growth,
+                    and hope can unfold—one note at a time.
+
+                </p>
+
+
+                <p class="promise-highlight">
+
+                    Because every journey has its own rhythm,
+                    and every heart deserves to be heard.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         FINAL CTA
+    ====================================== -->
 
     <div class="therapy-quote">
 
+
+        <span class="section-label">
+
+            Find Your Rhythm
+
+        </span>
+
+
         <h2>
+
             Let music become the bridge
             between where you are
             and where healing begins.
+
         </h2>
 
-       <a href="{% url 'form' %}" class="therapy-btn">
+
+        <a href="{% url 'form' %}" class="therapy-btn">
+
             Begin Your Journey →
+
         </a>
 
+
     </div>
+
 
 </div>
 
 </section>
+
 
 {% endblock %}

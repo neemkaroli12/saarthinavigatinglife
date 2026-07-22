@@ -7,458 +7,1076 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
 
-body{
-    font-family: "Poppins", sans-serif;
-    background:#f5f7f8;
+body {
+    font-family: "Nunito", sans-serif;
+    background: #f5f7f8;
+    color: #6f7c82;
 }
 
-/* ========================= */
-/* SECTION */
-/* ========================= */
+/* =========================================
+   MAIN SECTION
+========================================= */
 
-.cbt-clean{
+.cbt-clean {
+    padding: 110px 0 100px;
 
-    padding:120px 0;
+    background:
+        radial-gradient(
+            circle at 8% 12%,
+            rgba(215, 229, 234, 0.55),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 92% 45%,
+            rgba(229, 237, 239, 0.65),
+            transparent 30%
+        ),
+        #f5f7f8;
 
-    background:#f5f7f8;
+    overflow: hidden;
 }
 
-/* ========================= */
-/* HERO */
-/* ========================= */
+/* =========================================
+   COMMON
+========================================= */
 
-.hero-wrapper{
+.section-label {
 
-    margin-bottom:140px;
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    border-radius: 30px;
+
+    background: #dfe8eb;
+
+    color: #65777f;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
 }
 
-/* TAG */
+.section-title {
 
-.mini-tag{
+    font-size: 52px;
 
-    display:inline-block;
+    font-weight: 300;
 
-    padding:8px 18px;
+    line-height: 1.15;
 
-    border-radius:30px;
+    color: #59666d;
 
-    background:#dfe8eb;
-
-    color:#6d7e86;
-
-    font-weight:700;
-
-    margin-bottom:28px;
-
-    font-size:15px;
+    margin-bottom: 25px;
 }
 
-/* TITLE */
 
-.hero-title{
+/* =========================================
+   HERO
+========================================= */
 
-    font-size:60px;
+.hero-wrapper {
 
-    font-weight:300;
-
-    line-height:1.05;
-
-    color:#59656d;
-
-    margin-bottom:32px;
+    margin-bottom: 130px;
 }
 
-/* TEXT */
+.hero-row {
 
-.hero-text{
+    background: rgba(255, 255, 255, 0.48);
 
-    font-size:20px;
+    border: 1px solid rgba(255, 255, 255, 0.85);
 
-    
+    border-radius: 45px;
 
-    color:#74848a;
+    padding: 30px;
 
-    margin-bottom:24px;
-
-    max-width:650px;
+    box-shadow:
+        0 25px 60px rgba(77, 88, 91, 0.07);
 }
+
 
 /* IMAGE */
 
-.hero-image img{
+.hero-image {
 
-    width:100%;
+    position: relative;
+}
 
-    height:400px;
+.hero-image::before {
 
-    object-fit:cover;
+    content: "";
 
-    border-radius:40px;
+    position: absolute;
+
+    width: 170px;
+
+    height: 170px;
+
+    background: #d9e5e9;
+
+    border-radius: 50%;
+
+    top: -30px;
+
+    left: -30px;
+
+    opacity: 0.6;
+
+    z-index: 0;
+}
+
+.hero-image img {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    height: 470px;
+
+    object-fit: cover;
+
+    border-radius: 35px;
 
     box-shadow:
-    0 25px 45px rgba(0,0,0,0.06);
+        0 25px 45px rgba(0,0,0,0.08);
 }
 
-/* ========================= */
-/* CONTENT */
-/* ========================= */
 
-.cbt-content{
+/* HERO CONTENT */
 
-    margin-bottom:140px;
+.hero-content {
+
+    padding: 30px 30px 30px 45px;
 }
 
-.cbt-content h2{
+.mini-tag {
 
-    font-size:58px;
+    display: inline-block;
 
-    font-weight:300;
+    padding: 9px 19px;
 
-    line-height:1.2;
+    border-radius: 30px;
 
-    color:#5d6b70;
+    background: #dfe8eb;
 
-    margin-bottom:28px;
+    color: #65777f;
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+
+    font-size: 14px;
 }
 
-.cbt-content p{
+.hero-title {
 
-    font-size:18px;
+    font-size: 64px;
 
-    color:#74848a;
+    font-weight: 300;
 
-    margin-bottom:24px;
+    line-height: 1.05;
+
+    color: #59656d;
+
+    margin-bottom: 28px;
 }
+
+.hero-text {
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: #74848a;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   CREATING POSITIVE CHANGE
+========================================= */
+
+.cbt-content {
+
+    margin-bottom: 130px;
+}
+
+.cbt-text {
+
+    padding-right: 35px;
+}
+
+.cbt-text p {
+
+    font-size: 17px;
+
+    line-height: 1.95;
+
+    color: #74848a;
+
+    margin-bottom: 22px;
+}
+
 
 /* IMAGE */
 
-.soft-image img{
+.soft-image {
 
-    width:100%;
+    position: relative;
 
-    border-radius:34px;
+    padding: 15px;
+}
+
+.soft-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 85%;
+
+    height: 85%;
+
+    right: -10px;
+
+    bottom: -10px;
+
+    background: #dce8eb;
+
+    border-radius: 35px;
+
+    z-index: 0;
+}
+
+.soft-image img {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    border-radius: 34px;
 
     box-shadow:
-    0 18px 40px rgba(0,0,0,0.05);
+        0 20px 45px rgba(0,0,0,0.07);
 }
 
-/* ========================= */
-/* BENEFITS */
-/* ========================= */
 
-.benefit-section{
+/* =========================================
+   BENEFITS
+========================================= */
 
-    margin-bottom:140px;
+.benefit-section {
+
+    margin-bottom: 130px;
 }
 
-.benefit-section h2{
+.benefit-header {
 
-    font-size:60px;
+    max-width: 750px;
 
-    font-weight:300;
+    margin: 0 auto 55px;
 
-    color:#5d666d;
-
-    margin-bottom:60px;
+    text-align: center;
 }
 
-/* GRID */
+.benefit-header h2 {
 
-.benefit-grid{
+    font-size: 54px;
 
-    display:grid;
+    font-weight: 300;
+
+    color: #5d666d;
+
+    margin-bottom: 15px;
+}
+
+
+/* BENEFIT GRID */
+
+.benefit-grid {
+
+    display: grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
+        repeat(4, 1fr);
 
-    gap:28px;
+    gap: 20px;
 }
 
-/* ITEM */
+.benefit-item {
 
-.benefit-item{
+    min-height: 175px;
 
-    padding:32px;
+    padding: 28px 20px;
 
-    border-radius:28px;
+    border-radius: 28px;
 
-    background:#ffffff;
+    background: rgba(255,255,255,0.88);
 
-    text-align:center;
+    display: flex;
 
-    color:#6f7c82;
+    flex-direction: column;
 
-    font-size:18px;
+    justify-content: center;
 
-    transition:0.35s ease;
+    align-items: center;
+
+    text-align: center;
+
+    color: #627279;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    transition: 0.35s ease;
 
     box-shadow:
-    0 10px 25px rgba(0,0,0,0.04);
+        0 10px 30px rgba(0,0,0,0.04);
+
+    border:
+        1px solid rgba(255,255,255,0.9);
 }
 
-.benefit-item:hover{
+.benefit-item:hover {
 
-    transform:translateY(-8px);
+    transform: translateY(-8px);
 
     box-shadow:
-    0 18px 35px rgba(0,0,0,0.06);
+        0 18px 38px rgba(0,0,0,0.07);
 }
 
-/* ========================= */
-/* PROCESS */
-/* ========================= */
+.benefit-icon {
 
-.process-wrap{
+    width: 54px;
 
-    margin-bottom:140px;
+    height: 54px;
+
+    border-radius: 50%;
+
+    background: #e3ecef;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 23px;
+
+    margin-bottom: 16px;
 }
 
-.process-card{
 
-    background:#ffffff;
+/* =========================================
+   CBT PROCESS
+========================================= */
 
-    padding:40px;
+.process-section {
 
-    border-radius:32px;
+    margin-bottom: 130px;
+}
+
+.process-header {
+
+    max-width: 760px;
+
+    margin: 0 auto 55px;
+
+    text-align: center;
+}
+
+.process-header h2 {
+
+    font-size: 56px;
+
+    font-weight: 300;
+
+    color: #59666d;
+
+    margin-bottom: 15px;
+}
+
+.process-description {
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #7a898e;
+}
+
+
+/* PROCESS GRID */
+
+.process-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.process-card {
+
+    position: relative;
+
+    background: rgba(255,255,255,0.9);
+
+    padding: 32px;
+
+    border-radius: 28px;
+
+    min-height: 190px;
 
     box-shadow:
-    0 10px 30px rgba(0,0,0,0.05);
+        0 12px 35px rgba(0,0,0,0.045);
 
-    height:100%;
+    border:
+        1px solid rgba(255,255,255,0.9);
+
+    transition: 0.35s ease;
 }
 
-.process-number{
+.process-card:hover {
 
-    width:60px;
-    height:60px;
+    transform: translateY(-7px);
 
-    border-radius:50%;
-
-    background:#dfe8eb;
-
-    color:#62717a;
-
-    font-size:22px;
-
-    font-weight:700;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    margin-bottom:24px;
+    box-shadow:
+        0 20px 42px rgba(0,0,0,0.07);
 }
 
-.process-card h4{
+.process-number {
 
-    font-size:28px;
+    width: 48px;
 
-    font-weight:600;
+    height: 48px;
 
-    color:#5e6a71;
+    border-radius: 50%;
 
-    margin-bottom:18px;
+    background: #dfe8eb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #62747c;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    margin-bottom: 22px;
 }
 
-.process-card p{
+.process-card h4 {
 
-    color:#74848a;
+    font-size: 19px;
 
-    line-height:1.9;
+    font-weight: 700;
 
-    font-size:17px;
+    line-height: 1.6;
+
+    color: #5f6e74;
+
+    margin: 0;
 }
 
-/* ========================= */
-/* QUOTE */
-/* ========================= */
 
-.ending-line{
+/* LAST CARD */
+/* ALL PROCESS CARDS SAME COLOR */
 
-    max-width:900px;
-
-    margin:auto;
-
-    text-align:center;
+.process-card,
+.process-card:last-child {
+    background: rgba(255,255,255,0.9);
 }
 
-.ending-line h2{
-
-    font-size:64px;
-
-    font-weight:300;
-
-    line-height:1.4;
-
-    color:#5d666d;
-
-    margin-bottom:45px;
+.process-card .process-number,
+.process-card:last-child .process-number {
+    background: #dfe8eb;
 }
+
+
+/* =========================================
+   OUR PROMISE
+========================================= */
+
+.promise-section {
+
+    margin-bottom: 130px;
+}
+
+.promise-card {
+
+    position: relative;
+
+    max-width: 1080px;
+
+    margin: auto;
+
+    padding: 70px 75px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dfe9ec,
+            #edf3f4
+        );
+
+    border-radius: 45px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.045);
+
+    overflow: hidden;
+}
+
+.promise-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+
+    height: 280px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.3);
+
+    right: -100px;
+
+    top: -130px;
+}
+
+.promise-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+
+    height: 190px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.25);
+
+    left: -80px;
+
+    bottom: -100px;
+}
+
+.promise-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.promise-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,0.7);
+
+    font-size: 28px;
+}
+
+.promise-card h2 {
+
+    font-size: 52px;
+
+    font-weight: 300;
+
+    color: #59676c;
+
+    margin-bottom: 28px;
+}
+
+.promise-card p {
+
+    max-width: 900px;
+
+    margin: 0 auto 22px;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: #687a80;
+}
+
+.promise-highlight {
+
+    font-size: 22px !important;
+
+    line-height: 1.7 !important;
+
+    color: #56676d !important;
+
+    font-weight: 600;
+
+    margin-top: 30px !important;
+}
+
+
+/* =========================================
+   ENDING
+========================================= */
+
+.ending-line {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 25px 20px;
+}
+
+.ending-line h2 {
+
+    font-size: 58px;
+
+    font-weight: 300;
+
+    line-height: 1.4;
+
+    color: #5d666d;
+
+    margin-bottom: 42px;
+}
+
 
 /* BUTTON */
 
-.soft-btn{
+.soft-btn {
 
-    display:inline-flex;
+    display: inline-flex;
 
-    align-items:center;
+    align-items: center;
 
-    gap:10px;
+    justify-content: center;
 
-    padding:15px 34px;
+    gap: 10px;
 
-    border-radius:40px;
+    padding: 16px 34px;
 
-    text-decoration:none;
+    border-radius: 40px;
 
-    background:#cfdce2;
+    text-decoration: none;
 
-    color:#55636a;
+    background: #cfdce2;
 
-    font-weight:700;
+    color: #55636a;
 
-    transition:0.35s ease;
-}
+    font-weight: 800;
 
-.soft-btn:hover{
-
-    transform:translateY(-3px);
-
-    color:#445159;
+    transition: 0.35s ease;
 
     box-shadow:
-    0 12px 24px rgba(0,0,0,0.08);
+        0 10px 25px rgba(85,99,106,0.09);
 }
 
-/* ========================= */
-/* MOBILE */
-/* ========================= */
+.soft-btn:hover {
 
-@media(max-width:768px){
+    transform: translateY(-4px);
 
-    .cbt-clean{
-        padding:80px 0;
+    color: #445159;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.09);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media(max-width:991px) {
+
+    .cbt-clean {
+
+        padding: 90px 0;
     }
 
-    .hero-title{
-        font-size:52px;
+    .hero-wrapper,
+    .cbt-content,
+    .benefit-section,
+    .process-section,
+    .promise-section {
+
+        margin-bottom: 95px;
     }
 
-    .hero-text{
-        font-size:16px;
-        line-height:1.9;
+    .hero-row {
+
+        padding: 22px;
     }
 
-    .hero-image img{
-        height:420px;
+    .hero-content {
+
+        padding: 20px 10px;
     }
 
-    .cbt-content{
-        margin-bottom:90px;
+    .hero-title {
+
+        font-size: 54px;
     }
 
-    .cbt-content h2,
-    .benefit-section h2,
-    .ending-line h2{
-        font-size:38px;
+    .hero-image img {
+
+        height: 420px;
     }
 
-    .cbt-content p{
-        font-size:16px;
+    .cbt-text {
+
+        padding-right: 0;
     }
 
-    .benefit-item{
-        font-size:16px;
-        padding:24px;
+    .soft-image img {
+
+        height: 430px;
+    }
+
+    .benefit-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .process-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
 }
-@media (max-width: 768px) {
 
-    .process-wrap .row {
-        display: flex !important;
-        flex-direction: column !important;
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px) {
+
+    .cbt-clean {
+
+        padding: 65px 0;
     }
 
-    .process-wrap .row > div:nth-child(1) {
-        order: 1;
+
+    /* HERO */
+
+    .hero-wrapper {
+
+        margin-bottom: 85px;
     }
 
-    .process-wrap .row > div:nth-child(2) {
-        order: 2;
+    .hero-row {
+
+        padding: 14px;
+
+        border-radius: 28px;
     }
 
-    .process-wrap .row > div:nth-child(3) {
-        order: 3;
+    .hero-image::before {
+
+        display: none;
     }
 
-    .process-wrap .row > div:nth-child(4) {
-        order: 4;
+    .hero-image img {
+
+        height: 320px;
+
+        border-radius: 24px;
+    }
+
+    .hero-content {
+
+        padding:
+            20px 8px 15px;
+    }
+
+    .mini-tag {
+
+        font-size: 12px;
+
+        padding: 8px 14px;
+
+        margin-bottom: 18px;
+    }
+
+    .hero-title {
+
+        font-size: 43px;
+
+        margin-bottom: 20px;
+    }
+
+    .hero-text {
+
+        font-size: 16px;
+
+        line-height: 1.85;
+    }
+
+
+    /* TITLES */
+
+    .section-title,
+    .benefit-header h2,
+    .process-header h2,
+    .promise-card h2 {
+
+        font-size: 36px;
+    }
+
+
+    /* CONTENT */
+
+    .cbt-text p {
+
+        font-size: 16px;
+
+        line-height: 1.85;
+    }
+
+    .soft-image {
+
+        padding: 0;
+    }
+
+    .soft-image::after {
+
+        display: none;
+    }
+
+    .soft-image img {
+
+        height: 330px;
+
+        border-radius: 25px;
+    }
+
+
+    /* BENEFITS */
+
+    .benefit-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap: 12px;
+    }
+
+    .benefit-item {
+
+        min-height: 150px;
+
+        padding: 20px 12px;
+
+        font-size: 14px;
+    }
+
+    .benefit-icon {
+
+        width: 46px;
+
+        height: 46px;
+
+        font-size: 20px;
+    }
+
+
+    /* PROCESS */
+
+    .process-grid {
+
+        grid-template-columns: 1fr;
     }
 
     .process-card {
-        width: 100%;
-        height: auto;
-        padding: 30px;
+
+        min-height: auto;
+
+        padding: 25px;
     }
+
+    .process-card h4 {
+
+        font-size: 17px;
+    }
+
+
+    /* PROMISE */
+
+    .promise-card {
+
+        padding: 42px 22px;
+
+        border-radius: 30px;
+    }
+
+    .promise-card p {
+
+        font-size: 16px;
+    }
+
+    .promise-highlight {
+
+        font-size: 19px !important;
+    }
+
+
+    /* ENDING */
+
+    .ending-line h2 {
+
+        font-size: 37px;
+
+        line-height: 1.4;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media(max-width:420px) {
+
+    .hero-title {
+
+        font-size: 39px;
+    }
+
+    .hero-image img {
+
+        height: 280px;
+    }
+
+    .soft-image img {
+
+        height: 290px;
+    }
+
+    .benefit-grid {
+
+        grid-template-columns: 1fr;
+    }
+
 }
 
 </style>
+
 
 <section class="cbt-clean">
 
 <div class="container">
 
-    <!-- HERO -->
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
 
     <div class="hero-wrapper">
 
-        <div class="row align-items-center gy-5">
+        <div class="hero-row">
 
-            <!-- IMAGE -->
+            <div class="row align-items-center gy-4">
 
-            <div class="col-lg-6">
 
-                <div class="hero-image">
+                <!-- IMAGE -->
 
-                    <img src="{% static 'images/cbt1.png' %}" class="img-fluid">
+                <div class="col-lg-6">
+
+                    <div class="hero-image">
+
+                        <img
+                            src="{% static 'images/cbt1.png' %}"
+                            class="img-fluid"
+                            alt="CBT Therapy"
+                        >
+
+                    </div>
 
                 </div>
 
-            </div>
 
-            <!-- CONTENT -->
+                <!-- CONTENT -->
 
-            <div class="col-lg-6">
+                <div class="col-lg-6">
 
-                <span class="mini-tag">
-                    🧠 Practical Emotional Healing
-                </span>
+                    <div class="hero-content">
 
-                <h1 class="hero-title">
-                    CBT Therapy
-                </h1>
+                        <span class="mini-tag">
+                            🧠 Practical Emotional Healing
+                        </span>
 
-                <p class="hero-text">
-
-                    Cognitive Behavioural Therapy (CBT) is a structured
-                    and evidence-based approach that helps individuals
-                    understand the connection between thoughts,
-                    emotions and behaviours.
-
-                </p>
-
-                <p class="hero-text">
-
-                    CBT focuses on identifying unhelpful thinking patterns
-                    and replacing them with healthier, balanced and
-                    more constructive ways of responding to life’s challenges.
-
-                </p>
+                        <h1 class="hero-title">
+                            CBT Therapy
+                        </h1>
 
 
+                        <p class="hero-text">
+
+                            Cognitive Behavioural Therapy (CBT) is a structured
+                            and evidence-based approach that helps individuals
+                            understand the connection between thoughts,
+                            emotions and behaviours.
+
+                        </p>
+
+
+                        <p class="hero-text">
+
+                            CBT focuses on identifying unhelpful thinking patterns
+                            and replacing them with healthier, balanced and
+                            more constructive ways of responding to life’s challenges.
+
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -466,37 +1084,52 @@ body{
 
     </div>
 
-    <!-- CONTENT -->
+
+    <!-- =====================================
+         CREATING POSITIVE CHANGE
+    ====================================== -->
 
     <div class="cbt-content">
 
         <div class="row gy-5 align-items-center">
 
+
             <!-- TEXT -->
 
             <div class="col-lg-6">
 
-                <h2>
-                    Creating Positive Change
-                </h2>
+                <div class="cbt-text">
 
-                <p>
+                    <span class="section-label">
+                        Understanding & Growth
+                    </span>
 
-                    CBT helps individuals recognize negative thought patterns,
-                    emotional triggers and behavioural habits that may affect
-                    emotional wellbeing and daily life.
+                    <h2 class="section-title">
+                        Creating Positive Change
+                    </h2>
 
-                </p>
+                    <p>
 
-                <p>
+                        At Saarthi Navigating Life,
+                        we believe that every person's journey is unique.
+                        Our role is not to tell you how to live your life—we
+                        help you understand yourself better, develop healthier
+                        ways of thinking, and build the confidence to navigate
+                        life's challenges.
 
-                    Through practical strategies and supportive guidance,
-                    therapy encourages emotional balance, healthier coping
-                    responses and improved confidence in handling challenges.
+                        CBT (Cognitive Behavioral Therapy) is one of the world's
+                        most effective and research-backed approaches for helping
+                        people overcome emotional and behavioral difficulties.
+                        Together, we work as a team to identify unhelpful thought
+                        patterns, understand emotions, and create positive,
+                        lasting changes.
 
-                </p>
+                    </p>
+
+                </div>
 
             </div>
+
 
             <!-- IMAGE -->
 
@@ -504,7 +1137,11 @@ body{
 
                 <div class="soft-image">
 
-                    <img src="{% static 'images/cbt2.png' %}" class="img-fluid">
+                    <img
+                        src="{% static 'images/cbt2.png' %}"
+                        class="img-fluid"
+                        alt="Creating Positive Change with CBT"
+                    >
 
                 </div>
 
@@ -514,139 +1151,114 @@ body{
 
     </div>
 
-    <!-- BENEFITS -->
+
+    <!-- =====================================
+         CBT BENEFITS
+    ====================================== -->
 
     <div class="benefit-section">
 
-        <h2 class="text-center">
-            CBT Can Help With
-        </h2>
+
+        <div class="benefit-header">
+
+            <span class="section-label">
+                How CBT Can Support You
+            </span>
+
+            <h2>
+                CBT Can Help With
+            </h2>
+
+        </div>
+
 
         <div class="benefit-grid">
 
+
             <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    🌿
+                </div>
+
                 Anxiety & Overthinking
+
             </div>
 
+
             <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    🌤️
+                </div>
+
                 Stress & Burnout
+
             </div>
 
+
             <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    🌱
+                </div>
+
                 Low Confidence
+
             </div>
 
+
             <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    💛
+                </div>
+
                 Emotional Regulation
+
             </div>
 
+
             <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    🕊️
+                </div>
+
                 Panic & Fear
+
             </div>
 
+
             <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    🤝
+                </div>
+
                 Relationship Challenges
+
             </div>
 
+
             <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    💭
+                </div>
+
                 Negative Thinking Patterns
+
             </div>
+
 
             <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    📚
+                </div>
+
                 Work & Academic Pressure
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- PROCESS -->
-
-    <div class="process-wrap">
-
-        <h2 style="font-size:40px;" >
-            CBT Process
-        </h2><br>
-
-        <div class="row g-4">
-
-            <div class="col-lg-3">
-
-                <div class="process-card">
-
-                    <div class="process-number">
-                        1
-                    </div>
-
-                    <h4>
-                        Understand
-                    </h4>
-
-                    <p>
-                        Explore thoughts, emotions and experiences connected to stress or behaviour.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-3">
-
-                <div class="process-card">
-
-                    <div class="process-number">
-                        2
-                    </div>
-
-                    <h4>
-                        Identify
-                    </h4>
-
-                    <p>
-                        Recognize unhelpful thinking patterns and emotional triggers.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-3">
-
-                <div class="process-card">
-
-                    <div class="process-number">
-                        3
-                    </div>
-
-                    <h4>
-                        Reframe
-                    </h4>
-
-                    <p>
-                        Learn healthier, balanced and more constructive perspectives.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-3">
-
-                <div class="process-card">
-
-                    <div class="process-number">
-                        4
-                    </div>
-
-                    <h4>
-                        Grow
-                    </h4>
-
-                    <p>
-                        Build confidence, emotional resilience and practical coping skills.
-                    </p>
-
-                </div>
 
             </div>
 
@@ -654,9 +1266,247 @@ body{
 
     </div>
 
-    <!-- ENDING -->
+
+    <!-- =====================================
+         CBT PROCESS
+    ====================================== -->
+
+    <div class="process-section">
+
+
+        <div class="process-header">
+
+            <span class="section-label">
+                Step by Step
+            </span>
+
+            <h2>
+                CBT Process
+            </h2>
+
+            <p class="process-description">
+
+                A supportive step-by-step journey focused on understanding
+                your thoughts, emotions and behaviours while building
+                practical skills for positive and lasting change.
+
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <!-- STEP 1 -->
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h4>
+                    We Begin by Understanding You
+                </h4>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h4>
+                    We Help You Understand the Connection Between
+                    Thoughts, Feelings, and Behaviors
+                </h4>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <h4>
+                    We Identify Unhelpful Thinking Patterns
+                </h4>
+
+            </div>
+
+
+            <!-- STEP 4 -->
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    04
+                </div>
+
+                <h4>
+                    We Work Together to Develop Healthier Perspectives
+                </h4>
+
+            </div>
+
+
+            <!-- STEP 5 -->
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    05
+                </div>
+
+                <h4>
+                    We Teach Practical Skills You Can Use Every Day
+                </h4>
+
+            </div>
+
+
+            <!-- STEP 6 -->
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    06
+                </div>
+
+                <h4>
+                    We Encourage Positive Behavioral Change
+                </h4>
+
+            </div>
+
+
+            <!-- STEP 7 -->
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    07
+                </div>
+
+                <h4>
+                    We Practice Beyond the Therapy Room
+                </h4>
+
+            </div>
+
+
+            <!-- STEP 8 -->
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    08
+                </div>
+
+                <h4>
+                    We Review Your Progress Together
+                </h4>
+
+            </div>
+
+
+            <!-- STEP 9 -->
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    09
+                </div>
+
+                <h4>
+                    We Help You Become Your Own Therapist
+                </h4>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         OUR PROMISE
+    ====================================== -->
+
+    <div class="promise-section">
+
+        <div class="promise-card">
+
+            <div class="promise-content">
+
+
+                <div class="promise-icon">
+                    🤍
+                </div>
+
+
+                <span class="section-label">
+                    Compassion • Confidentiality • Support
+                </span>
+
+
+                <h2>
+                    Our Promise
+                </h2>
+
+
+                <p>
+
+                    At Saarthi Navigating Life, we understand that
+                    seeking help is a courageous step.
+
+                </p>
+
+
+                <p>
+
+                    We provide a compassionate, confidential, and
+                    evidence-based environment where you can explore
+                    your thoughts, understand your emotions, and develop
+                    practical skills to lead a healthier and more
+                    fulfilling life.
+
+                </p>
+
+
+                <p class="promise-highlight">
+
+                    Because at Saarthi Navigating Life, we don't just
+                    help you cope with life's challenges—we help you
+                    navigate them with clarity, confidence, and hope.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         ENDING
+    ====================================== -->
 
     <div class="ending-line">
+
+        <span class="section-label">
+            A Healthier Way Forward
+        </span>
 
         <h2>
 
@@ -666,25 +1516,41 @@ body{
 
         </h2>
 
+
         <a href="{% url 'explore' %}" class="soft-btn">
+
             Explore CBT Therapy →
+
         </a>
 
     </div>
 
+
 </div>
 
 </section>
+
+
 <script>
+
 window.addEventListener("load", function () {
+
     if (window.innerWidth <= 768) {
+
         window.scrollTo({
+
             top: 0,
+
             left: 0,
+
             behavior: "instant"
+
         });
+
     }
+
 });
+
 </script>
 
 {% endblock %}

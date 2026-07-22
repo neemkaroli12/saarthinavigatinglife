@@ -4,480 +4,1117 @@
 {% block content %}
 
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
 
-body{
-    font-family: "Poppins", sans-serif;
-    background:#f6f6f4;
+body {
+    font-family: "Nunito", sans-serif;
+    background: #f6f6f4;
+    color: #6f7c82;
 }
 
-/* ========================= */
-/* SECTION */
-/* ========================= */
-
-.art-clean{
-
-    padding:120px 0;
-
-    background:#f6f6f4;
+.art-clean {
+    padding: 110px 0 100px;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(235, 226, 218, 0.55), transparent 28%),
+        radial-gradient(circle at 92% 42%, rgba(221, 231, 229, 0.55), transparent 30%),
+        #f6f6f4;
+    overflow: hidden;
 }
 
-/* ========================= */
-/* HERO */
-/* ========================= */
+/* =========================
+   COMMON
+========================= */
 
-.hero-wrapper{
-
-    margin-bottom:130px;
+.section-label {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: #ebe2da;
+    color: #7b6f66;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
-/* TAG */
-
-.mini-tag{
-
-    display:inline-block;
-
-    padding:8px 18px;
-
-    border-radius:30px;
-
-    background:#ebe2da;
-
-    color:#7b6f66;
-
-    font-weight:700;
-
-    margin-bottom:28px;
-
-    font-size:15px;
+.section-title {
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.15;
+    color: #5d686e;
+    margin-bottom: 25px;
 }
 
-/* HERO TITLE */
-
-.hero-title{
-
-    font-size:60px;
-
-    font-weight:300;
-
-    line-height:1.05;
-
-    color:#5f666d;
-
-    margin-bottom:32px;
+.section-text {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #74848a;
 }
 
-/* HERO TEXT */
+/* =========================
+   HERO
+========================= */
 
-.hero-text{
-
-    font-size:20px;
-
-    
-
-    color:#74848a;
-
-    margin-bottom:24px;
-
-    max-width:650px;
+.hero-wrapper {
+    margin-bottom: 130px;
 }
 
-/* IMAGE */
-
-.hero-image img{
-
-    width:100%;
-
-    height:400px;
-
-    object-fit:cover;
-
-    border-radius:40px;
-
-    box-shadow:
-    0 25px 45px rgba(0,0,0,0.06);
+.hero-row {
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 45px;
+    padding: 30px;
+    box-shadow: 0 25px 60px rgba(77, 88, 91, 0.07);
 }
 
-/* ========================= */
-/* CONTENT SECTION */
-/* ========================= */
-
-.art-content-wrap{
-
-    margin-bottom:140px;
+.hero-image {
+    position: relative;
 }
 
-.art-content-wrap h2{
-
-    font-size:58px;
-
-    font-weight:300;
-
-    line-height:1.2;
-
-    color:#5d6b70;
-
-    margin-bottom:28px;
+.hero-image::before {
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    background: #e8d8cc;
+    border-radius: 50%;
+    top: -30px;
+    left: -30px;
+    opacity: 0.45;
+    z-index: 0;
 }
 
-.art-content-wrap p{
-
-    font-size:18px;
-
-  
-
-    color:#74848a;
-
-    margin-bottom:24px;
+.hero-image img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 470px;
+    object-fit: cover;
+    border-radius: 35px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.08);
 }
 
-/* SECOND IMAGE */
-
-.soft-image img{
-
-    width:100%;
-
-    border-radius:34px;
-
-    box-shadow:
-    0 18px 40px rgba(0,0,0,0.05);
+.hero-content {
+    padding: 30px 30px 30px 45px;
 }
 
-/* ========================= */
-/* BENEFITS */
-/* ========================= */
-
-.benefit-section{
-
-    margin-bottom:140px;
+.mini-tag {
+    display: inline-block;
+    padding: 9px 19px;
+    border-radius: 30px;
+    background: #ebe2da;
+    color: #7b6f66;
+    font-weight: 700;
+    margin-bottom: 25px;
+    font-size: 14px;
 }
 
-.benefit-section h2{
-
-    font-size:62px;
-
-    font-weight:300;
-
-    color:#5c646b;
-
-    margin-bottom:60px;
+.hero-title {
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1.05;
+    color: #5f666d;
+    margin-bottom: 28px;
 }
 
-/* GRID */
-
-.benefit-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
-
-    gap:28px;
+.hero-text {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #74848a;
+    margin-bottom: 0;
 }
 
-/* ITEM */
+/* =========================
+   HEALING SECTION
+========================= */
 
-.benefit-item{
-
-    padding:32px;
-
-    border-radius:28px;
-
-    background:#ffffff;
-
-    text-align:center;
-
-    color:#6f7c82;
-
-    font-size:18px;
-
-    transition:0.35s ease;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,0.04);
+.art-content-wrap {
+    margin-bottom: 130px;
 }
 
-.benefit-item:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:
-    0 18px 35px rgba(0,0,0,0.06);
+.healing-content {
+    padding-right: 35px;
 }
 
-/* ========================= */
-/* ENDING */
-/* ========================= */
-
-.ending-line{
-
-    max-width:900px;
-
-    margin:auto;
-
-    text-align:center;
+.healing-content p {
+    font-size: 17px;
+    line-height: 1.95;
+    color: #74848a;
+    margin-bottom: 22px;
 }
 
-.ending-line h2{
-
-    font-size:64px;
-
-    font-weight:300;
-
-    line-height:1.4;
-
-    color:#5d666d;
-
-    margin-bottom:45px;
+.soft-image {
+    position: relative;
+    padding: 15px;
 }
 
-/* BUTTON */
-
-.soft-btn{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    padding:15px 34px;
-
-    border-radius:40px;
-
-    text-decoration:none;
-
-    background:#d9c8bb;
-
-    color:#5f564f;
-
-    font-weight:700;
-
-    transition:0.35s ease;
+.soft-image::after {
+    content: "";
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    right: -10px;
+    bottom: -10px;
+    background: #e4ece9;
+    border-radius: 35px;
+    z-index: 0;
 }
 
-.soft-btn:hover{
-
-    transform:translateY(-3px);
-
-    color:#4f4842;
-
-    box-shadow:
-    0 12px 24px rgba(0,0,0,0.08);
+.soft-image img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 540px;
+    object-fit: cover;
+    border-radius: 34px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.07);
 }
 
-/* ========================= */
-/* MOBILE */
-/* ========================= */
+/* =========================
+   BENEFITS / ACTIVITIES
+========================= */
 
-@media(max-width:768px){
+.benefit-section {
+    margin-bottom: 120px;
+}
 
-    .art-clean{
-        padding:80px 0;
+.benefit-header {
+    max-width: 750px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.benefit-header h2 {
+    font-size: 54px;
+    font-weight: 300;
+    color: #5c646b;
+    margin-bottom: 15px;
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.benefit-item {
+    min-height: 155px;
+    padding: 25px 18px;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #5f6d72;
+    font-size: 17px;
+    font-weight: 700;
+    transition: 0.35s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.benefit-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #f0e6df;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.benefit-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.07);
+}
+
+.activity-note {
+    max-width: 950px;
+    margin: 35px auto 0;
+    padding: 24px 30px;
+    border-radius: 22px;
+    background: #e9efec;
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #65767a;
+}
+
+/* =========================
+   COPING SKILLS
+========================= */
+
+.coping-section {
+    margin-bottom: 130px;
+}
+
+.coping-card {
+    padding: 60px;
+    background: #ebe2da;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.coping-card::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    right: -80px;
+    top: -100px;
+}
+
+.coping-title {
+    font-size: 48px;
+    font-weight: 300;
+    color: #5f666d;
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.coping-intro {
+    font-size: 18px;
+    color: #756d67;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.coping-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    position: relative;
+}
+
+.coping-item {
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 20px;
+    padding: 22px 15px;
+    text-align: center;
+    color: #625d59;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.coping-item span {
+    display: block;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   PROCESS
+========================= */
+
+.process-section {
+    margin-bottom: 130px;
+}
+
+.process-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 55px;
+}
+
+.process-header h2 {
+    font-size: 56px;
+    font-weight: 300;
+    color: #5d666d;
+    margin-bottom: 15px;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.process-card {
+    background: #fff;
+    border-radius: 28px;
+    padding: 32px;
+    min-height: 180px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.045);
+    transition: 0.35s ease;
+}
+
+.process-card:hover {
+    transform: translateY(-6px);
+}
+
+.process-number {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #e5d6cb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6d625b;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.process-card p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #69797e;
+    margin: 0;
+}
+
+/* =========================
+   PROMISE
+========================= */
+
+.promise-section {
+    margin-bottom: 130px;
+}
+
+.promise-card {
+    max-width: 1050px;
+    margin: auto;
+    padding: 65px 70px;
+    text-align: center;
+    background: #e5eeeb;
+    border-radius: 45px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.04);
+}
+
+.promise-card h2 {
+    font-size: 52px;
+    font-weight: 300;
+    color: #59676b;
+    margin-bottom: 25px;
+}
+
+.promise-card p {
+    max-width: 850px;
+    margin: 0 auto 20px;
+    font-size: 18px;
+    line-height: 1.9;
+    color: #687a7e;
+}
+
+.promise-card .promise-highlight {
+    font-size: 22px;
+    line-height: 1.7;
+    color: #59676b;
+    font-weight: 600;
+    margin-top: 25px;
+}
+
+/* =========================
+   ENDING
+========================= */
+
+.ending-line {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.ending-line h2 {
+    font-size: 58px;
+    font-weight: 300;
+    line-height: 1.35;
+    color: #5d666d;
+    margin-bottom: 42px;
+}
+
+.soft-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 34px;
+    border-radius: 40px;
+    text-decoration: none;
+    background: #d9c8bb;
+    color: #5f564f;
+    font-weight: 800;
+    transition: 0.35s ease;
+    box-shadow: 0 10px 25px rgba(95, 86, 79, 0.08);
+}
+
+.soft-btn:hover {
+    transform: translateY(-4px);
+    color: #4f4842;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.09);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 991px) {
+
+    .art-clean {
+        padding: 90px 0;
     }
 
-    .hero-title{
-        font-size:54px;
+    .hero-wrapper,
+    .art-content-wrap,
+    .benefit-section,
+    .coping-section,
+    .process-section,
+    .promise-section {
+        margin-bottom: 95px;
     }
 
-    .hero-text{
-        font-size:16px;
-        line-height:1.9;
+    .hero-row {
+        padding: 22px;
     }
 
-    .hero-image img{
-        height:300px;
+    .hero-content {
+        padding: 20px 10px;
     }
 
-    .art-content-wrap{
-        margin-bottom:90px;
+    .hero-title {
+        font-size: 54px;
     }
 
-    .art-content-wrap h2,
-    .benefit-section h2,
-    .ending-line h2{
-        font-size:38px;
+    .hero-image img {
+        height: 420px;
     }
 
-    .art-content-wrap p{
-        font-size:16px;
+    .healing-content {
+        padding-right: 0;
     }
 
-    .benefit-item{
-        font-size:16px;
-        padding:24px;
+    .soft-image img {
+        height: 430px;
     }
 
+    .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .coping-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .art-clean {
+        padding: 65px 0;
+    }
+
+    .hero-wrapper {
+        margin-bottom: 85px;
+    }
+
+    .hero-row {
+        border-radius: 28px;
+        padding: 14px;
+    }
+
+    .hero-image img {
+        height: 320px;
+        border-radius: 24px;
+    }
+
+    .hero-image::before {
+        display: none;
+    }
+
+    .hero-content {
+        padding: 20px 8px 15px;
+    }
+
+    .mini-tag {
+        font-size: 12px;
+        padding: 8px 14px;
+        margin-bottom: 18px;
+    }
+
+    .hero-title {
+        font-size: 43px;
+        margin-bottom: 20px;
+    }
+
+    .hero-text {
+        font-size: 16px;
+        line-height: 1.85;
+    }
+
+    .section-title,
+    .benefit-header h2,
+    .process-header h2,
+    .promise-card h2,
+    .coping-title {
+        font-size: 36px;
+    }
+
+    .healing-content p {
+        font-size: 16px;
+        line-height: 1.85;
+    }
+
+    .soft-image {
+        padding: 0;
+    }
+
+    .soft-image::after {
+        display: none;
+    }
+
+    .soft-image img {
+        height: 330px;
+        border-radius: 25px;
+    }
+
+    .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .benefit-item {
+        min-height: 135px;
+        font-size: 15px;
+        padding: 20px 10px;
+    }
+
+    .benefit-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    .activity-note {
+        padding: 20px;
+        font-size: 15px;
+    }
+
+    .coping-card {
+        padding: 35px 22px;
+        border-radius: 28px;
+    }
+
+    .coping-intro {
+        font-size: 16px;
+    }
+
+    .coping-list {
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-card {
+        min-height: auto;
+        padding: 25px;
+    }
+
+    .promise-card {
+        padding: 40px 22px;
+        border-radius: 30px;
+    }
+
+    .promise-card p {
+        font-size: 16px;
+    }
+
+    .promise-card .promise-highlight {
+        font-size: 19px;
+    }
+
+    .ending-line h2 {
+        font-size: 37px;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        font-size: 39px;
+    }
+
+    .hero-image img {
+        height: 280px;
+    }
+
+    .soft-image img {
+        height: 290px;
+    }
 }
 
 </style>
 
+
 <section class="art-clean">
 
-<div class="container">
+    <div class="container">
 
-    <!-- HERO -->
+        <!-- =========================
+             HERO SECTION
+        ========================== -->
 
-    <div class="hero-wrapper">
+        <div class="hero-wrapper">
 
-        <div class="row align-items-center gy-5">
+            <div class="hero-row">
 
-            <!-- IMAGE -->
+                <div class="row align-items-center gy-4">
 
-            <div class="col-lg-6">
+                    <!-- IMAGE -->
 
-                <div class="hero-image">
+                    <div class="col-lg-6">
 
-                    <img src="{% static 'images/art3.png' %}" class="img-fluid">
+                        <div class="hero-image">
+
+                            <img
+                                src="{% static 'images/art3.png' %}"
+                                class="img-fluid"
+                                alt="Art Therapy"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTENT -->
+
+                    <div class="col-lg-6">
+
+                        <div class="hero-content">
+
+                            <span class="mini-tag">
+                                🎨 Creative Emotional Healing
+                            </span>
+
+                            <h1 class="hero-title">
+                                Art Therapy
+                            </h1>
+
+                            <p class="hero-text">
+
+                                Art therapy is a gentle and creative therapeutic approach
+                                that helps individuals express emotions, reduce stress
+                                and reconnect with themselves through colours,
+                                imagination and artistic exploration.
+
+                                <br><br>
+
+                                It provides a safe and supportive space where feelings
+                                can be explored without pressure or judgement,
+                                allowing healing, self-awareness and emotional balance
+                                to grow naturally through creativity.
+
+                            </p>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
             </div>
 
-            <!-- CONTENT -->
-
-            <div class="col-lg-6">
-
-                <span class="mini-tag">
-                    🎨 Creative Emotional Healing
-                </span>
-
-                <h1 class="hero-title">
-                    Art Therapy
-                </h1>
-
-                <p class="hero-text">
-
-                    Art therapy is a gentle and creative therapeutic approach
-                    that helps individuals express emotions, reduce stress
-                    and reconnect with themselves through colours,
-                    imagination and artistic exploration.
-
-               
+        </div>
 
 
-                    It provides a safe and supportive space where feelings
-                    can be explored without pressure or judgement,
-                    allowing healing, self-awareness and emotional balance
-                    to grow naturally through creativity.
+        <!-- =========================
+             HEALING BEYOND WORDS
+        ========================== -->
 
-                </p>
+        <div class="art-content-wrap">
+
+            <div class="row gy-5 align-items-center">
+
+                <!-- TEXT -->
+
+                <div class="col-lg-6">
+
+                    <div class="healing-content">
+
+                        <span class="section-label">
+                            Creative Expression
+                        </span>
+
+                        <h2 class="section-title">
+                            Healing Beyond Words
+                        </h2>
+
+                        <p>
+                            At Saarthi Navigating Life, we understand that not every emotion can be expressed through conversation. Sometimes, a colour, a line, or a simple drawing can communicate feelings that words cannot.
+                            Our Art-Based Emotional Wellness Sessions provide a safe, supportive, and creative environment where individuals can explore their emotions, reduce stress, improve self-awareness, and foster personal growth through artistic expression.
+                            You do not need to be an artist. You do not need drawing skills. The focus is never on creating a "perfect" piece of art—it is on understanding yourself, expressing your emotions, and discovering healthier ways to cope with life's challenges.
+                        </p>
+
+                        <p>
+                            At Saarthi Navigating Life, we use art as a supportive psychological tool alongside evidence-based counselling approaches.
+                            Creative expression often helps individuals access emotions, thoughts, and experiences that may be difficult to describe verbally.
+                        </p>
+
+                    </div>
+
+                </div>
 
 
+                <!-- IMAGE -->
+
+                <div class="col-lg-6">
+
+                    <div class="soft-image">
+
+                        <img
+                            src="{% static 'images/art1.png' %}"
+                            class="img-fluid"
+                            alt="Creative Art Therapy"
+                        >
+
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
 
-    <!-- SECOND SECTION -->
+        <!-- =========================
+             ART THERAPY CAN SUPPORT
+        ========================== -->
 
-    <div class="art-content-wrap">
+        <div class="benefit-section">
 
-        <div class="row gy-5 align-items-center">
+            <div class="benefit-header">
 
-            <!-- TEXT -->
-
-            <div class="col-lg-6">
+                <span class="section-label">
+                    Explore Through Creativity
+                </span>
 
                 <h2>
-                    Healing Beyond Words
+                    Art Therapy Can Support
+                </h2>
+
+            </div>
+
+
+            <div class="benefit-grid">
+
+                <div class="benefit-item">
+
+                    <div class="benefit-icon">
+                        ✏️
+                    </div>
+
+                    Drawing
+
+                </div>
+
+
+                <div class="benefit-item">
+
+                    <div class="benefit-icon">
+                        🎨
+                    </div>
+
+                    Colour exploration
+
+                </div>
+
+
+                <div class="benefit-item">
+
+                    <div class="benefit-icon">
+                        🖌️
+                    </div>
+
+                    Painting
+
+                </div>
+
+
+                <div class="benefit-item">
+
+                    <div class="benefit-icon">
+                        🌿
+                    </div>
+
+                    Aggression
+
+                </div>
+
+
+                <div class="benefit-item">
+
+                    <div class="benefit-icon">
+                        ✨
+                    </div>
+
+                    Hyperactivity
+
+                </div>
+
+            </div>
+
+
+            <div class="activity-note">
+
+                Every activity is chosen according to your comfort level, age,
+                therapeutic goals, and emotional needs.
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             HEALTHY COPING SKILLS
+        ========================== -->
+
+        <div class="coping-section">
+
+            <div class="coping-card">
+
+                <span class="section-label">
+                    Emotional Wellness
+                </span>
+
+                <h2 class="coping-title">
+                    Develop Healthy Coping Skills
+                </h2>
+
+                <p class="coping-intro">
+                    Art can become a lifelong tool for:
+                </p>
+
+
+                <div class="coping-list">
+
+                    <div class="coping-item">
+
+                        <span>🌊</span>
+
+                        Managing overwhelming emotions
+
+                    </div>
+
+
+                    <div class="coping-item">
+
+                        <span>🧘</span>
+
+                        Practising mindfulness
+
+                    </div>
+
+
+                    <div class="coping-item">
+
+                        <span>💛</span>
+
+                        Emotional regulation
+
+                    </div>
+
+
+                    <div class="coping-item">
+
+                        <span>🪞</span>
+
+                        Self-reflection
+
+                    </div>
+
+
+                    <div class="coping-item">
+
+                        <span>🌱</span>
+
+                        Building resilience
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             OUR PROCESS
+        ========================== -->
+
+        <div class="process-section">
+
+            <div class="process-header">
+
+                <span class="section-label">
+                    Your Creative Journey
+                </span>
+
+                <h2>
+                    Our Process
+                </h2>
+
+            </div>
+
+
+            <div class="process-grid">
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        01
+                    </div>
+
+                    <p>
+                        A brief emotional check-in
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        02
+                    </div>
+
+                    <p>
+                        A guided creative activity
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        03
+                    </div>
+
+                    <p>
+                        Quiet time for artistic expression
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        04
+                    </div>
+
+                    <p>
+                        Gentle reflection on thoughts and feelings
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        05
+                    </div>
+
+                    <p>
+                        Discussion connecting the creative experience to everyday life
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        06
+                    </div>
+
+                    <p>
+                        Practical strategies for continued emotional well-being
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             OUR PROMISE
+        ========================== -->
+
+        <div class="promise-section">
+
+            <div class="promise-card">
+
+                <span class="section-label">
+                    A Safe & Supportive Space
+                </span>
+
+                <h2>
+                    Our Promise
                 </h2>
 
                 <p>
-
-                    Sometimes emotions are difficult to explain.
-                    Art therapy creates a safe and calming environment
-                    where thoughts and feelings can be explored naturally
-                    through drawing, painting, textures and imagination.
-
+                    At Saarthi Navigating Life, we provide a compassionate,
+                    confidential, and supportive space where creativity becomes
+                    a bridge to emotional well-being.
                 </p>
 
-                <p>
-
-                    The focus is not artistic perfection —
-                    it is emotional expression, healing,
-                    self-discovery and personal growth.
-
+                <p class="promise-highlight">
+                    Because every picture tells a story—and every story deserves
+                    to be understood with empathy, respect, and care.
                 </p>
-
-            </div>
-
-            <!-- IMAGE -->
-
-            <div class="col-lg-6">
-
-                <div class="soft-image">
-
-                    <img src="{% static 'images/art1.png' %}" class="img-fluid">
-
-                </div>
 
             </div>
 
         </div>
 
-    </div>
 
-    <!-- BENEFITS -->
+        <!-- =========================
+             ENDING CTA
+        ========================== -->
 
-    <div class="benefit-section">
+        <div class="ending-line">
 
-        <h2 class="text-center">
-            Art Therapy Can Support
-        </h2>
+            <span class="section-label">
+                Begin With Creativity
+            </span>
 
-        <div class="benefit-grid">
+            <h2>
+                Sometimes the heart speaks best
+                through colours, creativity
+                and imagination.
+            </h2>
 
-            <div class="benefit-item">
-                Stress & Anxiety
-            </div>
-
-            <div class="benefit-item">
-                Emotional Overwhelm
-            </div>
-
-            <div class="benefit-item">
-                Trauma Recovery
-            </div>
-
-            <div class="benefit-item">
-                Self-Esteem Support
-            </div>
-
-            <div class="benefit-item">
-                Child Emotional Support
-            </div>
-
-            <div class="benefit-item">
-                Burnout & Mental Fatigue
-            </div>
+            <a href="{% url 'form' %}" class="soft-btn">
+                Begin Your Journey →
+            </a>
 
         </div>
 
     </div>
-
-    <!-- ENDING -->
-
-    <div class="ending-line">
-
-        <h2>
-
-            Sometimes the heart speaks best
-            through colours, creativity
-            and imagination.
-
-        </h2>
-
-        <a href="{% url 'form' %}" class="soft-btn">
-            Begin Your Journey →
-        </a>
-
-    </div>
-
-</div>
 
 </section>
 
