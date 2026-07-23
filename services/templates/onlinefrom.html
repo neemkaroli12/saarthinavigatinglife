@@ -1,0 +1,1125 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .contact-page {
+        background: #f7f8f5;
+        padding: 80px 0;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .contact-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    /* =========================
+       PAGE HEADER
+    ========================= */
+
+    .contact-header {
+        text-align: center;
+        max-width: 750px;
+        margin: 0 auto 50px;
+    }
+
+    .contact-header .small-title {
+        display: inline-block;
+        color: #70856d;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    .contact-header h1 {
+        color: #26352d;
+        font-size: 42px;
+        margin: 0 0 15px;
+        font-weight: 600;
+    }
+
+    .contact-header p {
+        color: #6d756f;
+        font-size: 16px;
+        line-height: 1.8;
+        margin: 0;
+    }
+
+    /* =========================
+       MAIN LAYOUT
+    ========================= */
+
+    .form-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 30px;
+        align-items: start;
+    }
+
+    /* =========================
+       MAIN FORM CARD
+    ========================= */
+
+    .form-card {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 18px;
+        box-shadow: 0 8px 30px rgba(42, 58, 48, 0.08);
+    }
+
+    .form-card h2 {
+        color: #2c3e34;
+        font-size: 25px;
+        margin: 0 0 8px;
+        font-weight: 600;
+    }
+
+    .form-card .form-intro {
+        color: #7b837d;
+        font-size: 14px;
+        margin-bottom: 30px;
+        line-height: 1.7;
+    }
+
+    /* =========================
+       SECTION HEADING
+    ========================= */
+
+    .section-heading {
+        font-size: 16px;
+        color: #526653;
+        font-weight: 600;
+        margin: 30px 0 18px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e5e9e4;
+    }
+
+    .section-heading:first-of-type {
+        margin-top: 0;
+    }
+
+    /* =========================
+       FORM ROW
+    ========================= */
+
+    .form-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        color: #39473f;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    .required {
+        color: #a65c5c;
+    }
+
+    /* =========================
+       INPUTS
+    ========================= */
+
+    .form-control {
+        width: 100%;
+        height: 50px;
+        border: 1px solid #dce2dc;
+        border-radius: 10px;
+        padding: 0 15px;
+        font-family: inherit;
+        font-size: 14px;
+        color: #354239;
+        background: #fbfcfa;
+        outline: none;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+    }
+
+    textarea.form-control {
+        height: 130px;
+        padding: 14px 15px;
+        resize: vertical;
+    }
+
+    .form-control:focus {
+        border-color: #82967e;
+        background: #ffffff;
+        box-shadow: 0 0 0 3px rgba(130, 150, 126, 0.12);
+    }
+
+    .form-control::placeholder {
+        color: #a4aaa5;
+    }
+
+    select.form-control {
+        cursor: pointer;
+    }
+
+    /* Date and time inputs */
+
+    input[type="date"],
+    input[type="time"] {
+        cursor: pointer;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="time"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        opacity: 0.7;
+    }
+
+    /* =========================
+       CONSULTATION OPTIONS
+    ========================= */
+
+    .consultation-options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .consultation-option {
+        position: relative;
+    }
+
+    .consultation-option input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .consultation-option label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        border: 1px solid #dce2dc;
+        border-radius: 10px;
+        background: #fbfcfa;
+        color: #58645c;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 0;
+    }
+
+    .consultation-option input:checked + label {
+        background: #71866e;
+        color: #ffffff;
+        border-color: #71866e;
+    }
+
+    .consultation-option label:hover {
+        border-color: #82967e;
+        background: #f4f7f2;
+    }
+
+    .consultation-option input:checked + label:hover {
+        background: #71866e;
+    }
+
+    /* =========================
+       CONSENT
+    ========================= */
+
+    .consent-box {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        background: #f6f8f4;
+        border-radius: 10px;
+        padding: 16px;
+        margin: 10px 0 25px;
+    }
+
+    .consent-box input {
+        width: 17px;
+        height: 17px;
+        margin-top: 3px;
+        accent-color: #71866e;
+        flex-shrink: 0;
+        cursor: pointer;
+    }
+
+    .consent-box label {
+        color: #667068;
+        font-size: 13px;
+        line-height: 1.6;
+        cursor: pointer;
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .submit-btn {
+        width: 100%;
+        border: none;
+        background: #667d64;
+        color: #ffffff;
+        padding: 15px 25px;
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        background: #536850;
+        transform: translateY(-1px);
+        box-shadow: 0 7px 18px rgba(83, 104, 80, 0.2);
+    }
+
+    /* =========================
+       QUICK CONTACT
+    ========================= */
+
+    .quick-contact-card {
+        background: #314239;
+        padding: 35px;
+        border-radius: 18px;
+        color: #ffffff;
+        box-shadow: 0 8px 30px rgba(42, 58, 48, 0.1);
+    }
+
+    .quick-contact-card h2 {
+        color: #ffffff;
+        font-size: 24px;
+        margin: 0 0 8px;
+    }
+
+    .quick-contact-card > p {
+        color: #c9d1cb;
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+
+    .quick-contact-card .form-group label {
+        color: #e8ede9;
+    }
+
+    .quick-contact-card .form-control {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.18);
+        color: #ffffff;
+    }
+
+    .quick-contact-card .form-control::placeholder {
+        color: #b8c1bb;
+    }
+
+    .quick-contact-card .form-control:focus {
+        border-color: #b9c9b6;
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow: none;
+    }
+
+    .quick-contact-card .submit-btn {
+        background: #e6ece3;
+        color: #34453a;
+    }
+
+    .quick-contact-card .submit-btn:hover {
+        background: #ffffff;
+    }
+
+    /* =========================
+       SUPPORT NOTE
+    ========================= */
+
+    .support-note {
+        margin-top: 25px;
+        background: #eef2eb;
+        border-radius: 16px;
+        padding: 25px;
+    }
+
+    .support-note h3 {
+        color: #405344;
+        font-size: 18px;
+        margin: 0 0 8px;
+    }
+
+    .support-note p {
+        color: #707a72;
+        font-size: 13px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    /* =========================
+       THANK YOU MESSAGE
+    ========================= */
+
+    .thank-you-message {
+        display: none;
+        text-align: center;
+        background: #f0f5ed;
+        border: 1px solid #dbe6d7;
+        border-radius: 14px;
+        padding: 30px;
+        margin-top: 25px;
+    }
+
+    .thank-you-message .icon {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .thank-you-message h3 {
+        color: #405642;
+        font-size: 22px;
+        margin: 0 0 10px;
+    }
+
+    .thank-you-message p {
+        color: #69766b;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 900px) {
+
+        .form-layout {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-header h1 {
+            font-size: 35px;
+        }
+
+    }
+    .time-note {
+    display: block;
+    margin-top: 7px;
+    font-size: 12px;
+    color: #7b837d;
+    font-weight: 400;
+}
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+        .contact-page {
+            padding: 50px 0;
+        }
+
+        .contact-container {
+            width: 92%;
+        }
+
+        .contact-header {
+            margin-bottom: 35px;
+        }
+
+        .contact-header h1 {
+            font-size: 29px;
+        }
+
+        .contact-header p {
+            font-size: 14px;
+        }
+
+        .form-card,
+        .quick-contact-card {
+            padding: 25px 20px;
+            border-radius: 14px;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        .consultation-options {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+</style>
+
+
+<section class="contact-page">
+
+    <div class="contact-container">
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <div class="contact-header">
+
+            <span class="small-title">
+                We're Here For You
+            </span>
+
+            <h1>
+                Take the First Step Towards Wellbeing
+            </h1>
+
+            <p>
+                Reach out to Saarthi Navigating Life. Share a few details with us,
+                and our team will connect with you to understand how we can best
+                support your journey.
+            </p>
+
+        </div>
+
+
+        <div class="form-layout">
+
+
+            <!-- =========================
+                 APPOINTMENT FORM
+            ========================== -->
+
+            <div class="form-card">
+
+                <h2>Book an Appointment</h2>
+
+                <p class="form-intro">
+                    Please fill in the details below. All information shared with
+                    us will be handled with care and confidentiality.
+                </p>
+
+
+                <form method="POST" id="appointmentForm">
+
+                    {% csrf_token %}
+
+                    <input
+                        type="hidden"
+                        name="form_type"
+                        value="appointment"
+                    >
+
+
+                    <!-- =========================
+                         PERSONAL DETAILS
+                    ========================== -->
+
+                    <div class="section-heading">
+                        Personal Details
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <!-- Full Name -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Full Name
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="full_name"
+                                class="form-control"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Age -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Age
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="number"
+                                name="age"
+                                class="form-control"
+                                placeholder="Enter your age"
+                                min="1"
+                                max="120"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+
+                        <!-- Mobile -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Mobile Number
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="tel"
+                                name="mobile"
+                                class="form-control"
+                                placeholder="Enter your mobile number"
+                                pattern="[0-9]{10}"
+                                maxlength="10"
+                                inputmode="numeric"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Email -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Email Address
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-control"
+                                placeholder="Enter your email address"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         HOW CAN WE HELP
+                    ========================== -->
+
+                    <div class="section-heading">
+                        How Can We Help You?
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Select the type of support you are looking for
+                            <span class="required">*</span>
+                        </label>
+
+
+                        <select
+                            name="support_type"
+                            class="form-control"
+                            required
+                        >
+
+                            <option value="" selected disabled>
+                                Choose an option
+                            </option>
+
+                            <option value="Emotional Wellbeing">
+                                Emotional Wellbeing
+                            </option>
+
+                            <option value="Social Wellbeing">
+                                Social Wellbeing
+                            </option>
+
+                            <option value="Behavioural Wellbeing">
+                                Behavioural Wellbeing
+                            </option>
+
+                            <option value="Career & Academic Guidance">
+                                Career & Academic Guidance
+                            </option>
+
+                            <option value="Child Counselling">
+                                Child Counselling
+                            </option>
+
+                            <option value="Parent Counselling">
+                                Parent Counselling
+                            </option>
+
+                            <option value="Relationship Counselling">
+                                Relationship Counselling
+                            </option>
+
+                            <option value="Psychological Assessment">
+                                Psychological Assessment
+                            </option>
+
+                            <option value="I'm Not Sure">
+                                I'm Not Sure
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- =========================
+                         CONSULTATION TYPE
+                    ========================== -->
+
+                    <div class="section-heading">
+                        Preferred Consultation
+                    </div>
+
+
+                    <div class="consultation-options">
+
+
+                        <!-- In Person -->
+
+                        <div class="consultation-option">
+
+                            <input
+                                type="radio"
+                                name="consultation_type"
+                                id="inPerson"
+                                value="In-Person"
+                                required
+                            >
+
+                            <label for="inPerson">
+                                In-Person
+                            </label>
+
+                        </div>
+
+
+                        <!-- Online -->
+
+                        <div class="consultation-option">
+
+                            <input
+                                type="radio"
+                                name="consultation_type"
+                                id="online"
+                                value="Online"
+                            >
+
+                            <label for="online">
+                                Online
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         PREFERRED DATE & TIME
+                    ========================== -->
+
+                    <div class="section-heading">
+                        Preferred Date & Time
+                    </div>
+
+
+                    <div class="form-row">
+
+
+                        <!-- Preferred Date -->
+
+                        <div class="form-group">
+
+                            <label for="preferredDate">
+                                Preferred Date
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="date"
+                                name="preferred_date"
+                                id="preferredDate"
+                                class="form-control"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Preferred Time -->
+                    <!-- Preferred Time -->
+                    <div class="form-group">
+
+                        <label for="preferredTime">
+                            Preferred Time
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="time"
+                            name="preferred_time"
+                            id="preferredTime"
+                            class="form-control"
+                            min="10:00"
+                            max="18:00"
+                            required
+                        >
+
+                        <small class="time-note">
+                            Available between 10:00 AM – 6:00 PM only
+                        </small>
+
+                    </div>
+                    </div>
+
+
+                    <!-- =========================
+                         CONCERN
+                    ========================== -->
+
+                    <div class="section-heading">
+                        Tell Us Briefly About Your Concern
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="concern">
+                            How can we support you?
+                        </label>
+
+                        <textarea
+                            name="concern"
+                            id="concern"
+                            class="form-control"
+                            placeholder="You may briefly share what you would like support with..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- =========================
+                         CONSENT
+                    ========================== -->
+
+                    <div class="section-heading">
+                        Consent
+                    </div>
+
+
+                    <div class="consent-box">
+
+                        <input
+                            type="checkbox"
+                            name="consent"
+                            id="consent"
+                            required
+                        >
+
+                        <label for="consent">
+                            I agree to be contacted by Saarthi Navigating Life
+                            regarding my enquiry.
+                        </label>
+
+                    </div>
+
+
+                    <!-- Submit Button -->
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        Book Appointment
+                    </button>
+
+
+                </form>
+
+
+                <!-- =========================
+                     THANK YOU MESSAGE
+                ========================== -->
+
+                <div
+                    class="thank-you-message"
+                    id="thankYouMessage"
+                >
+
+                    <div class="icon">
+                        🌿
+                    </div>
+
+                    <h3>
+                        Thank you for reaching out!
+                    </h3>
+
+                    <p>
+                        We've received your request. Our team will contact you
+                        as soon as possible to help you take the next step.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 RIGHT SIDE
+            ========================== -->
+
+            <div>
+
+
+                <!-- QUICK CONTACT -->
+
+                <div class="quick-contact-card">
+
+                    <h2>
+                        Quick Contact
+                    </h2>
+
+                    <p>
+                        Have a question or not sure where to begin?
+                        Send us a message and we'll get back to you.
+                    </p>
+
+
+                    <form
+                        method="POST"
+                        id="quickContactForm"
+                    >
+
+                        {% csrf_token %}
+
+
+                        <input
+                            type="hidden"
+                            name="form_type"
+                            value="quick_contact"
+                        >
+
+
+                        <!-- Name -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Name
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="name"
+                                class="form-control"
+                                placeholder="Your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Mobile -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Mobile Number
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="tel"
+                                name="mobile"
+                                class="form-control"
+                                placeholder="Your mobile number"
+                                pattern="[0-9]{10}"
+                                maxlength="10"
+                                inputmode="numeric"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Message -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Message
+                                <span class="required">*</span>
+                            </label>
+
+                            <textarea
+                                name="message"
+                                class="form-control"
+                                placeholder="How can we help you?"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- Submit -->
+
+                        <button
+                            type="submit"
+                            class="submit-btn"
+                        >
+                            Send Message
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <!-- SUPPORT NOTE -->
+
+                <div class="support-note">
+
+                    <h3>
+                        A Safe Space to Begin 🌿
+                    </h3>
+
+                    <p>
+                        You don't need to have everything figured out before
+                        reaching out. Our team is here to listen, understand,
+                        and guide you towards the right support.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =========================
+       PREVENT PAST DATE
+    ========================= */
+
+    const dateInput =
+        document.getElementById("preferredDate");
+
+    if (dateInput) {
+
+        const today = new Date();
+
+        const year =
+            today.getFullYear();
+
+        const month =
+            String(today.getMonth() + 1)
+            .padStart(2, "0");
+
+        const day =
+            String(today.getDate())
+            .padStart(2, "0");
+
+        const todayDate =
+            `${year}-${month}-${day}`;
+
+        dateInput.min = todayDate;
+
+    }
+
+
+const preferredTime =
+    document.getElementById("preferredTime");
+
+if (preferredTime) {
+
+    preferredTime.addEventListener(
+        "change",
+        function () {
+
+            const selectedTime = this.value;
+
+            if (
+                selectedTime < "10:00" ||
+                selectedTime > "18:00"
+            ) {
+
+                alert(
+                    "Please select a time between 10:00 AM and 6:00 PM only."
+                );
+
+                this.value = "";
+
+            }
+
+        }
+    );
+
+}
+
+
+    /* =========================
+       MOBILE NUMBER
+       ONLY NUMBERS
+    ========================= */
+
+    const mobileInputs =
+        document.querySelectorAll(
+            'input[type="tel"]'
+        );
+
+    mobileInputs.forEach(function (input) {
+
+        input.addEventListener(
+            "input",
+            function () {
+
+                this.value =
+                    this.value
+                    .replace(/\D/g, "")
+                    .slice(0, 10);
+
+            }
+        );
+
+    });
+
+});
+
+</script>
+
+
+{% endblock %}
