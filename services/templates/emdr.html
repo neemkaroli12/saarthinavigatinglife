@@ -18,19 +18,8 @@ body {
 ========================================= */
 
 .emdr-clean {
-    padding: 110px 0 100px;
-    background:
-        radial-gradient(
-            circle at 8% 12%,
-            rgba(227, 230, 239, 0.70),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 92% 45%,
-            rgba(224, 232, 235, 0.65),
-            transparent 30%
-        ),
-        #f5f7f8;
+    padding: 100px 0 20px;
+
 
     overflow: hidden;
 }
@@ -52,8 +41,8 @@ body {
 }
 
 .section-title {
-    font-size: 52px;
-    font-weight: 300;
+    font-size: 40px;
+    font-weight: 400;
     line-height: 1.15;
     color: #59636c;
     margin-bottom: 25px;
@@ -69,13 +58,10 @@ body {
 }
 
 .hero-row {
-    background: rgba(255, 255, 255, 0.50);
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    border-radius: 45px;
+
     padding: 30px;
 
-    box-shadow:
-        0 25px 60px rgba(77, 88, 91, 0.07);
+
 }
 
 
@@ -145,8 +131,8 @@ body {
 }
 
 .hero-title {
-    font-size: 64px;
-    font-weight: 300;
+    font-size: 54px;
+    font-weight: 400;
     line-height: 1.05;
     color: #59616d;
     margin-bottom: 28px;
@@ -236,8 +222,8 @@ body {
 }
 
 .approach-header h2 {
-    font-size: 52px;
-    font-weight: 300;
+    font-size: 40px;
+    font-weight: 400;
     line-height: 1.2;
     color: #5d666d;
     margin-bottom: 20px;
@@ -482,27 +468,15 @@ body {
 ========================================= */
 
 .healing-journey {
-    margin-bottom: 130px;
+    margin-bottom: 30px;
 }
 
 .journey-card {
     position: relative;
 
-    padding: 65px 70px;
+    padding: 35px 30px;
 
-    border-radius: 42px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #ebeef4,
-            #f5f7f8
-        );
-
-    overflow: hidden;
-
-    box-shadow:
-        0 18px 45px rgba(0,0,0,0.04);
 }
 
 .journey-card::before {
@@ -513,9 +487,6 @@ body {
     width: 250px;
     height: 250px;
 
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.45);
 
     right: -80px;
     top: -100px;
@@ -529,9 +500,9 @@ body {
 }
 
 .journey-card h2 {
-    font-size: 48px;
+    font-size: 40px;
 
-    font-weight: 300;
+    font-weight: 400;
 
     line-height: 1.25;
 
@@ -556,7 +527,7 @@ body {
 ========================================= */
 
 .promise-section {
-    margin-bottom: 130px;
+    margin-bottom: 10px;
 }
 
 .promise-card {
@@ -570,17 +541,6 @@ body {
 
     text-align: center;
 
-    background:
-        linear-gradient(
-            135deg,
-            #dfe3ed,
-            #eef1f5
-        );
-
-    border-radius: 45px;
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,0.045);
 
     overflow: hidden;
 }
@@ -593,10 +553,6 @@ body {
     width: 280px;
     height: 280px;
 
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,0.35);
 
     right: -100px;
     top: -130px;
@@ -610,10 +566,7 @@ body {
     width: 190px;
     height: 190px;
 
-    border-radius: 50%;
 
-    background:
-        rgba(255,255,255,0.25);
 
     left: -80px;
     bottom: -100px;
@@ -1027,9 +980,7 @@ body {
 
                     <div class="hero-content">
 
-                        <span class="mini-tag">
-                            🌿 Trauma Healing & Emotional Recovery
-                        </span>
+
 
 
                         <h1 class="hero-title">
@@ -1080,9 +1031,7 @@ body {
 
                 <div class="emdr-text">
 
-                    <span class="section-label">
-                        Understanding Your Experience
-                    </span>
+
 
 
                     <h2 class="section-title">
@@ -1150,9 +1099,6 @@ body {
 
         <div class="approach-header">
 
-            <span class="section-label">
-                Safe • Personal • Compassionate
-            </span>
 
 
             <h2>
@@ -1287,9 +1233,6 @@ body {
 
         <div class="process-header">
 
-            <span class="section-label">
-                Your Healing Journey
-            </span>
 
             <h2>
                 EMDR Process
@@ -1411,9 +1354,7 @@ body {
 
             <div class="journey-content">
 
-                <span class="section-label">
-                    Healing at Your Pace
-                </span>
+
 
 
                 <h2>
@@ -1470,9 +1411,6 @@ body {
                 </div>
 
 
-                <span class="section-label">
-                    Compassion • Support • Hope
-                </span>
 
 
                 <h2>
@@ -1505,6 +1443,12 @@ body {
                     is about reclaiming your future.
 
                 </p>
+                <a href="{% url 'form' %}" class="soft-btn">
+
+                    Explore EMDR Therapy 
+
+                </a>
+
 
             </div>
 
@@ -1517,29 +1461,7 @@ body {
          ENDING
     ====================================== -->
 
-    <div class="ending-line">
 
-        <span class="section-label">
-            Moving Forward
-        </span>
-
-
-        <h2>
-
-            You cannot change the past —
-            but you can change
-            how the past lives within you.
-
-        </h2>
-
-
-        <a href="{% url 'form' %}" class="soft-btn">
-
-            Explore EMDR Therapy →
-
-        </a>
-
-    </div>
 
 
 </div>
