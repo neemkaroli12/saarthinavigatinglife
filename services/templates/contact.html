@@ -248,7 +248,7 @@ body{
 
 .contact-image img{
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     height: auto;
 
     border-radius: 30px;
@@ -580,17 +580,7 @@ html{
 
                 <div class="contact-content">
 
-                    <div class="contact-top">
 
-                        <span class="contact-tag">
-                            🌿 Contact Us
-                        </span>
-
-                        <a href="#message-form" class="message-link">
-                            Send Us Message →
-                        </a>
-
-                    </div>
 
                     <h1>
                         Let’s Start Your
@@ -667,7 +657,7 @@ html{
 
         <!-- CONTACT FORM -->
 
-        <div  id="message-form">
+        <div  id="message-form" class="mt-3">
 
             <form method="POST" class="contact-form-box">
                 {% csrf_token %}
@@ -708,7 +698,7 @@ html{
                 </div>
 
                 <button type="submit" class="contact-submit-btn">
-                    Send Message →
+                    Submit
                 </button>
             </form>
 

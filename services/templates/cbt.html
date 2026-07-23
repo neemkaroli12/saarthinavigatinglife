@@ -7,18 +7,40 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
 
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
 body {
-    font-family: "Nunito", sans-serif;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
     background: #f5f7f8;
     color: #6f7c82;
 }
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
 
 /* =========================================
    MAIN SECTION
 ========================================= */
 
 .cbt-clean {
-    padding: 110px 0 100px;
+    padding: 80px 0 70px;
 
     background:
         radial-gradient(
@@ -36,12 +58,12 @@ body {
     overflow: hidden;
 }
 
+
 /* =========================================
    COMMON
 ========================================= */
 
 .section-label {
-
     display: inline-block;
 
     padding: 8px 18px;
@@ -53,15 +75,14 @@ body {
     color: #65777f;
 
     font-size: 14px;
-
     font-weight: 700;
 
     margin-bottom: 20px;
 }
 
-.section-title {
 
-    font-size: 52px;
+.section-title {
+    font-size: 40px;
 
     font-weight: 300;
 
@@ -78,60 +99,47 @@ body {
 ========================================= */
 
 .hero-wrapper {
-
-    margin-bottom: 130px;
+    margin-bottom: 75px;
 }
+
+
+/* NO BOX BEHIND IMAGE + CONTENT */
 
 .hero-row {
+    background: transparent;
 
-    background: rgba(255, 255, 255, 0.48);
+    border: none;
 
-    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 0;
 
-    border-radius: 45px;
+    padding: 0;
 
-    padding: 30px;
-
-    box-shadow:
-        0 25px 60px rgba(77, 88, 91, 0.07);
+    box-shadow: none;
 }
 
 
-/* IMAGE */
+/* =========================================
+   HERO IMAGE
+========================================= */
 
 .hero-image {
-
     position: relative;
+
+    width: 100%;
+
+    background: transparent;
 }
+
+
+/* REMOVE DECORATIVE CIRCLE */
 
 .hero-image::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 170px;
-
-    height: 170px;
-
-    background: #d9e5e9;
-
-    border-radius: 50%;
-
-    top: -30px;
-
-    left: -30px;
-
-    opacity: 0.6;
-
-    z-index: 0;
+    display: none;
 }
 
+
 .hero-image img {
-
     position: relative;
-
-    z-index: 1;
 
     width: 100%;
 
@@ -142,19 +150,22 @@ body {
     border-radius: 35px;
 
     box-shadow:
-        0 25px 45px rgba(0,0,0,0.08);
+        0 15px 35px rgba(0, 0, 0, 0.06);
 }
 
 
-/* HERO CONTENT */
+/* =========================================
+   HERO CONTENT
+========================================= */
 
 .hero-content {
+    padding: 25px 25px 25px 45px;
 
-    padding: 30px 30px 30px 45px;
+    background: transparent;
 }
 
-.mini-tag {
 
+.mini-tag {
     display: inline-block;
 
     padding: 9px 19px;
@@ -172,8 +183,8 @@ body {
     font-size: 14px;
 }
 
-.hero-title {
 
+.hero-title {
     font-size: 64px;
 
     font-weight: 300;
@@ -185,8 +196,8 @@ body {
     margin-bottom: 28px;
 }
 
-.hero-text {
 
+.hero-text {
     font-size: 18px;
 
     line-height: 1.9;
@@ -202,17 +213,16 @@ body {
 ========================================= */
 
 .cbt-content {
-
-    margin-bottom: 130px;
+    margin-bottom: 80px;
 }
 
-.cbt-text {
 
+.cbt-text {
     padding-right: 35px;
 }
 
-.cbt-text p {
 
+.cbt-text p {
     font-size: 17px;
 
     line-height: 1.95;
@@ -223,41 +233,28 @@ body {
 }
 
 
-/* IMAGE */
+/* =========================================
+   SECOND IMAGE
+========================================= */
 
 .soft-image {
-
     position: relative;
 
-    padding: 15px;
+    padding: 0;
+
+    background: transparent;
 }
+
+
+/* REMOVE BOX BEHIND IMAGE */
 
 .soft-image::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 85%;
-
-    height: 85%;
-
-    right: -10px;
-
-    bottom: -10px;
-
-    background: #dce8eb;
-
-    border-radius: 35px;
-
-    z-index: 0;
+    display: none;
 }
 
+
 .soft-image img {
-
     position: relative;
-
-    z-index: 1;
 
     width: 100%;
 
@@ -268,7 +265,7 @@ body {
     border-radius: 34px;
 
     box-shadow:
-        0 20px 45px rgba(0,0,0,0.07);
+        0 15px 35px rgba(0, 0, 0, 0.06);
 }
 
 
@@ -277,21 +274,20 @@ body {
 ========================================= */
 
 .benefit-section {
-
-    margin-bottom: 130px;
+    margin-bottom: 80px;
 }
 
-.benefit-header {
 
+.benefit-header {
     max-width: 750px;
 
-    margin: 0 auto 55px;
+    margin: 0 auto 40px;
 
     text-align: center;
 }
 
-.benefit-header h2 {
 
+.benefit-header h2 {
     font-size: 54px;
 
     font-weight: 300;
@@ -302,19 +298,22 @@ body {
 }
 
 
-/* BENEFIT GRID */
+/* =========================================
+   BENEFIT GRID
+========================================= */
 
 .benefit-grid {
-
     display: grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(4, minmax(0, 1fr));
 
     gap: 20px;
 }
 
+
 .benefit-item {
+    min-width: 0;
 
     min-height: 175px;
 
@@ -322,7 +321,8 @@ body {
 
     border-radius: 28px;
 
-    background: rgba(255,255,255,0.88);
+    background:
+        rgba(255, 255, 255, 0.88);
 
     display: flex;
 
@@ -343,25 +343,27 @@ body {
     transition: 0.35s ease;
 
     box-shadow:
-        0 10px 30px rgba(0,0,0,0.04);
+        0 10px 30px rgba(0, 0, 0, 0.04);
 
     border:
-        1px solid rgba(255,255,255,0.9);
+        1px solid rgba(255, 255, 255, 0.9);
 }
+
 
 .benefit-item:hover {
-
-    transform: translateY(-8px);
+    transform: translateY(-6px);
 
     box-shadow:
-        0 18px 38px rgba(0,0,0,0.07);
+        0 18px 38px rgba(0, 0, 0, 0.07);
 }
 
-.benefit-icon {
 
+.benefit-icon {
     width: 54px;
 
     height: 54px;
+
+    flex-shrink: 0;
 
     border-radius: 50%;
 
@@ -384,21 +386,20 @@ body {
 ========================================= */
 
 .process-section {
-
-    margin-bottom: 130px;
+    margin-bottom: 80px;
 }
 
-.process-header {
 
+.process-header {
     max-width: 760px;
 
-    margin: 0 auto 55px;
+    margin: 0 auto 40px;
 
     text-align: center;
 }
 
-.process-header h2 {
 
+.process-header h2 {
     font-size: 56px;
 
     font-weight: 300;
@@ -408,8 +409,8 @@ body {
     margin-bottom: 15px;
 }
 
-.process-description {
 
+.process-description {
     font-size: 17px;
 
     line-height: 1.8;
@@ -418,23 +419,27 @@ body {
 }
 
 
-/* PROCESS GRID */
+/* =========================================
+   PROCESS GRID
+========================================= */
 
 .process-grid {
-
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3, minmax(0, 1fr));
 
     gap: 22px;
 }
 
-.process-card {
 
+.process-card {
     position: relative;
 
-    background: rgba(255,255,255,0.9);
+    min-width: 0;
+
+    background:
+        rgba(255, 255, 255, 0.9);
 
     padding: 32px;
 
@@ -443,24 +448,24 @@ body {
     min-height: 190px;
 
     box-shadow:
-        0 12px 35px rgba(0,0,0,0.045);
+        0 12px 35px rgba(0, 0, 0, 0.045);
 
     border:
-        1px solid rgba(255,255,255,0.9);
+        1px solid rgba(255, 255, 255, 0.9);
 
     transition: 0.35s ease;
 }
 
-.process-card:hover {
 
+.process-card:hover {
     transform: translateY(-7px);
 
     box-shadow:
-        0 20px 42px rgba(0,0,0,0.07);
+        0 20px 42px rgba(0, 0, 0, 0.07);
 }
 
-.process-number {
 
+.process-number {
     width: 48px;
 
     height: 48px;
@@ -484,8 +489,8 @@ body {
     margin-bottom: 22px;
 }
 
-.process-card h4 {
 
+.process-card h4 {
     font-size: 19px;
 
     font-weight: 700;
@@ -498,58 +503,34 @@ body {
 }
 
 
-/* LAST CARD */
-/* ALL PROCESS CARDS SAME COLOR */
-
-.process-card,
-.process-card:last-child {
-    background: rgba(255,255,255,0.9);
-}
-
-.process-card .process-number,
-.process-card:last-child .process-number {
-    background: #dfe8eb;
-}
-
-
 /* =========================================
    OUR PROMISE
 ========================================= */
 
 .promise-section {
-
-    margin-bottom: 130px;
+    margin-bottom: 75px;
 }
 
-.promise-card {
 
+.promise-card {
     position: relative;
 
     max-width: 1080px;
 
     margin: auto;
 
-    padding: 70px 75px;
+    padding: 65px 70px;
 
     text-align: center;
 
-    background:
-        linear-gradient(
-            135deg,
-            #dfe9ec,
-            #edf3f4
-        );
+ 
 
-    border-radius: 45px;
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,0.045);
 
     overflow: hidden;
 }
 
-.promise-card::before {
 
+.promise-card::before {
     content: "";
 
     position: absolute;
@@ -561,15 +542,15 @@ body {
     border-radius: 50%;
 
     background:
-        rgba(255,255,255,0.3);
+        rgba(255, 255, 255, 0.3);
 
     right: -100px;
 
     top: -130px;
 }
 
-.promise-card::after {
 
+.promise-card::after {
     content: "";
 
     position: absolute;
@@ -581,22 +562,22 @@ body {
     border-radius: 50%;
 
     background:
-        rgba(255,255,255,0.25);
+        rgba(255, 255, 255, 0.25);
 
     left: -80px;
 
     bottom: -100px;
 }
 
-.promise-content {
 
+.promise-content {
     position: relative;
 
     z-index: 2;
 }
 
-.promise-icon {
 
+.promise-icon {
     width: 65px;
 
     height: 65px;
@@ -612,13 +593,13 @@ body {
     justify-content: center;
 
     background:
-        rgba(255,255,255,0.7);
+        rgba(255, 255, 255, 0.7);
 
     font-size: 28px;
 }
 
-.promise-card h2 {
 
+.promise-card h2 {
     font-size: 52px;
 
     font-weight: 300;
@@ -628,8 +609,8 @@ body {
     margin-bottom: 28px;
 }
 
-.promise-card p {
 
+.promise-card p {
     max-width: 900px;
 
     margin: 0 auto 22px;
@@ -641,8 +622,8 @@ body {
     color: #687a80;
 }
 
-.promise-highlight {
 
+.promise-highlight {
     font-size: 22px !important;
 
     line-height: 1.7 !important;
@@ -660,18 +641,17 @@ body {
 ========================================= */
 
 .ending-line {
-
     max-width: 900px;
 
     margin: auto;
 
     text-align: center;
 
-    padding: 25px 20px;
+    padding: 20px;
 }
 
-.ending-line h2 {
 
+.ending-line h2 {
     font-size: 58px;
 
     font-weight: 300;
@@ -684,10 +664,11 @@ body {
 }
 
 
-/* BUTTON */
+/* =========================================
+   BUTTON
+========================================= */
 
 .soft-btn {
-
     display: inline-flex;
 
     align-items: center;
@@ -711,80 +692,75 @@ body {
     transition: 0.35s ease;
 
     box-shadow:
-        0 10px 25px rgba(85,99,106,0.09);
+        0 10px 25px rgba(85, 99, 106, 0.09);
 }
 
-.soft-btn:hover {
 
+.soft-btn:hover {
     transform: translateY(-4px);
 
     color: #445159;
 
     box-shadow:
-        0 15px 30px rgba(0,0,0,0.09);
+        0 15px 30px rgba(0, 0, 0, 0.09);
 }
 
 
 /* =========================================
    TABLET
+   992PX AND BELOW
 ========================================= */
 
-@media(max-width:991px) {
+@media (max-width: 991.98px) {
 
     .cbt-clean {
-
-        padding: 90px 0;
+        padding: 70px 0;
     }
+
 
     .hero-wrapper,
     .cbt-content,
     .benefit-section,
     .process-section,
     .promise-section {
-
-        margin-bottom: 95px;
+        margin-bottom: 65px;
     }
 
-    .hero-row {
-
-        padding: 22px;
-    }
 
     .hero-content {
-
-        padding: 20px 10px;
+        padding: 20px 5px 0;
     }
+
 
     .hero-title {
-
-        font-size: 54px;
+        font-size: 52px;
     }
 
-    .hero-image img {
 
+    .hero-image img {
         height: 420px;
     }
 
-    .cbt-text {
 
+    .cbt-text {
         padding-right: 0;
     }
 
-    .soft-image img {
 
+    .soft-image img {
         height: 430px;
     }
 
-    .benefit-grid {
 
+    .benefit-grid {
         grid-template-columns:
-            repeat(2,1fr);
+            repeat(2, minmax(0, 1fr));
     }
 
-    .process-grid {
 
+    .process-grid {
         grid-template-columns:
-            repeat(2,1fr);
+            repeat(2, minmax(0, 1fr));
     }
 
 }
@@ -792,50 +768,73 @@ body {
 
 /* =========================================
    MOBILE
+   768PX AND BELOW
 ========================================= */
 
-@media(max-width:768px) {
+@media (max-width: 767.98px) {
 
     .cbt-clean {
+        padding: 45px 0;
+    }
 
-        padding: 65px 0;
+
+    .cbt-clean .container {
+        width: 100%;
+
+        max-width: 100%;
+
+        padding-left: 18px;
+
+        padding-right: 18px;
+    }
+
+
+    .hero-wrapper,
+    .cbt-content,
+    .benefit-section,
+    .process-section,
+    .promise-section {
+        margin-bottom: 50px;
     }
 
 
     /* HERO */
 
-    .hero-wrapper {
-
-        margin-bottom: 85px;
-    }
-
     .hero-row {
+        padding: 0 !important;
 
-        padding: 14px;
+        background: transparent !important;
 
-        border-radius: 28px;
+        border: none !important;
+
+        box-shadow: none !important;
     }
 
-    .hero-image::before {
 
-        display: none;
+    .hero-image {
+        width: 100%;
     }
+
 
     .hero-image img {
+        width: 100%;
 
-        height: 320px;
+        height: auto;
+
+        aspect-ratio: 4 / 3;
+
+        object-fit: cover;
 
         border-radius: 24px;
     }
 
-    .hero-content {
 
-        padding:
-            20px 8px 15px;
+    .hero-content {
+        padding: 25px 0 0;
     }
 
-    .mini-tag {
 
+    .mini-tag {
         font-size: 12px;
 
         padding: 8px 14px;
@@ -843,18 +842,21 @@ body {
         margin-bottom: 18px;
     }
 
-    .hero-title {
 
-        font-size: 43px;
+    .hero-title {
+        font-size:
+            clamp(36px, 10vw, 44px);
+
+        line-height: 1.15;
 
         margin-bottom: 20px;
     }
 
+
     .hero-text {
+        font-size: 15.5px;
 
-        font-size: 16px;
-
-        line-height: 1.85;
+        line-height: 1.8;
     }
 
 
@@ -864,83 +866,136 @@ body {
     .benefit-header h2,
     .process-header h2,
     .promise-card h2 {
+        font-size:
+            clamp(31px, 8vw, 38px);
 
-        font-size: 36px;
+        line-height: 1.2;
     }
 
 
-    /* CONTENT */
+    /* CBT CONTENT */
 
-    .cbt-text p {
+    .cbt-content .row {
+        margin-left: 0;
 
-        font-size: 16px;
-
-        line-height: 1.85;
+        margin-right: 0;
     }
 
-    .soft-image {
 
+    .cbt-content .col-lg-6 {
+        padding-left: 0;
+
+        padding-right: 0;
+    }
+
+
+    .cbt-text {
         padding: 0;
     }
 
-    .soft-image::after {
 
-        display: none;
+    .cbt-text p {
+        font-size: 15.5px;
+
+        line-height: 1.8;
     }
 
+
+    /* SECOND IMAGE */
+
+    .soft-image {
+        padding: 0;
+
+        background: transparent;
+    }
+
+
+    .soft-image::after {
+        display: none !important;
+    }
+
+
     .soft-image img {
+        width: 100%;
 
-        height: 330px;
+        height: auto;
 
-        border-radius: 25px;
+        aspect-ratio: 4 / 3;
+
+        object-fit: cover;
+
+        border-radius: 24px;
     }
 
 
     /* BENEFITS */
 
-    .benefit-grid {
+    .benefit-header {
+        margin-bottom: 30px;
+    }
 
+
+    .benefit-grid {
         grid-template-columns:
-            repeat(2,1fr);
+            repeat(2, minmax(0, 1fr));
 
         gap: 12px;
     }
 
+
     .benefit-item {
+        min-height: 140px;
 
-        min-height: 150px;
+        padding: 20px 10px;
 
-        padding: 20px 12px;
+        border-radius: 20px;
 
         font-size: 14px;
     }
 
-    .benefit-icon {
 
+    .benefit-icon {
         width: 46px;
 
         height: 46px;
 
         font-size: 20px;
+
+        margin-bottom: 12px;
     }
 
 
     /* PROCESS */
 
-    .process-grid {
-
-        grid-template-columns: 1fr;
+    .process-header {
+        margin-bottom: 30px;
     }
+
+
+    .process-description {
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+
+    .process-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
 
     .process-card {
-
         min-height: auto;
 
-        padding: 25px;
+        padding: 24px;
+
+        border-radius: 22px;
     }
 
-    .process-card h4 {
 
+    .process-card h4 {
         font-size: 17px;
     }
 
@@ -948,30 +1003,52 @@ body {
     /* PROMISE */
 
     .promise-card {
+        padding: 40px 22px;
 
-        padding: 42px 22px;
-
-        border-radius: 30px;
+        border-radius: 28px;
     }
+
+
+    .promise-icon {
+        width: 55px;
+
+        height: 55px;
+
+        font-size: 24px;
+    }
+
 
     .promise-card p {
+        font-size: 15.5px;
 
-        font-size: 16px;
+        line-height: 1.8;
     }
 
-    .promise-highlight {
 
-        font-size: 19px !important;
+    .promise-highlight {
+        font-size: 18px !important;
     }
 
 
     /* ENDING */
 
-    .ending-line h2 {
+    .ending-line {
+        padding: 10px 0;
+    }
 
-        font-size: 37px;
+
+    .ending-line h2 {
+        font-size:
+            clamp(31px, 8vw, 38px);
 
         line-height: 1.4;
+
+        margin-bottom: 30px;
+    }
+
+
+    .soft-btn {
+        padding: 14px 25px;
     }
 
 }
@@ -979,28 +1056,107 @@ body {
 
 /* =========================================
    SMALL MOBILE
+   480PX AND BELOW
 ========================================= */
 
-@media(max-width:420px) {
+@media (max-width: 480px) {
+
+    .cbt-clean {
+        padding: 35px 0;
+    }
+
+
+    .cbt-clean .container {
+        padding-left: 15px;
+
+        padding-right: 15px;
+    }
+
+
+    .hero-wrapper,
+    .cbt-content,
+    .benefit-section,
+    .process-section,
+    .promise-section {
+        margin-bottom: 45px;
+    }
+
 
     .hero-title {
-
-        font-size: 39px;
+        font-size: 35px;
     }
 
-    .hero-image img {
 
-        height: 280px;
+    .hero-text,
+    .cbt-text p {
+        font-size: 14.5px;
+
+        line-height: 1.75;
     }
 
+
+    .hero-image img,
     .soft-image img {
+        aspect-ratio: 1 / 1;
 
-        height: 290px;
+        height: auto;
     }
+
+
+    .section-title,
+    .benefit-header h2,
+    .process-header h2,
+    .promise-card h2 {
+        font-size: 30px;
+    }
+
+
+    /* BENEFIT SINGLE COLUMN */
 
     .benefit-grid {
-
         grid-template-columns: 1fr;
+    }
+
+
+    .benefit-item {
+        min-height: 110px;
+
+        flex-direction: row;
+
+        justify-content: flex-start;
+
+        text-align: left;
+
+        gap: 15px;
+
+        padding: 18px;
+    }
+
+
+    .benefit-icon {
+        margin-bottom: 0;
+    }
+
+
+    .process-card {
+        padding: 20px;
+    }
+
+
+    .promise-card {
+        padding: 35px 18px;
+    }
+
+
+    .ending-line h2 {
+        font-size: 29px;
+    }
+
+
+    .soft-btn {
+        width: 100%;
+
+        max-width: 300px;
     }
 
 }
@@ -1026,7 +1182,7 @@ body {
 
                 <!-- IMAGE -->
 
-                <div class="col-lg-6">
+                <div class="col-12 col-lg-6">
 
                     <div class="hero-image">
 
@@ -1043,15 +1199,14 @@ body {
 
                 <!-- CONTENT -->
 
-                <div class="col-lg-6">
+                <div class="col-12 col-lg-6">
 
                     <div class="hero-content">
 
-                        <span class="mini-tag">
-                            🧠 Practical Emotional Healing
-                        </span>
 
-                        <h1 class="hero-title">
+
+
+                        <h1 class="hero-title text-center">
                             CBT Therapy
                         </h1>
 
@@ -1096,30 +1251,34 @@ body {
 
             <!-- TEXT -->
 
-            <div class="col-lg-6">
+            <div class="col-12 col-lg-6">
 
                 <div class="cbt-text">
 
-                    <span class="section-label">
-                        Understanding & Growth
-                    </span>
+
+
 
                     <h2 class="section-title">
                         Creating Positive Change
                     </h2>
 
+
                     <p>
 
                         At Saarthi Navigating Life,
                         we believe that every person's journey is unique.
+
                         Our role is not to tell you how to live your life—we
                         help you understand yourself better, develop healthier
                         ways of thinking, and build the confidence to navigate
                         life's challenges.
 
+                        <br><br>
+
                         CBT (Cognitive Behavioral Therapy) is one of the world's
                         most effective and research-backed approaches for helping
                         people overcome emotional and behavioral difficulties.
+
                         Together, we work as a team to identify unhelpful thought
                         patterns, understand emotions, and create positive,
                         lasting changes.
@@ -1133,7 +1292,7 @@ body {
 
             <!-- IMAGE -->
 
-            <div class="col-lg-6">
+            <div class="col-12 col-lg-6">
 
                 <div class="soft-image">
 
@@ -1161,9 +1320,8 @@ body {
 
         <div class="benefit-header">
 
-            <span class="section-label">
-                How CBT Can Support You
-            </span>
+
+
 
             <h2>
                 CBT Can Help With
@@ -1276,13 +1434,13 @@ body {
 
         <div class="process-header">
 
-            <span class="section-label">
-                Step by Step
-            </span>
+
+
 
             <h2>
                 CBT Process
             </h2>
+
 
             <p class="process-description">
 
@@ -1298,8 +1456,6 @@ body {
         <div class="process-grid">
 
 
-            <!-- STEP 1 -->
-
             <div class="process-card">
 
                 <div class="process-number">
@@ -1312,8 +1468,6 @@ body {
 
             </div>
 
-
-            <!-- STEP 2 -->
 
             <div class="process-card">
 
@@ -1329,8 +1483,6 @@ body {
             </div>
 
 
-            <!-- STEP 3 -->
-
             <div class="process-card">
 
                 <div class="process-number">
@@ -1343,8 +1495,6 @@ body {
 
             </div>
 
-
-            <!-- STEP 4 -->
 
             <div class="process-card">
 
@@ -1359,8 +1509,6 @@ body {
             </div>
 
 
-            <!-- STEP 5 -->
-
             <div class="process-card">
 
                 <div class="process-number">
@@ -1373,8 +1521,6 @@ body {
 
             </div>
 
-
-            <!-- STEP 6 -->
 
             <div class="process-card">
 
@@ -1389,8 +1535,6 @@ body {
             </div>
 
 
-            <!-- STEP 7 -->
-
             <div class="process-card">
 
                 <div class="process-number">
@@ -1404,8 +1548,6 @@ body {
             </div>
 
 
-            <!-- STEP 8 -->
-
             <div class="process-card">
 
                 <div class="process-number">
@@ -1418,8 +1560,6 @@ body {
 
             </div>
 
-
-            <!-- STEP 9 -->
 
             <div class="process-card">
 
@@ -1454,9 +1594,7 @@ body {
                 </div>
 
 
-                <span class="section-label">
-                    Compassion • Confidentiality • Support
-                </span>
+
 
 
                 <h2>
@@ -1490,38 +1628,18 @@ body {
                     navigate them with clarity, confidence, and hope.
 
                 </p>
+                        <a
+                            href="{% url 'explore' %}"
+                            class="soft-btn"
+                        >
+
+                            Explore CBT Therapy 
+
+                        </a>
 
             </div>
 
         </div>
-
-    </div>
-
-
-    <!-- =====================================
-         ENDING
-    ====================================== -->
-
-    <div class="ending-line">
-
-        <span class="section-label">
-            A Healthier Way Forward
-        </span>
-
-        <h2>
-
-            When thoughts begin to change,
-            emotions become lighter
-            and life feels more manageable.
-
-        </h2>
-
-
-        <a href="{% url 'explore' %}" class="soft-btn">
-
-            Explore CBT Therapy →
-
-        </a>
 
     </div>
 
@@ -1538,13 +1656,9 @@ window.addEventListener("load", function () {
     if (window.innerWidth <= 768) {
 
         window.scrollTo({
-
             top: 0,
-
             left: 0,
-
             behavior: "instant"
-
         });
 
     }
