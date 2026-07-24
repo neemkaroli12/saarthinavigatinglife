@@ -15,6 +15,9 @@ def play(request):
 def music(request):
     return render(request, 'music.html')
 
+def offlineform(request):
+    return render(request, 'offlineform.html')
+
 def social(request):
 
     if request.method == "POST":

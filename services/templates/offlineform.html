@@ -1,0 +1,702 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+    /* ============================= */
+    /* OFFLINE APPOINTMENT SECTION */
+    /* ============================= */
+
+    .offline-section{
+        min-height:100vh;
+        padding:100px 0;
+        background:#f8f7f3;
+        font-family:"Poppins", sans-serif;
+    }
+
+    .offline-wrapper{
+        max-width:1050px;
+        margin:auto;
+    }
+
+
+    /* ============================= */
+    /* HEADING */
+    /* ============================= */
+
+    .offline-heading{
+        text-align:center;
+        max-width:750px;
+        margin:0 auto 55px;
+    }
+
+    .offline-tag{
+        display:inline-block;
+        padding:8px 18px;
+        border-radius:30px;
+        background:#f0e6cf;
+        color:#8a7755;
+        font-size:14px;
+        font-weight:600;
+        margin-bottom:18px;
+    }
+
+    .offline-heading h1{
+        font-size:52px;
+        font-weight:300;
+        line-height:1.2;
+        color:#5d666d;
+        margin-bottom:18px;
+    }
+
+    .offline-heading p{
+        font-size:17px;
+        line-height:1.8;
+        color:#74848a;
+        margin:0;
+    }
+
+
+    /* ============================= */
+    /* FORM CONTAINER */
+    /* ============================= */
+
+    .offline-form-box{
+        background:#ffffff;
+        padding:55px;
+        border-radius:35px;
+
+        box-shadow:
+        0 20px 50px rgba(0,0,0,0.05);
+    }
+
+
+    /* ============================= */
+    /* SECTION TITLE */
+    /* ============================= */
+
+    .form-section-title{
+        margin-bottom:30px;
+    }
+
+    .form-section-title h3{
+        font-size:27px;
+        font-weight:500;
+        color:#5d666d;
+        margin-bottom:7px;
+    }
+
+    .form-section-title p{
+        color:#8a969a;
+        font-size:15px;
+        margin:0;
+    }
+
+
+    /* ============================= */
+    /* FORM GROUP */
+    /* ============================= */
+
+    .offline-form-group{
+        margin-bottom:25px;
+    }
+
+    .offline-form-group label{
+        display:block;
+        color:#5f696d;
+        font-size:14px;
+        font-weight:600;
+        margin-bottom:9px;
+    }
+
+    .offline-form-group label span{
+        color:#a88c62;
+    }
+
+
+    /* INPUT */
+
+    .offline-control{
+        width:100%;
+        height:55px;
+
+        padding:0 18px;
+
+        border:1px solid #e5e2dc;
+        border-radius:14px;
+
+        background:#fbfaf7;
+
+        color:#5d666d;
+        font-size:15px;
+
+        outline:none;
+
+        transition:all .3s ease;
+    }
+
+    textarea.offline-control{
+        height:130px;
+        padding:17px 18px;
+        resize:none;
+    }
+
+    select.offline-control{
+        cursor:pointer;
+    }
+
+    .offline-control::placeholder{
+        color:#a6adaf;
+    }
+
+    .offline-control:focus{
+        background:#ffffff;
+        border-color:#d4c29e;
+
+        box-shadow:
+        0 0 0 4px rgba(212,194,158,0.13);
+    }
+
+
+    /* ============================= */
+    /* INFO NOTE */
+    /* ============================= */
+
+    .appointment-note{
+        padding:18px 20px;
+
+        background:#f8f4ea;
+
+        border-radius:15px;
+
+        margin:5px 0 30px;
+
+        display:flex;
+        gap:13px;
+        align-items:flex-start;
+    }
+
+    .note-icon{
+        width:35px;
+        height:35px;
+
+        min-width:35px;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        border-radius:50%;
+
+        background:#eee1c6;
+        color:#8a7755;
+
+        font-weight:700;
+    }
+
+    .appointment-note p{
+        margin:0;
+        color:#74848a;
+        font-size:14px;
+        line-height:1.7;
+    }
+
+
+    /* ============================= */
+    /* SUBMIT BUTTON */
+    /* ============================= */
+
+    .offline-submit{
+        width:100%;
+
+        border:none;
+        outline:none;
+
+        padding:16px 25px;
+
+        border-radius:40px;
+
+        background:#f0e6cf;
+        color:#756547;
+
+        font-size:16px;
+        font-weight:700;
+
+        cursor:pointer;
+
+        transition:all .3s ease;
+    }
+
+    .offline-submit:hover{
+        transform:translateY(-2px);
+
+        background:#e8d9b9;
+
+        color:#655536;
+
+        box-shadow:
+        0 12px 25px rgba(0,0,0,0.08);
+    }
+
+
+    /* ============================= */
+    /* PRIVACY */
+    /* ============================= */
+
+    .privacy-text{
+        text-align:center;
+
+        font-size:13px;
+        color:#929b9e;
+
+        line-height:1.7;
+
+        margin:18px 0 0;
+    }
+
+
+    /* ============================= */
+    /* MOBILE */
+    /* ============================= */
+
+    @media(max-width:768px){
+
+        .offline-section{
+            padding:60px 15px;
+        }
+
+        .offline-heading{
+            margin-bottom:35px;
+        }
+
+        .offline-heading h1{
+            font-size:38px;
+        }
+
+        .offline-heading p{
+            font-size:15px;
+        }
+
+        .offline-form-box{
+            padding:32px 22px;
+            border-radius:25px;
+        }
+
+        .form-section-title h3{
+            font-size:23px;
+        }
+
+        .offline-control{
+            height:52px;
+        }
+
+    }
+
+
+    @media(max-width:480px){
+
+        .offline-section{
+            padding:45px 10px;
+        }
+
+        .offline-heading h1{
+            font-size:33px;
+        }
+
+        .offline-form-box{
+            padding:28px 18px;
+        }
+
+    }
+
+</style>
+
+
+<section class="offline-section">
+
+    <div class="container">
+
+        <div class="offline-wrapper">
+
+
+            <!-- ============================= -->
+            <!-- HEADING -->
+            <!-- ============================= -->
+
+            <div class="offline-heading">
+
+                <span class="offline-tag">
+                    In-Person Consultation
+                </span>
+
+                <h1>
+                    Book Your Offline Appointment
+                </h1>
+
+                <p>
+                    Take the first step towards emotional well-being.
+                    Fill in your details below and our team will connect
+                    with you to confirm your in-person appointment.
+                </p>
+
+            </div>
+
+
+
+            <!-- ============================= -->
+            <!-- FORM -->
+            <!-- ============================= -->
+
+            <div class="offline-form-box">
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+
+                    <div class="form-section-title">
+
+                        <h3>
+                            Personal Information
+                        </h3>
+
+                        <p>
+                            Please provide your basic details so we can get in touch with you.
+                        </p>
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <!-- FULL NAME -->
+
+                        <div class="col-md-6">
+
+                            <div class="offline-form-group">
+
+                                <label>
+                                    Full Name <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="full_name"
+                                    class="offline-control"
+                                    placeholder="Enter your full name"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- AGE -->
+
+                        <div class="col-md-6">
+
+                            <div class="offline-form-group">
+
+                                <label>
+                                    Age <span>*</span>
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="age"
+                                    class="offline-control"
+                                    placeholder="Enter your age"
+                                    min="1"
+                                    max="120"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MOBILE -->
+
+                        <div class="col-md-6">
+
+                            <div class="offline-form-group">
+
+                                <label>
+                                    Mobile Number <span>*</span>
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    name="mobile"
+                                    class="offline-control"
+                                    placeholder="Enter your mobile number"
+                                    pattern="[0-9]{10}"
+                                    maxlength="10"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="col-md-6">
+
+                            <div class="offline-form-group">
+
+                                <label>
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    class="offline-control"
+                                    placeholder="Enter your email address">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ============================= -->
+                    <!-- APPOINTMENT DETAILS -->
+                    <!-- ============================= -->
+
+                    <div class="form-section-title mt-4">
+
+                        <h3>
+                            Appointment Details
+                        </h3>
+
+                        <p>
+                            Tell us what kind of support you are looking for.
+                        </p>
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <!-- SUPPORT REQUIRED -->
+
+                        <div class="col-md-12">
+
+                            <div class="offline-form-group">
+
+                                <label>
+                                    Support Required <span>*</span>
+                                </label>
+
+                                <select
+                                    name="support_required"
+                                    class="offline-control"
+                                    required>
+
+                                    <option value="" selected disabled>
+                                        Select the support you need
+                                    </option>
+
+                                    <option value="Emotional Wellbeing">
+                                        Emotional Wellbeing
+                                    </option>
+
+                                    <option value="Child Counselling">
+                                        Child Counselling
+                                    </option>
+
+                                    <option value="Play Therapy">
+                                        Play Therapy
+                                    </option>
+
+                                    <option value="Parent Counselling">
+                                        Parent Counselling
+                                    </option>
+
+                                    <option value="Relationship Counselling">
+                                        Relationship Counselling
+                                    </option>
+
+                                    <option value="Stress & Anxiety">
+                                        Stress & Anxiety
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DATE -->
+
+                        <div class="col-md-6">
+
+                            <div class="offline-form-group">
+
+                                <label>
+                                    Preferred Date <span>*</span>
+                                </label>
+
+                                <input
+                                    type="date"
+                                    name="preferred_date"
+                                    id="preferred_date"
+                                    class="offline-control"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TIME -->
+
+                        <div class="col-md-6">
+
+                            <div class="offline-form-group">
+
+                                <label>
+                                    Preferred Time <span>*</span>
+                                </label>
+
+                                <select
+                                    name="preferred_time"
+                                    class="offline-control"
+                                    required>
+
+                                    <option value="" selected disabled>
+                                        Select preferred time
+                                    </option>
+
+                                    <option value="Morning">
+                                        Morning
+                                    </option>
+
+                                    <option value="Afternoon">
+                                        Afternoon
+                                    </option>
+
+                                    <option value="Evening">
+                                        Evening
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+
+                        <div class="col-12">
+
+                            <div class="offline-form-group">
+
+                                <label>
+                                    Anything You'd Like Us to Know?
+                                </label>
+
+                                <textarea
+                                    name="message"
+                                    class="offline-control"
+                                    placeholder="You may briefly share what you would like support with..."></textarea>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- NOTE -->
+
+                    <div class="appointment-note">
+
+                        <div class="note-icon">
+                            i
+                        </div>
+
+                        <p>
+                            Your preferred date and time are requests only.
+                            Our team will contact you to confirm the final
+                            appointment schedule based on availability.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="offline-submit">
+
+                        Request an Appointment 
+
+                    </button>
+
+
+                    <p class="privacy-text">
+
+                        Your information will be kept private and confidential
+                        and will only be used to assist with your appointment.
+
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+    /* Prevent selecting previous dates */
+
+    document.addEventListener("DOMContentLoaded", function(){
+
+        const dateInput = document.getElementById("preferred_date");
+
+        if(dateInput){
+
+            const today = new Date();
+
+            const year = today.getFullYear();
+
+            const month =
+                String(today.getMonth() + 1).padStart(2, "0");
+
+            const day =
+                String(today.getDate()).padStart(2, "0");
+
+            dateInput.min =
+                `${year}-${month}-${day}`;
+
+        }
+
+    });
+
+</script>
+
+{% endblock %}
