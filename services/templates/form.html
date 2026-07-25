@@ -215,6 +215,78 @@
 
         
     }
+    /* =========================
+   Preferred Consultation
+========================= */
+
+.section-heading{
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    margin:18px 0 12px;
+}
+
+.consultation-options{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.consultation-option{
+    flex:1;
+    min-width:180px;
+    position:relative;
+}
+
+.consultation-option input[type="radio"]{
+    display:none;
+}
+
+.consultation-option label{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px 20px;
+    border:2px solid rgba(255,255,255,.18);
+    border-radius:12px;
+    background:rgba(255,255,255,.06);
+    color:#fff;
+    cursor:pointer;
+    transition:.3s ease;
+    font-weight:500;
+}
+
+.consultation-option label:hover{
+    border-color:#0d6efd;
+    background:rgba(13,110,253,.12);
+}
+
+.consultation-option input[type="radio"]:checked + label{
+    background:#0d6efd;
+    border-color:#0d6efd;
+    color:#fff;
+    box-shadow:0 10px 25px rgba(13,110,253,.35);
+}
+
+/* Mobile */
+@media (max-width:767px){
+
+    .consultation-options{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .consultation-option{
+        width:100%;
+    }
+
+    .consultation-option label{
+        padding:13px 16px;
+        font-size:14px;
+    }
+}
 
 </style>
 
@@ -382,20 +454,53 @@
 
 
                             <!-- Message -->
-                            <div class="col-12 mb-4">
+                    <div class="section-heading">
+                        Preferred Consultation
+                    </div>
 
-                                <label class="form-label">
-                                    Message
-                                </label>
 
-                                <textarea
-                                    class="form-control"
-                                    rows="5"
-                                    name="message"
-                                    placeholder="Tell us about your concerns or goals"
-                                ></textarea>
+                    <div class="consultation-options">
 
-                            </div>
+
+                        <!-- In Person -->
+
+                        <div class="consultation-option">
+
+                            <input
+                                type="radio"
+                                name="consultation_type"
+                                id="inPerson"
+                                value="In-Person"
+                                required
+                            >
+
+                            <label for="inPerson">
+                                In-Person
+                            </label>
+
+                        </div>
+
+
+                        <!-- Online -->
+
+                        <div class="consultation-option">
+
+                            <input
+                                type="radio"
+                                name="consultation_type"
+                                id="online"
+                                value="Online"
+                            >
+
+                            <label for="online">
+                                Online
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
 
 
                             <!-- Submit Button -->
