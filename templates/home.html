@@ -4,7 +4,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{% block meta_description %}Professional mental health and wellness services by Saarthi Navigating Life LLP.{% endblock %}">
 
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://saarthinavigatinglife.com{{ request.path }}">
+
+<meta property="og:title" content="{% block og_title %}Saarthi Navigating Life LLP{% endblock %}">
+<meta property="og:description" content="{% block og_description %}Professional mental health and wellness services by Saarthi Navigating Life LLP.{% endblock %}">
+<meta property="og:url" content="https://saarthinavigatinglife.com{{ request.path }}">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% block twitter_title %}Saarthi Navigating Life LLP{% endblock %}">
+<meta name="twitter:description" content="{% block twitter_description %}Professional mental health and wellness services by Saarthi Navigating Life LLP.{% endblock %}">
     
 <title>{% block title %}Saarthi Navigating Life LLP{% endblock %}</title>
 
